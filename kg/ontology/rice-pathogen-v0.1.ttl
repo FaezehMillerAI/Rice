@@ -1,0 +1,170 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rice: <https://openag.example/rice/ontology#> .
+@prefix disease: <https://openag.example/rice/disease/> .
+@prefix disorder: <https://openag.example/rice/disorder/> .
+@prefix pathogen: <https://openag.example/rice/pathogen/> .
+@prefix symptom: <https://openag.example/rice/symptom/> .
+@prefix sign: <https://openag.example/rice/sign/> .
+@prefix part: <https://openag.example/rice/part/> .
+@prefix stage: <https://openag.example/rice/stage/> .
+@prefix env: <https://openag.example/rice/env/> .
+@prefix field: <https://openag.example/rice/field/> .
+@prefix obs: <https://openag.example/rice/obs/> .
+@prefix q: <https://openag.example/rice/question/> .
+@prefix action: <https://openag.example/rice/action/> .
+@prefix contrast: <https://openag.example/rice/contrast/> .
+@prefix source: <https://openag.example/rice/source/> .
+@prefix claim: <https://openag.example/rice/claim/> .
+
+# ==============================================================================
+# RICE PATHOGEN SALM ONTOLOGY v0.1
+# Step 1 - Step 3 Delivery for Knowledge Graph Workstream
+# ==============================================================================
+
+rice:RicePathogenOntology a owl:Ontology ;
+    rdfs:label "Rice Pathogen SALM Ontology v0.1"@en ;
+    rdfs:comment "Minimum ontology for Rice Small Agriculture Language Model (SALM) - Initial Vertical Slice (BLB, N-Deficiency, Water Stress)"@en ;
+    owl:versionInfo "0.1.0" .
+
+# --- Core Classes (Step 3) ---
+rice:Agent a owl:Class ; rdfs:label "Agent"@en .
+rice:Pathogen a owl:Class ; rdfs:subClassOf rice:Agent ; rdfs:label "Pathogen"@en .
+rice:Disease a owl:Class ; rdfs:label "Disease"@en .
+rice:AbioticDisorder a owl:Class ; rdfs:label "Abiotic Disorder"@en .
+rice:Symptom a owl:Class ; rdfs:label "Symptom"@en .
+rice:Sign a owl:Class ; rdfs:label "Diagnostic Sign"@en .
+rice:PlantPart a owl:Class ; rdfs:label "Plant Part"@en .
+rice:GrowthStage a owl:Class ; rdfs:label "Growth Stage"@en .
+rice:EnvironmentalCondition a owl:Class ; rdfs:label "Environmental Condition"@en .
+rice:FieldDistribution a owl:Class ; rdfs:label "Field Distribution Pattern"@en .
+rice:DiagnosticObservation a owl:Class ; rdfs:label "Diagnostic Observation"@en .
+rice:DiagnosticQuestion a owl:Class ; rdfs:label "Diagnostic Question"@en .
+rice:DiagnosticContrast a owl:Class ; rdfs:label "Diagnostic Contrast / Differential Pair"@en .
+rice:ManagementAction a owl:Class ; rdfs:label "Management Action"@en .
+rice:EscalationTrigger a owl:Class ; rdfs:label "Escalation Trigger"@en .
+rice:Region a owl:Class ; rdfs:label "Region"@en .
+rice:RiceVariety a owl:Class ; rdfs:label "Rice Variety / Cultivar"@en .
+rice:SourceDocument a owl:Class ; rdfs:label "Source Document"@en .
+rice:EvidenceClaim a owl:Class ; rdfs:label "Evidence Claim"@en .
+
+# --- Object Properties (Step 3) ---
+rice:causes a owl:ObjectProperty ; rdfs:label "causes"@en .
+rice:presentsAs a owl:ObjectProperty ; rdfs:label "presents as"@en .
+rice:hasSign a owl:ObjectProperty ; rdfs:label "has diagnostic sign"@en .
+rice:affectsPlantPart a owl:ObjectProperty ; rdfs:label "affects plant part"@en .
+rice:favoredBy a owl:ObjectProperty ; rdfs:label "favored by"@en .
+rice:suppressedBy a owl:ObjectProperty ; rdfs:label "suppressed by"@en .
+rice:occursAtStage a owl:ObjectProperty ; rdfs:label "occurs at growth stage"@en .
+rice:hasFieldDistribution a owl:ObjectProperty ; rdfs:label "has field distribution pattern"@en .
+rice:resembles a owl:ObjectProperty ; rdfs:label "resembles"@en .
+rice:compares a owl:ObjectProperty ; rdfs:label "compares condition"@en .
+rice:differentiatedBy a owl:ObjectProperty ; rdfs:label "differentiated by observation"@en .
+rice:requiresObservation a owl:ObjectProperty ; rdfs:label "requires observation"@en .
+rice:observesParameter a owl:ObjectProperty ; rdfs:label "observes parameter"@en .
+rice:managedBy a owl:ObjectProperty ; rdfs:label "managed by action"@en .
+rice:notRecommendedWhen a owl:ObjectProperty ; rdfs:label "not recommended when"@en .
+rice:escalateWhen a owl:ObjectProperty ; rdfs:label "escalate when"@en .
+rice:applicableInRegion a owl:ObjectProperty ; rdfs:label "applicable in region"@en .
+rice:supportedBy a owl:ObjectProperty ; rdfs:label "supported by claim"@en .
+rice:contradictedBy a owl:ObjectProperty ; rdfs:label "contradicted by claim"@en .
+
+# --- Vertical Slice Instances (BLB, N-Deficiency, Water Stress) ---
+
+# Disease 1: Bacterial Leaf Blight
+disease:bacterial_leaf_blight a rice:Disease ;
+    skos:prefLabel "Bacterial leaf blight"@en ;
+    skos:altLabel "BLB"@en , "Kresek"@en ;
+    rice:causedBy pathogen:xanthomonas_oryzae_pv_oryzae ;
+    rice:presentsAs symptom:leaf_yellowing , symptom:water_soaked_wavy_lesion , symptom:leaf_tip_margin_necrosis ;
+    rice:hasSign sign:bacterial_ooze_beads , sign:water_test_cloudy_streaming ;
+    rice:affectsPlantPart part:leaf , part:leaf_sheath ;
+    rice:favoredBy env:high_humidity , env:heavy_rainfall , env:warm_temperature , env:standing_water ;
+    rice:occursAtStage stage:tillering , stage:heading ;
+    rice:hasFieldDistribution field:patchy_distribution ;
+    rice:resembles disorder:nitrogen_deficiency , disorder:water_stress ;
+    rice:managedBy action:use_resistant_varieties , action:drain_field_temporarily , action:avoid_excess_nitrogen ;
+    rice:escalateWhen action:escalate_rapid_field_spread , action:escalate_panicle_wilting ;
+    rice:supportedBy claim:claim_blb_001 , claim:claim_blb_002 .
+
+pathogen:xanthomonas_oryzae_pv_oryzae a rice:Pathogen ;
+    skos:prefLabel "Xanthomonas oryzae pv. oryzae"@en .
+
+# Abiotic Disorder 1: Nitrogen Deficiency
+disorder:nitrogen_deficiency a rice:AbioticDisorder ;
+    skos:prefLabel "Nitrogen deficiency"@en ;
+    skos:altLabel "N deficiency"@en ;
+    rice:presentsAs symptom:leaf_yellowing , symptom:uniform_older_leaf_chlorosis , symptom:stunted_growth ;
+    rice:affectsPlantPart part:older_leaves ;
+    rice:occursAtStage stage:tillering ;
+    rice:hasFieldDistribution field:uniform_fieldwide_distribution ;
+    rice:resembles disease:bacterial_leaf_blight , disorder:water_stress ;
+    rice:managedBy action:apply_split_nitrogen_fertilizer ;
+    rice:supportedBy claim:claim_ndef_001 .
+
+# Abiotic Disorder 2: Water-Related Stress
+disorder:water_stress a rice:AbioticDisorder ;
+    skos:prefLabel "Water-related stress"@en ;
+    skos:altLabel "Drought stress"@en , "Waterlogging stress"@en ;
+    rice:presentsAs symptom:leaf_rolling_folding , symptom:leaf_yellowing , symptom:leaf_scorching ;
+    rice:hasSign sign:recovers_upon_rewatering ;
+    rice:affectsPlantPart part:leaf ;
+    rice:favoredBy env:drought_prolonged_dry_spell , env:severe_flooding ;
+    rice:hasFieldDistribution field:elevation_dependent_distribution ;
+    rice:resembles disease:bacterial_leaf_blight , disorder:nitrogen_deficiency ;
+    rice:managedBy action:alternate_wetting_drying ;
+    rice:supportedBy claim:claim_wstress_001 .
+
+# Diagnostic Contrast Nodes (Differential Pairs)
+contrast:blb_vs_nitrogen_deficiency a rice:DiagnosticContrast ;
+    skos:prefLabel "BLB vs Nitrogen Deficiency Contrast"@en ;
+    rice:compares disease:bacterial_leaf_blight , disorder:nitrogen_deficiency ;
+    rice:differentiatedBy obs:lesion_margin_shape , obs:leaf_age_progression , obs:field_spatial_pattern , obs:bacterial_ooze_test ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+contrast:blb_vs_water_stress a rice:DiagnosticContrast ;
+    skos:prefLabel "BLB vs Water Stress Contrast"@en ;
+    rice:compares disease:bacterial_leaf_blight , disorder:water_stress ;
+    rice:differentiatedBy obs:leaf_rolling_folding , obs:rewatering_recovery , obs:water_soaked_wavy_lesion ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# Diagnostic Questions
+q:q_lesion_margin a rice:DiagnosticQuestion ;
+    skos:prefLabel "Lesion Margin Check"@en ;
+    rdfs:comment "Are the yellow/brown areas showing wavy, water-soaked margins starting at leaf tips/margins?"@en ;
+    rice:observesParameter obs:lesion_margin_shape .
+
+q:q_older_vs_younger a rice:DiagnosticQuestion ;
+    skos:prefLabel "Leaf Age Progression Check"@en ;
+    rdfs:comment "Does the yellowing affect the lowest (older) leaves first in a uniform pattern?"@en ;
+    rice:observesParameter obs:leaf_age_progression .
+
+q:q_water_test a rice:DiagnosticQuestion ;
+    skos:prefLabel "Cut-Leaf Water Test Check"@en ;
+    rdfs:comment "When cut leaf tissue is placed in clear water, does cloudy bacterial ooze stream out?"@en ;
+    rice:observesParameter obs:bacterial_ooze_test .
+
+# Provenance Sources & Claims
+source:irri_rice_doctor_2024 a rice:SourceDocument ;
+    skos:prefLabel "IRRI Rice Doctor Diagnostic Manual (2024)"@en ;
+    prov:wasAttributedTo "International Rice Research Institute (IRRI)" .
+
+claim:claim_blb_001 a rice:EvidenceClaim ;
+    skos:prefLabel "BLB presents as water-soaked wavy lesions starting at leaf tips"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+claim:claim_blb_002 a rice:EvidenceClaim ;
+    skos:prefLabel "Cut leaf cut in clear water streams cloudy bacterial ooze"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+claim:claim_ndef_001 a rice:EvidenceClaim ;
+    skos:prefLabel "Nitrogen deficiency causes uniform chlorosis starting on older leaves"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+claim:claim_wstress_001 a rice:EvidenceClaim ;
+    skos:prefLabel "Water stress causes inward leaf rolling and wilting without lesions"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .

@@ -1,0 +1,16 @@
+cause_id,observation_id,evidence_type,condition_truth_state,explanation
+disease:bacterial_leaf_blight,symptom:leaf_yellowing,Supporting,state:TRUE,Leaf yellowing is a common initial manifestation of BLB chlorotic halos.
+disease:bacterial_leaf_blight,symptom:water_soaked_wavy_lesion,Supporting,state:TRUE,Water-soaked wavy marginal lesions are pathognomonic for BLB infection.
+disease:bacterial_leaf_blight,sign:bacterial_ooze_beads,Supporting,state:TRUE,Bacterial ooze droplets confirm active Xanthomonas vascular exudate.
+disease:bacterial_leaf_blight,sign:water_test_cloudy_streaming,Supporting,state:TRUE,Cloudy bacterial streaming in water test confirms vascular bacterial blight.
+disease:bacterial_leaf_blight,symptom:uniform_older_leaf_chlorosis,Contradicting,state:TRUE,Uniform browning/yellowing strictly on bottom leaves indicates N deficiency not BLB.
+disease:bacterial_leaf_blight,symptom:leaf_rolling_folding,Contradicting,state:TRUE,Inward leaf tube rolling indicates drought stress not BLB.
+disease:bacterial_leaf_blight,symptom:water_soaked_wavy_lesion,Contradicting,state:FALSE,Explicit absence of leaf lesions rules out Bacterial Leaf Blight.
+disorder:nitrogen_deficiency,symptom:leaf_yellowing,Supporting,state:TRUE,Chlorosis is the primary symptom of nitrogen deficiency.
+disorder:nitrogen_deficiency,symptom:uniform_older_leaf_chlorosis,Supporting,state:TRUE,Nitrogen remobilization strictly affects lowest older leaves first.
+disorder:nitrogen_deficiency,field:uniform_fieldwide_distribution,Supporting,state:TRUE,Soil nitrogen depletion occurs uniformly across entire field/soil zones.
+disorder:nitrogen_deficiency,symptom:water_soaked_wavy_lesion,Contradicting,state:TRUE,Presence of discrete wavy lesions indicates pathogen infection not nitrogen deficiency.
+disorder:nitrogen_deficiency,sign:water_test_cloudy_streaming,Contradicting,state:TRUE,Bacterial streaming rules out pure abiotic nutrient deficiency.
+disorder:water_stress,symptom:leaf_rolling_folding,Supporting,state:TRUE,Inward leaf rolling is a classic physiological drought avoidance mechanism.
+disorder:water_stress,sign:recovers_upon_rewatering,Supporting,state:TRUE,Symptom reversal within 24h of watering confirms moisture stress.
+disorder:water_stress,symptom:water_soaked_wavy_lesion,Contradicting,state:TRUE,Presence of wavy lesions indicates bacterial pathogen infection not moisture deficit.

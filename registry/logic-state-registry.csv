@@ -1,0 +1,4 @@
+state_id,state_name,description,open_world_behavior,candidate_scoring_weight,clarifying_action
+state:TRUE,Confirmed Present,"The symptom, sign, or condition is explicitly confirmed present by user observation.",Evaluated as positive evidence matching disease profile,+2 for symptom / +3 for distinguishing sign,No action needed (observation recorded)
+state:FALSE,Confirmed Absent,"The symptom, sign, or condition is explicitly confirmed absent by user observation.",Evaluated as negative evidence ruling out matching disease profile,-3 penalty for required symptom match,No action needed (absence recorded)
+state:UNKNOWN,Unobserved / Unmentioned,"The symptom, sign, or condition has not been mentioned, observed, or asked yet.",Evaluated under Open World Assumption; never penalizes candidate,0 penalty (neutral impact),Adds parameter to missing_observations list; triggers clarifying question

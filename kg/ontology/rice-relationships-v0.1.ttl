@@ -1,0 +1,162 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rice: <https://openag.example/rice/ontology#> .
+
+# ==============================================================================
+# RICE SALM RELATIONSHIP TAXONOMY & OBJECT PROPERTIES v0.1
+# Step 5 Delivery: Formal Semantics, Domain/Range, Inverse & Symmetry Rules
+# ==============================================================================
+
+# --- Etiological & Phenotypic Relations ---
+
+rice:causes a owl:ObjectProperty ;
+    rdfs:label "causes"@en ;
+    rdfs:comment "Links a pathogen to the disease or symptom it induces."@en ;
+    rdfs:domain rice:Pathogen ;
+    rdfs:range rice:Disease ;
+    owl:inverseOf rice:causedBy .
+
+rice:causedBy a owl:ObjectProperty ;
+    rdfs:label "caused by"@en ;
+    rdfs:comment "Links a disease to its underlying causal pathogen."@en ;
+    rdfs:domain rice:Disease ;
+    rdfs:range rice:Pathogen ;
+    owl:inverseOf rice:causes .
+
+rice:presentsAs a owl:ObjectProperty ;
+    rdfs:label "presents as"@en ;
+    rdfs:comment "Links a disease or disorder to an observable symptom."@en ;
+    rdfs:domain owl:Thing ; # rice:Disease or rice:AbioticDisorder
+    rdfs:range rice:Symptom .
+
+rice:hasSign a owl:ObjectProperty ;
+    rdfs:label "has diagnostic sign"@en ;
+    rdfs:comment "Links a disease to physical diagnostic evidence or test signs."@en ;
+    rdfs:domain rice:Disease ;
+    rdfs:range rice:Sign .
+
+rice:affectsPlantPart a owl:ObjectProperty ;
+    rdfs:label "affects plant part"@en ;
+    rdfs:comment "Links a condition to the specific anatomical plant organ affected."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:PlantPart .
+
+rice:occursAtStage a owl:ObjectProperty ;
+    rdfs:label "occurs at growth stage"@en ;
+    rdfs:comment "Links a condition to the phenological crop growth stage."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:GrowthStage .
+
+rice:hasFieldDistribution a owl:ObjectProperty ;
+    rdfs:label "has field distribution pattern"@en ;
+    rdfs:comment "Links a condition to its spatial pattern across the paddy."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:FieldDistribution .
+
+# --- Environmental & Epidemiological Relations ---
+
+rice:favoredBy a owl:ObjectProperty ;
+    rdfs:label "favored by"@en ;
+    rdfs:comment "Links a condition to weather or environmental drivers promoting it."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:EnvironmentalCondition .
+
+rice:suppressedBy a owl:ObjectProperty ;
+    rdfs:label "suppressed by"@en ;
+    rdfs:comment "Links a condition to environmental factors inhibiting its development."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:EnvironmentalCondition .
+
+rice:applicableInRegion a owl:ObjectProperty ;
+    rdfs:label "applicable in region"@en ;
+    rdfs:comment "Restricts a condition or claim to a specific geographical region."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:Region .
+
+# --- Diagnostic & Differential Relations ---
+
+rice:resembles a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:label "resembles"@en ;
+    rdfs:comment "Symmetric relationship pairing two conditions that are clinical look-alikes."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range owl:Thing .
+
+rice:compares a owl:ObjectProperty ;
+    rdfs:label "compares condition"@en ;
+    rdfs:comment "Connects a DiagnosticContrast node to the two conditions being compared."@en ;
+    rdfs:domain rice:DiagnosticContrast ;
+    rdfs:range owl:Thing .
+
+rice:differentiatedBy a owl:ObjectProperty ;
+    rdfs:label "differentiated by observation"@en ;
+    rdfs:comment "Connects a DiagnosticContrast node to the key observation distinguishing the pair."@en ;
+    rdfs:domain rice:DiagnosticContrast ;
+    rdfs:range rice:DiagnosticObservation .
+
+rice:requiresObservation a owl:ObjectProperty ;
+    rdfs:label "requires observation"@en ;
+    rdfs:comment "Links a disease diagnosis to an observation mandatory for verification."@en ;
+    rdfs:domain rice:Disease ;
+    rdfs:range rice:DiagnosticObservation .
+
+rice:observesParameter a owl:ObjectProperty ;
+    rdfs:label "observes parameter"@en ;
+    rdfs:comment "Links a diagnostic clarifying question to the observation parameter it evaluates."@en ;
+    rdfs:domain rice:DiagnosticQuestion ;
+    rdfs:range rice:DiagnosticObservation .
+
+rice:supports a owl:ObjectProperty ;
+    rdfs:label "supports candidate"@en ;
+    rdfs:comment "Indicates that an observation increases confidence in a candidate condition."@en ;
+    rdfs:domain rice:DiagnosticObservation ;
+    rdfs:range owl:Thing .
+
+rice:contradicts a owl:ObjectProperty ;
+    rdfs:label "contradicts candidate"@en ;
+    rdfs:comment "Indicates that an observation invalidates or penalizes a candidate condition."@en ;
+    rdfs:domain rice:DiagnosticObservation ;
+    rdfs:range owl:Thing .
+
+# --- Actionable & Safety Control Relations ---
+
+rice:managedBy a owl:ObjectProperty ;
+    rdfs:label "managed by action"@en ;
+    rdfs:comment "Links a condition to a safe principle-level management action."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:ManagementAction .
+
+rice:notRecommendedWhen a owl:ObjectProperty ;
+    rdfs:label "not recommended when"@en ;
+    rdfs:comment "Safety constraint blocking a management action under specific field conditions."@en ;
+    rdfs:domain rice:ManagementAction ;
+    rdfs:range owl:Thing .
+
+rice:escalateWhen a owl:ObjectProperty ;
+    rdfs:label "escalate when"@en ;
+    rdfs:comment "Links a condition or field scenario to an emergency expert escalation trigger."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:EscalationTrigger .
+
+# --- Provenance & Evidence Relations ---
+
+rice:supportedBy a owl:ObjectProperty ;
+    rdfs:label "supported by claim"@en ;
+    rdfs:comment "Connects a graph assertion to its supporting evidence claim."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:EvidenceClaim .
+
+rice:contradictedBy a owl:ObjectProperty ;
+    rdfs:label "contradicted by claim"@en ;
+    rdfs:comment "Connects a graph assertion to contradicting evidence claims."@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range rice:EvidenceClaim .
+
+prov:wasDerivedFrom a owl:ObjectProperty ;
+    rdfs:label "was derived from"@en ;
+    rdfs:comment "PROV-O property linking an evidence claim to its source document."@en ;
+    rdfs:domain rice:EvidenceClaim ;
+    rdfs:range rice:SourceDocument .

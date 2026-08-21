@@ -1,0 +1,4 @@
+id,type,canonical_name,scientific_name,skos_pref_label,skos_alt_labels,category,status,v1_scope
+disease:bacterial_leaf_blight,Disease,Bacterial leaf blight,Xanthomonas oryzae pv. oryzae,Bacterial leaf blight,BLB|Kresek|bacterial blight,Pathogen,Active,True
+disorder:nitrogen_deficiency,AbioticDisorder,Nitrogen deficiency,,Nitrogen deficiency,N deficiency|nitrogen starvation|yellowing from poor fertilizer,AbioticDisorder,Active,True
+disorder:water_stress,AbioticDisorder,Water-related stress,,Water-related stress,Drought stress|waterlogging stress|moisture stress|submergence stress,AbioticDisorder,Active,True

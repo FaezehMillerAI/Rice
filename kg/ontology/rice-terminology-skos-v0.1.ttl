@@ -1,0 +1,62 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rice: <https://openag.example/rice/ontology#> .
+@prefix symptom: <https://openag.example/rice/symptom/> .
+@prefix sign: <https://openag.example/rice/sign/> .
+@prefix part: <https://openag.example/rice/part/> .
+@prefix field: <https://openag.example/rice/field/> .
+
+# ==============================================================================
+# RICE SALM CONTROLLED TERMINOLOGY & SKOS VOCABULARY v0.1
+# Step 4 Delivery: Stable IDs, SKOS Labels, Vernacular Mapping
+# ==============================================================================
+
+symptom:leaf_yellowing a skos:Concept ;
+    skos:prefLabel "Leaf yellowing"@en ;
+    skos:altLabel "Chlorosis"@en , "Pale leaves"@en ;
+    skos:hiddenLabel "leaves turning yellow" , "yellowing leaves" , "pale plants" , "yellow tint" ;
+    skos:definition "Chlorosis or loss of green pigmentation in rice foliage."@en .
+
+symptom:water_soaked_wavy_lesion a skos:Concept ;
+    skos:prefLabel "Water-soaked wavy lesion"@en ;
+    skos:altLabel "Wavy margin lesion"@en , "Yellow-orange stripe"@en ;
+    skos:hiddenLabel "wet-looking spots" , "wavy yellow edges" , "stripes on leaf side" , "burnt edges" ;
+    skos:definition "Lesions starting at leaf tips or margins with characteristic wavy edges."@en .
+
+symptom:uniform_older_leaf_chlorosis a skos:Concept ;
+    skos:prefLabel "Uniform older leaf chlorosis"@en ;
+    skos:altLabel "Bottom leaf yellowing"@en , "Lower leaf chlorosis"@en ;
+    skos:hiddenLabel "bottom leaves yellow first" , "old leaves turning yellow" , "lower foliage pale" ;
+    skos:definition "Yellowing starting uniformly on the oldest bottom leaves due to nitrogen remobilization."@en .
+
+symptom:leaf_rolling_folding a skos:Concept ;
+    skos:prefLabel "Leaf rolling and folding"@en ;
+    skos:altLabel "Inward leaf roll"@en , "Pencil leaf"@en ;
+    skos:hiddenLabel "leaves curling up" , "leaves rolled like needles" , "folded leaves" ;
+    skos:definition "Curling or longitudinal rolling of leaf blades to minimize transpiration."@en .
+
+sign:bacterial_ooze_beads a skos:Concept ;
+    skos:prefLabel "Bacterial ooze beads"@en ;
+    skos:altLabel "Exudate droplets"@en , "Bacterial beads"@en ;
+    skos:hiddenLabel "sticky yellow drops" , "milky liquid on leaves" , "slimy droplets" ;
+    skos:definition "Small droplets of bacterial fluid on young lesions under humid conditions."@en .
+
+sign:water_test_cloudy_streaming a skos:Concept ;
+    skos:prefLabel "Water test cloudy streaming"@en ;
+    skos:altLabel "Ooze streaming test"@en , "Cut-leaf water test"@en ;
+    skos:hiddenLabel "cloudy water from cut leaf" , "milky stream in glass" , "white thread in water" ;
+    skos:definition "Turbid bacterial stream issuing from cut leaf tissue when immersed in clear water."@en .
+
+field:patchy_distribution a skos:Concept ;
+    skos:prefLabel "Patchy field distribution"@en ;
+    skos:altLabel "Clustered pattern"@en , "Spotty distribution"@en ;
+    skos:hiddenLabel "plants in groups" , "yellow spots across field" , "patchy spots" ;
+    skos:definition "Non-uniform symptom distribution occurring in isolated clusters."@en .
+
+field:uniform_fieldwide_distribution a skos:Concept ;
+    skos:prefLabel "Uniform field-wide distribution"@en ;
+    skos:altLabel "Fieldwide chlorosis"@en , "Blanket yellowing"@en ;
+    skos:hiddenLabel "whole field yellow" , "entire field affected" , "uniform yellowing" ;
+    skos:definition "Symptoms evenly distributed across the entire field."@en .

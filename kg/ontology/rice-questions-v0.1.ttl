@@ -1,0 +1,122 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rice: <https://openag.example/rice/ontology#> .
+@prefix obs: <https://openag.example/rice/obs/> .
+@prefix q: <https://openag.example/rice/question/> .
+@prefix contrast: <https://openag.example/rice/contrast/> .
+@prefix source: <https://openag.example/rice/source/> .
+@prefix claim: <https://openag.example/rice/claim/> .
+
+# ==============================================================================
+# RICE SALM FIRST-CLASS DIAGNOSTIC QUESTIONS ONTOLOGY v0.1
+# Step 7 Delivery: Structured Question Schema, Rationale & Utility Metrics
+# ==============================================================================
+
+# --- Datatype Properties for Utility Calculation ---
+rice:userEffortScore a owl:DatatypeProperty ;
+    rdfs:label "user effort score"@en ;
+    rdfs:comment "Effort required by farmer/officer (1=low visual check, 3=high test requirement)."@en ;
+    rdfs:domain rice:DiagnosticQuestion ;
+    rdfs:range xsd:integer .
+
+rice:observabilityScore a owl:DatatypeProperty ;
+    rdfs:label "field observability score"@en ;
+    rdfs:comment "Ease of observing feature under standard field conditions (1=difficult, 5=very clear)."@en ;
+    rdfs:domain rice:DiagnosticQuestion ;
+    rdfs:range xsd:integer .
+
+rice:reliabilityScore a owl:DatatypeProperty ;
+    rdfs:label "observation reliability score"@en ;
+    rdfs:comment "Historical diagnostic reliability of farmer-reported observations for this question."@en ;
+    rdfs:domain rice:DiagnosticQuestion ;
+    rdfs:range xsd:integer .
+
+rice:defaultPriority a owl:DatatypeProperty ;
+    rdfs:label "default question priority"@en ;
+    rdfs:comment "Baseline execution priority (1=highest mandatory check)."@en ;
+    rdfs:domain rice:DiagnosticQuestion ;
+    rdfs:range xsd:integer .
+
+rice:questionRationale a owl:DatatypeProperty ;
+    rdfs:label "scientific question rationale"@en ;
+    rdfs:comment "Explicit scientific reason explaining why this question is asked."@en ;
+    rdfs:domain rice:DiagnosticQuestion ;
+    rdfs:range xsd:string .
+
+# --- First-Class Diagnostic Question Nodes ---
+
+q:q_lesion_margin a rice:DiagnosticQuestion ;
+    skos:prefLabel "Lesion Margin Check"@en ;
+    skos:definition "Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?"@en ;
+    skos:hiddenLabel "Do you see wavy yellow or brown stripes along the edges or tips of the leaves?" ;
+    rice:observesParameter obs:lesion_margin_shape ;
+    rice:questionRationale "Distinguishes Bacterial Leaf Blight (wavy margins) from Nitrogen Deficiency and Water Stress (no lesions)."@en ;
+    rice:userEffortScore 1 ;
+    rice:observabilityScore 5 ;
+    rice:reliabilityScore 5 ;
+    rice:defaultPriority 1 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+q:q_older_vs_younger a rice:DiagnosticQuestion ;
+    skos:prefLabel "Leaf Age Progression Check"@en ;
+    skos:definition "Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?"@en ;
+    skos:hiddenLabel "Are the bottom leaves yellowing first while top leaves are still green?" ;
+    rice:observesParameter obs:leaf_age_progression ;
+    rice:questionRationale "Identifies Nitrogen Deficiency (uniform lower leaf chlorosis due to N remobilization) versus BLB or Water Stress."@en ;
+    rice:userEffortScore 1 ;
+    rice:observabilityScore 5 ;
+    rice:reliabilityScore 5 ;
+    rice:defaultPriority 1 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+q:q_water_test a rice:DiagnosticQuestion ;
+    skos:prefLabel "Cut-Leaf Water Test Check"@en ;
+    skos:definition "When cut leaf tissue with lesions is placed in a glass of clear water, does a cloudy or milky stream issue into the water?"@en ;
+    skos:hiddenLabel "If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out?" ;
+    rice:observesParameter obs:bacterial_ooze_test ;
+    rice:questionRationale "Definitive diagnostic sign confirming vascular bacterial infection (Bacterial Leaf Blight)."@en ;
+    rice:userEffortScore 2 ;
+    rice:observabilityScore 4 ;
+    rice:reliabilityScore 5 ;
+    rice:defaultPriority 1 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+q:q_leaf_rolling a rice:DiagnosticQuestion ;
+    skos:prefLabel "Leaf Rolling and Folding Check"@en ;
+    skos:definition "Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"@en ;
+    skos:hiddenLabel "Are the leaves curling up inwards like tubes or needles?" ;
+    rice:observesParameter obs:leaf_rolling_folding ;
+    rice:questionRationale "Definitive physical response to moisture deficit and drought stress."@en ;
+    rice:userEffortScore 1 ;
+    rice:observabilityScore 5 ;
+    rice:reliabilityScore 5 ;
+    rice:defaultPriority 2 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+q:q_rewatering_recovery a rice:DiagnosticQuestion ;
+    skos:prefLabel "Rewatering Recovery Check"@en ;
+    skos:definition "Do the leaves unroll and recover normal appearance within 24 hours after rainfall or irrigation?"@en ;
+    skos:hiddenLabel "Do the leaves uncurl and look healthy again after rain or watering?" ;
+    rice:observesParameter obs:rewatering_recovery ;
+    rice:questionRationale "Distinguishes reversible drought stress from permanent pathogen damage or nutrient deficiency."@en ;
+    rice:userEffortScore 1 ;
+    rice:observabilityScore 4 ;
+    rice:reliabilityScore 5 ;
+    rice:defaultPriority 2 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+q:q_field_spatial_pattern a rice:DiagnosticQuestion ;
+    skos:prefLabel "Field Spatial Pattern Check"@en ;
+    skos:definition "Is the yellowing occurring in isolated patches or groups of plants, or is it spread uniformly across the entire field?"@en ;
+    skos:hiddenLabel "Is the yellowing in small patches across the field, or is the whole field yellowing evenly?" ;
+    rice:observesParameter obs:field_spatial_pattern ;
+    rice:questionRationale "Distinguishes infectious pathogen spread (patchy/clustered) from soil nutrient depletion (uniform fieldwide)."@en ;
+    rice:userEffortScore 1 ;
+    rice:observabilityScore 4 ;
+    rice:reliabilityScore 4 ;
+    rice:defaultPriority 2 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .

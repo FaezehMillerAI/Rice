@@ -1,0 +1,56 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rice: <https://openag.example/rice/ontology#> .
+@prefix disease: <https://openag.example/rice/disease/> .
+@prefix disorder: <https://openag.example/rice/disorder/> .
+@prefix obs: <https://openag.example/rice/obs/> .
+@prefix state: <https://openag.example/rice/state/> .
+
+# ==============================================================================
+# RICE SALM EVIDENCE EXPLANATION & TRANSPARENCY ONTOLOGY v0.1
+# Step 9 Delivery: Supporting, Contradicting, and Missing Evidence Buckets
+# ==============================================================================
+
+# --- Class & Property Declarations ---
+
+rice:EvidenceBucket a owl:Class ;
+    rdfs:label "Evidence Bucket"@en ;
+    rdfs:comment "Container evaluating supporting, contradicting, and missing evidence for a candidate cause."@en .
+
+rice:hasSupportingObservation a owl:ObjectProperty ;
+    rdfs:label "has supporting observation"@en ;
+    rdfs:comment "Connects candidate cause to a confirmed present observation matching its profile."@en ;
+    rdfs:domain rice:EvidenceBucket ;
+    rdfs:range rice:DiagnosticObservation .
+
+rice:hasContradictingObservation a owl:ObjectProperty ;
+    rdfs:label "has contradicting observation"@en ;
+    rdfs:comment "Connects candidate cause to an observation invalidating its profile."@en ;
+    rdfs:domain rice:EvidenceBucket ;
+    rdfs:range rice:DiagnosticObservation .
+
+rice:hasMissingObservation a owl:ObjectProperty ;
+    rdfs:label "has missing distinguishing observation"@en ;
+    rdfs:comment "Connects candidate cause to an unobserved parameter required to resolve ambiguity."@en ;
+    rdfs:domain rice:EvidenceBucket ;
+    rdfs:range rice:DiagnosticObservation .
+
+# --- Example Evidence Bucket Assertions ---
+
+# Case Scenario: "Leaves are yellow in patches after standing water"
+# User confirmed: leaf_yellowing=TRUE, standing_water=TRUE
+# Unobserved (UNKNOWN): lesion_margin_shape=UNKNOWN, leaf_age_progression=UNKNOWN
+
+rice:evidence_case001_blb a rice:EvidenceBucket ;
+    rdfs:label "Evidence Breakdown for BLB in Case 001"@en ;
+    rice:hasSupportingObservation obs:leaf_yellowing ;
+    rice:hasMissingObservation obs:lesion_margin_shape , obs:leaf_age_progression .
+
+rice:evidence_case001_ndef a rice:EvidenceBucket ;
+    rdfs:label "Evidence Breakdown for Nitrogen Deficiency in Case 001"@en ;
+    rice:hasSupportingObservation obs:leaf_yellowing ;
+    rice:hasMissingObservation obs:leaf_age_progression , obs:field_spatial_pattern .

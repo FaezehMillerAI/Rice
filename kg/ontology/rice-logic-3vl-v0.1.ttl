@@ -1,0 +1,101 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rice: <https://openag.example/rice/ontology#> .
+@prefix state: <https://openag.example/rice/state/> .
+@prefix obs: <https://openag.example/rice/obs/> .
+@prefix disease: <https://openag.example/rice/disease/> .
+@prefix disorder: <https://openag.example/rice/disorder/> .
+
+# ==============================================================================
+# RICE SALM THREE-VALUED LOGIC (3VL) ONTOLOGY v0.1
+# Step 8 Delivery: TRUE, FALSE, UNKNOWN Representation & Open World Assumption
+# ==============================================================================
+
+# --- Class Definitions ---
+
+rice:TruthState a owl:Class ;
+    rdfs:label "Truth State"@en ;
+    rdfs:comment "Three-valued logic truth state (TRUE, FALSE, UNKNOWN) for open-world evaluation."@en .
+
+rice:ObservationAssertion a owl:Class ;
+    rdfs:label "Observation Assertion"@en ;
+    rdfs:comment "Dynamic case assertion pairing an observation parameter with a truth state."@en .
+
+# --- Controlled Individuals for Truth State ---
+
+state:TRUE a rice:TruthState ;
+    skos:prefLabel "TRUE"@en ;
+    skos:definition "Symptom or sign is confirmed present by the user."@en ;
+    rdfs:comment "Evaluated as positive evidence."@en .
+
+state:FALSE a rice:TruthState ;
+    skos:prefLabel "FALSE"@en ;
+    skos:definition "Symptom or sign is confirmed absent by the user."@en ;
+    rdfs:comment "Evaluated as negative evidence (penalizes candidate)."@en .
+
+state:UNKNOWN a rice:TruthState ;
+    skos:prefLabel "UNKNOWN"@en ;
+    skos:definition "Symptom or sign is unobserved, unmentioned, or unasked."@en ;
+    rdfs:comment "Open World Assumption: 0 penalty score; flags missing observation slot."@en .
+
+# --- Properties for 3VL Observation Assertion ---
+
+rice:hasTruthState a owl:ObjectProperty ;
+    rdfs:label "has truth state"@en ;
+    rdfs:comment "Links an observation assertion to its 3VL truth state."@en ;
+    rdfs:domain rice:ObservationAssertion ;
+    rdfs:range rice:TruthState .
+
+rice:assertsObservation a owl:ObjectProperty ;
+    rdfs:label "asserts observation"@en ;
+    rdfs:comment "Links an assertion node to the observation parameter evaluated."@en ;
+    rdfs:domain rice:ObservationAssertion ;
+    rdfs:range rice:DiagnosticObservation .
+
+rice:assertionConfidence a owl:DatatypeProperty ;
+    rdfs:label "assertion confidence"@en ;
+    rdfs:comment "User or extractor reporting confidence (0.0 to 1.0)."@en ;
+    rdfs:domain rice:ObservationAssertion ;
+    rdfs:range xsd:float .
+
+rice:scoringWeight a owl:DatatypeProperty ;
+    rdfs:label "candidate scoring weight"@en ;
+    rdfs:comment "Numerical score contribution of truth state assertion to candidate ranking."@en ;
+    rdfs:domain rice:ObservationAssertion ;
+    rdfs:range xsd:integer .
+
+# --- Example 3VL Case Assertions (Demonstrating Open World Evaluation) ---
+
+# Case Scenario 1: Initial Farmer Utterance ("Leaves are turning yellow in tillering")
+# Result: leaf_yellowing=TRUE; lesion_margin_shape=UNKNOWN (NOT FALSE!); leaf_age_progression=UNKNOWN
+
+obs:assertion_case001_yellowing a rice:ObservationAssertion ;
+    rice:assertsObservation obs:leaf_yellowing ;
+    rice:hasTruthState state:TRUE ;
+    rice:assertionConfidence "1.0"^^xsd:float ;
+    rice:scoringWeight 2 .
+
+obs:assertion_case001_lesion_margin a rice:ObservationAssertion ;
+    rice:assertsObservation obs:lesion_margin_shape ;
+    rice:hasTruthState state:UNKNOWN ;
+    rice:assertionConfidence "0.0"^^xsd:float ;
+    rice:scoringWeight 0 .
+
+obs:assertion_case001_leaf_age a rice:ObservationAssertion ;
+    rice:assertsObservation obs:leaf_age_progression ;
+    rice:hasTruthState state:UNKNOWN ;
+    rice:assertionConfidence "0.0"^^xsd:float ;
+    rice:scoringWeight 0 .
+
+# Case Scenario 2: Follow-up Confirmation ("No lesions visible at all")
+# Result: lesion_margin_shape transitions from UNKNOWN to FALSE (Penalizes BLB, supports N-deficiency)
+
+obs:assertion_case002_lesion_margin a rice:ObservationAssertion ;
+    rice:assertsObservation obs:lesion_margin_shape ;
+    rice:hasTruthState state:FALSE ;
+    rice:assertionConfidence "1.0"^^xsd:float ;
+    rice:scoringWeight -3 .

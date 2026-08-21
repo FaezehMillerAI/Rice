@@ -1,0 +1,125 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rice: <https://openag.example/rice/ontology#> .
+@prefix source: <https://openag.example/rice/source/> .
+@prefix claim: <https://openag.example/rice/claim/> .
+@prefix agent: <https://openag.example/rice/agent/> .
+@prefix disease: <https://openag.example/rice/disease/> .
+@prefix disorder: <https://openag.example/rice/disorder/> .
+@prefix symptom: <https://openag.example/rice/symptom/> .
+@prefix sign: <https://openag.example/rice/sign/> .
+@prefix env: <https://openag.example/rice/env/> .
+@prefix field: <https://openag.example/rice/field/> .
+
+# ==============================================================================
+# RICE SALM PROVENANCE & W3C PROV-O ONTOLOGY v0.1
+# Step 10 Delivery: End-to-End Chain of Custody & Evidence Receipts
+# ==============================================================================
+
+# --- Datatype Properties for Provenance Metadata ---
+
+rice:sourceSection a owl:DatatypeProperty ;
+    rdfs:label "source section name"@en ;
+    rdfs:comment "Specific section or chapter title within the source document."@en ;
+    rdfs:domain rice:EvidenceClaim ;
+    rdfs:range xsd:string .
+
+rice:sourceTextSpan a owl:DatatypeProperty ;
+    rdfs:label "exact source text span"@en ;
+    rdfs:comment "Verbatim or minimal paraphrased text span extracted from source."@en ;
+    rdfs:domain rice:EvidenceClaim ;
+    rdfs:range xsd:string .
+
+rice:smeReviewer a owl:DatatypeProperty ;
+    rdfs:label "SME reviewer name"@en ;
+    rdfs:comment "Named Subject Matter Expert who validated and approved the claim."@en ;
+    rdfs:domain rice:EvidenceClaim ;
+    rdfs:range xsd:string .
+
+rice:smeApprovalStatus a owl:DatatypeProperty ;
+    rdfs:label "SME approval status"@en ;
+    rdfs:comment "Validation state (e.g., SME_approved, pending_review, rejected)."@en ;
+    rdfs:domain rice:EvidenceClaim ;
+    rdfs:range xsd:string .
+
+rice:reviewDate a owl:DatatypeProperty ;
+    rdfs:label "SME review timestamp"@en ;
+    rdfs:comment "Date when SME review was completed."@en ;
+    rdfs:domain rice:EvidenceClaim ;
+    rdfs:range xsd:date .
+
+rice:licensingStatus a owl:DatatypeProperty ;
+    rdfs:label "licensing & redistribution state"@en ;
+    rdfs:comment "Legal license classification (e.g. Train and redistribute)."@en ;
+    rdfs:domain rice:SourceDocument ;
+    rdfs:range xsd:string .
+
+# --- Provenance Agents (Authors & SMEs) ---
+
+agent:irri_institution a prov:Agent , rice:Agent ;
+    skos:prefLabel "International Rice Research Institute (IRRI)"@en ;
+    rdfs:comment "Publisher and primary diagnostic reference authority."@en .
+
+agent:richard_lindsay a prov:Agent , rice:Agent ;
+    skos:prefLabel "Richard Lindsay (Pathogen SME)"@en ;
+    rdfs:comment "Lead Pathogen Subject Matter Expert approving graph relationships."@en .
+
+# --- Source Document Provenance ---
+
+source:irri_rice_doctor_2024 a rice:SourceDocument , prov:Entity ;
+    skos:prefLabel "IRRI Rice Doctor Diagnostic Manual (2024)"@en ;
+    prov:wasAttributedTo agent:irri_institution ;
+    rice:licensingStatus "Train and redistribute" ;
+    rdfs:comment "Official fact sheet standard."@en .
+
+# --- Atomic Claims with Complete Provenance Receipts ---
+
+claim:claim_blb_001 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "BLB presents as water-soaked wavy lesions starting at leaf tips"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Symptoms" ;
+    rice:sourceTextSpan "Lesions start as water-soaked, yellow-orange stripes on leaf tips or margins with wavy edges." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
+claim:claim_blb_002 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "Cut leaf cut in clear water streams cloudy bacterial ooze"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Diagnostic Tests" ;
+    rice:sourceTextSpan "Cut a leaf section with lesions and place in clear water; cloudy bacterial ooze streams out into the water." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
+claim:claim_ndef_001 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "Nitrogen deficiency causes chlorosis starting on older leaves"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Nutrient Disorders" ;
+    rice:sourceTextSpan "Nitrogen deficiency causes general yellowing starting strictly on the lowest, oldest leaves as nitrogen is remobilized." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
+claim:claim_wstress_001 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "Water stress causes inward leaf rolling without lesions"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Abiotic Stresses" ;
+    rice:sourceTextSpan "Water deficit causes inward longitudinal leaf rolling and folding into tube-like shapes to reduce transpiration." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
+# --- Explicit Graph Relation Provenance Bindings ---
+
+disease:bacterial_leaf_blight rice:supportedBy claim:claim_blb_001 , claim:claim_blb_002 .
+disorder:nitrogen_deficiency rice:supportedBy claim:claim_ndef_001 .
+disorder:water_stress rice:supportedBy claim:claim_wstress_001 .

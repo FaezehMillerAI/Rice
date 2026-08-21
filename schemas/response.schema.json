@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RicePathogenDiagnosticResponse",
+  "description": "JSON Schema for Rice Pathogen SALM Diagnostic Response (Step 9 Evidence Contract)",
+  "type": "object",
+  "required": [
+    "case_id",
+    "status",
+    "normalized_observations",
+    "observations_needed",
+    "differential",
+    "recommended_actions",
+    "escalation",
+    "grounding",
+    "safety_flags"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "example": "case-000124"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "needs_more_information",
+        "differential_available",
+        "high_risk_escalation",
+        "insufficient_evidence",
+        "out_of_scope"
+      ]
+    },
+    "normalized_observations": {
+      "type": "object",
+      "required": ["growth_stage", "affected_part", "symptoms", "distribution", "recent_conditions", "region"],
+      "properties": {
+        "growth_stage": { "type": "string" },
+        "affected_part": { "type": "array", "items": { "type": "string" } },
+        "symptoms": { "type": "array", "items": { "type": "string" } },
+        "distribution": { "type": "string" },
+        "recent_conditions": { "type": "array", "items": { "type": "string" } },
+        "region": { "type": "string" }
+      }
+    },
+    "observations_needed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["question_id", "question", "reason", "priority"],
+        "properties": {
+          "question_id": { "type": "string" },
+          "question": { "type": "string" },
+          "reason": { "type": "string" },
+          "priority": { "type": "integer" }
+        }
+      }
+    },
+    "differential": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "cause_id",
+          "display_name",
+          "cause_type",
+          "rank",
+          "confidence_band",
+          "supporting_observations",
+          "contradicting_observations",
+          "missing_distinguishing_observations",
+          "distinguishing_checks"
+        ],
+        "properties": {
+          "cause_id": { "type": "string" },
+          "display_name": { "type": "string" },
+          "cause_type": { "type": "string", "enum": ["pathogen", "abiotic_confounder"] },
+          "rank": { "type": "integer" },
+          "confidence_band": { "type": "string", "enum": ["low", "medium", "high"] },
+          "supporting_observations": { "type": "array", "items": { "type": "string" } },
+          "contradicting_observations": { "type": "array", "items": { "type": "string" } },
+          "missing_distinguishing_observations": { "type": "array", "items": { "type": "string" } },
+          "distinguishing_checks": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action_id", "priority", "action", "action_type"],
+        "properties": {
+          "action_id": { "type": "string" },
+          "priority": { "type": "integer" },
+          "action": { "type": "string" },
+          "action_type": { "type": "string" }
+        }
+      }
+    },
+    "escalation": {
+      "type": "object",
+      "required": ["required", "triggers", "refer_to"],
+      "properties": {
+        "required": { "type": "boolean" },
+        "triggers": { "type": "array", "items": { "type": "string" } },
+        "refer_to": { "type": ["string", "null"] }
+      }
+    },
+    "grounding": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "source_id", "source_section", "kg_nodes"],
+        "properties": {
+          "claim_id": { "type": "string" },
+          "source_id": { "type": "string" },
+          "source_section": { "type": "string" },
+          "kg_nodes": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "safety_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rice: <https://openag.example/rice/ontology#> .
+@prefix disease: <https://openag.example/rice/disease/> .
+@prefix disorder: <https://openag.example/rice/disorder/> .
+@prefix symptom: <https://openag.example/rice/symptom/> .
+@prefix sign: <https://openag.example/rice/sign/> .
+@prefix part: <https://openag.example/rice/part/> .
+@prefix stage: <https://openag.example/rice/stage/> .
+@prefix env: <https://openag.example/rice/env/> .
+@prefix field: <https://openag.example/rice/field/> .
+@prefix obs: <https://openag.example/rice/obs/> .
+@prefix q: <https://openag.example/rice/question/> .
+@prefix contrast: <https://openag.example/rice/contrast/> .
+@prefix source: <https://openag.example/rice/source/> .
+@prefix claim: <https://openag.example/rice/claim/> .
+
+# ==============================================================================
+# RICE SALM DIFFERENTIAL DIAGNOSIS GRAPH MODEL v0.1
+# Step 6 Delivery: First-Class DiagnosticContrast Nodes & Discriminative Rules
+# ==============================================================================
+
+# --- Symmetric Resembles Links ---
+disease:bacterial_leaf_blight rice:resembles disorder:nitrogen_deficiency , disorder:water_stress .
+disorder:nitrogen_deficiency rice:resembles disease:bacterial_leaf_blight , disorder:water_stress .
+disorder:water_stress rice:resembles disease:bacterial_leaf_blight , disorder:nitrogen_deficiency .
+
+# --- Differential Pair 1: BLB vs Nitrogen Deficiency ---
+contrast:blb_vs_nitrogen_deficiency a rice:DiagnosticContrast ;
+    skos:prefLabel "BLB vs Nitrogen Deficiency Contrast"@en ;
+    rdfs:comment "First-class differential node comparing Bacterial Leaf Blight with Nitrogen Deficiency."@en ;
+    rice:compares disease:bacterial_leaf_blight , disorder:nitrogen_deficiency ;
+    rice:differentiatedBy obs:lesion_margin_shape , obs:leaf_age_progression , obs:field_spatial_pattern , obs:bacterial_ooze_test ;
+    rice:occursAtStage stage:tillering ;
+    rice:supportedBy claim:claim_blb_001 , claim:claim_ndef_001 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# --- Differential Pair 2: BLB vs Water Stress ---
+contrast:blb_vs_water_stress a rice:DiagnosticContrast ;
+    skos:prefLabel "BLB vs Water Stress Contrast"@en ;
+    rdfs:comment "First-class differential node comparing Bacterial Leaf Blight with Water-related stress."@en ;
+    rice:compares disease:bacterial_leaf_blight , disorder:water_stress ;
+    rice:differentiatedBy obs:leaf_rolling_folding , obs:rewatering_recovery , obs:lesion_margin_shape , obs:bacterial_ooze_test ;
+    rice:occursAtStage stage:tillering , stage:heading ;
+    rice:supportedBy claim:claim_blb_001 , claim:claim_wstress_001 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# --- Differential Pair 3: Nitrogen Deficiency vs Water Stress ---
+contrast:nitrogen_deficiency_vs_water_stress a rice:DiagnosticContrast ;
+    skos:prefLabel "Nitrogen Deficiency vs Water Stress Contrast"@en ;
+    rdfs:comment "First-class differential node comparing Nitrogen Deficiency with Water-related stress."@en ;
+    rice:compares disorder:nitrogen_deficiency , disorder:water_stress ;
+    rice:differentiatedBy obs:leaf_rolling_folding , obs:leaf_age_progression , obs:field_spatial_pattern , obs:rewatering_recovery ;
+    rice:occursAtStage stage:tillering ;
+    rice:supportedBy claim:claim_ndef_001 , claim:claim_wstress_001 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# --- Discriminative Observations Parameters & Value Mappings ---
+
+obs:lesion_margin_shape a rice:DiagnosticObservation ;
+    skos:prefLabel "Lesion margin shape observation"@en ;
+    rice:supports disease:bacterial_leaf_blight ;
+    rice:contradicts disorder:nitrogen_deficiency , disorder:water_stress .
+
+obs:leaf_age_progression a rice:DiagnosticObservation ;
+    skos:prefLabel "Leaf age progression observation"@en ;
+    rice:supports disorder:nitrogen_deficiency ;
+    rice:contradicts disease:bacterial_leaf_blight .
+
+obs:field_spatial_pattern a rice:DiagnosticObservation ;
+    skos:prefLabel "Field spatial distribution pattern"@en ;
+    rice:supports disease:bacterial_leaf_blight ;
+    rice:contradicts disorder:nitrogen_deficiency .
+
+obs:bacterial_ooze_test a rice:DiagnosticObservation ;
+    skos:prefLabel "Cut-leaf water test streaming"@en ;
+    rice:supports disease:bacterial_leaf_blight ;
+    rice:contradicts disorder:nitrogen_deficiency , disorder:water_stress .
+
+obs:leaf_rolling_folding a rice:DiagnosticObservation ;
+    skos:prefLabel "Leaf rolling and folding observation"@en ;
+    rice:supports disorder:water_stress ;
+    rice:contradicts disease:bacterial_leaf_blight , disorder:nitrogen_deficiency .
+
+obs:rewatering_recovery a rice:DiagnosticObservation ;
+    skos:prefLabel "Symptom reversal upon rewatering"@en ;
+    rice:supports disorder:water_stress ;
+    rice:contradicts disease:bacterial_leaf_blight , disorder:nitrogen_deficiency .
