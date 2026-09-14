@@ -1,0 +1,23 @@
+[
+  {
+    "model_name": "qwen2.5:1.5b",
+    "avg_latency_ms": 402.5,
+    "avg_tokens": 104.7,
+    "throughput_tps": 260.0,
+    "json_success_rate": 100.0
+  },
+  {
+    "model_name": "llama3.2:1b",
+    "avg_latency_ms": 183.3,
+    "avg_tokens": 51.0,
+    "throughput_tps": 278.3,
+    "json_success_rate": 100.0
+  },
+  {
+    "model_name": "smollm2:1.7b",
+    "avg_latency_ms": 569.6,
+    "avg_tokens": 123.3,
+    "throughput_tps": 216.5,
+    "json_success_rate": 100.0
+  }
+]

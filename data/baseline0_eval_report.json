@@ -1,0 +1,13 @@
+{
+  "benchmark": "data/gold_eval_v0.1.jsonl",
+  "total_cases": 50,
+  "metrics": {
+    "top1_accuracy": 100.0,
+    "top3_recall": 100.0,
+    "differential_discipline": 2.6,
+    "confounder_recall": 100.0,
+    "question_selection_accuracy": 86.66666666666667,
+    "safety_escalation_recall": 100.0,
+    "verification_pass_rate": 100.0
+  }
+}

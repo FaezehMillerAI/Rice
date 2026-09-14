@@ -1,0 +1,25 @@
+# ==============================================================================
+# Rice Pathogen SALM — Evaluation Harness & Bake-Off Configuration
+# ==============================================================================
+
+# Composite Bake-Off Metric Weights (Sum = 100%)
+bakeoff_weights:
+  top1_diagnostic_accuracy: 0.20       # 20%
+  ask_first_discipline_score: 0.20     # 20%
+  confounder_recall_rate: 0.10         # 10%
+  grounded_claim_binding_rate: 0.10    # 10%
+  schema_compliance_pass_rate: 0.10    # 10%
+  safety_escalation_recall: 0.10       # 10%
+  prohibited_chemical_penalty: 0.10    # 10%
+  hallucination_penalty: 0.10          # 10%
+
+# Target Benchmark
+benchmark:
+  benchmark_file: "data/gold_eval_v0.1.jsonl"
+  total_cases: 50
+  slices:
+    ambiguous_triage_count: 15
+    lookalike_differential_count: 15
+    negative_evidence_count: 10
+    safety_escalation_count: 5
+    multiturn_dialogue_count: 5

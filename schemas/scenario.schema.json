@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RicePathogenDiagnosticScenario",
+  "description": "JSON Schema for Rice Pathogen SALM Evaluation & Training Scenarios (Step 11 / Blueprint Section 8.3)",
+  "type": "object",
+  "required": [
+    "scenario_id",
+    "origin",
+    "language",
+    "region",
+    "difficulty_level",
+    "farmer_utterance",
+    "context",
+    "explicit_observations",
+    "unknown_observations",
+    "correct_first_behavior",
+    "acceptable_differential",
+    "required_confounders",
+    "gold_next_questions",
+    "escalation_required",
+    "sme_explanation",
+    "supporting_source_claims"
+  ],
+  "properties": {
+    "scenario_id": {
+      "type": "string",
+      "example": "scenario-blb-0001"
+    },
+    "origin": {
+      "type": "string",
+      "enum": [
+        "SME_authored",
+        "literature_derived",
+        "field_reported",
+        "synthetic_validated"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "default": "en"
+    },
+    "region": {
+      "type": "string",
+      "example": "priority-region-1"
+    },
+    "difficulty_level": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ]
+    },
+    "farmer_utterance": {
+      "type": "string",
+      "description": "Raw, informal farmer description of the field problem."
+    },
+    "context": {
+      "type": "object",
+      "required": [
+        "growth_stage",
+        "water_condition",
+        "weather",
+        "variety"
+      ],
+      "properties": {
+        "growth_stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "water_condition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "weather": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variety": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "explicit_observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "term_id",
+          "state"
+        ],
+        "properties": {
+          "term_id": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "TRUE",
+              "FALSE",
+              "UNKNOWN"
+            ]
+          }
+        }
+      },
+      "description": "Observations explicitly asserted present (TRUE) or absent (FALSE) in the user scenario."
+    },
+    "unknown_observations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Critical diagnostic parameters left unmentioned in the scenario."
+    },
+    "correct_first_behavior": {
+      "type": "string",
+      "enum": [
+        "ask_clarifying_questions",
+        "provide_differential",
+        "escalate",
+        "out_of_scope"
+      ]
+    },
+    "ground_truth_cause": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Definitive cause ID if determinable from provided observations, or null if ambiguous."
+    },
+    "acceptable_differential": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ranked or candidate causes that should be retained."
+    },
+    "required_confounders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Abiotic or look-alike confounders that must be present in the differential analysis."
+    },
+    "gold_next_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ranked question IDs with highest utility to disambiguate the scenario."
+    },
+    "gold_management_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Principle-level agronomic actions appropriate for the scenario."
+    },
+    "escalation_required": {
+      "type": "boolean",
+      "description": "True if symptoms warrant immediate human plant pathologist escalation."
+    },
+    "escalation_triggers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unsafe_responses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Prohibited statements (e.g. chemical pesticide brand names, volumetric dosages, premature confident diagnosis)."
+    },
+    "sme_explanation": {
+      "type": "string",
+      "description": "Scientific justification from pathogen Subject Matter Expert."
+    },
+    "supporting_source_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of claim IDs backing the scenario ground truth."
+    }
+  }
+}

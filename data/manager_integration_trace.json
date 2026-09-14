@@ -1,0 +1,549 @@
+{
+  "input_user_text": "the rice leaves are yellow in patches after heavy rain and standing water",
+  "context": {
+    "case_id": "case-mgr-demo-001",
+    "growth_stage": "tillering",
+    "region": "priority-region-1",
+    "water_condition": "standing_water",
+    "weather": "heavy_rain_storm",
+    "variety": "IR64"
+  },
+  "pipeline_steps": {
+    "step1_terminology_normalization": {
+      "title": "Step 1: Observation Extraction & SKOS Terminology Normalization",
+      "description": "Translates informal farmer phrasing into canonical W3C SKOS concept nodes and 3VL truth states.",
+      "extracted_normalized_terms": [
+        {
+          "raw_token_span": "leaves",
+          "term_id": "part:leaf",
+          "canonical_name": "leaf",
+          "skos_pref_label": "Leaf blade",
+          "entity_type": "PlantPart",
+          "truth_state": "state:TRUE",
+          "mapped_uri": "https://openag.example/rice/plantpart/leaf"
+        },
+        {
+          "raw_token_span": "standing water",
+          "term_id": "env:standing_water",
+          "canonical_name": "standing_water",
+          "skos_pref_label": "Standing water",
+          "entity_type": "EnvironmentalCondition",
+          "truth_state": "state:TRUE",
+          "mapped_uri": "https://openag.example/rice/environmentalcondition/standing_water"
+        },
+        {
+          "raw_token_span": "yellow",
+          "term_id": "symptom:leaf_yellowing",
+          "canonical_name": "Leaf yellowing",
+          "skos_pref_label": "Leaf yellowing",
+          "entity_type": "Symptom",
+          "truth_state": "state:TRUE",
+          "mapped_uri": "https://openag.example/rice/symptom/leaf_yellowing"
+        },
+        {
+          "raw_token_span": "in patches",
+          "term_id": "field:patchy_distribution",
+          "canonical_name": "Patchy field distribution",
+          "skos_pref_label": "Patchy field distribution",
+          "entity_type": "FieldDistribution",
+          "truth_state": "state:TRUE",
+          "mapped_uri": "https://openag.example/rice/field/patchy_distribution"
+        },
+        {
+          "raw_token_span": "after heavy rain",
+          "term_id": "env:heavy_rainfall",
+          "canonical_name": "Heavy rainfall",
+          "skos_pref_label": "Heavy rainfall",
+          "entity_type": "EnvironmentalCondition",
+          "truth_state": "state:TRUE",
+          "mapped_uri": "https://openag.example/rice/env/heavy_rainfall"
+        },
+        {
+          "raw_token_span": "context.growth_stage: tillering",
+          "term_id": "stage:tillering",
+          "canonical_name": "Tillering stage",
+          "skos_pref_label": "Tillering stage",
+          "entity_type": "GrowthStage",
+          "truth_state": "state:TRUE",
+          "mapped_uri": "https://openag.example/rice/stage/tillering"
+        }
+      ],
+      "active_truth_state_map": {
+        "part:leaf": "TRUE",
+        "env:standing_water": "TRUE",
+        "symptom:leaf_yellowing": "TRUE",
+        "field:patchy_distribution": "TRUE",
+        "env:heavy_rainfall": "TRUE",
+        "stage:tillering": "TRUE"
+      }
+    },
+    "step2_candidate_generation": {
+      "title": "Step 2: Knowledge Graph Candidate Condition Generation",
+      "description": "Retrieves candidate causes and look-alike contrast pairs linked in the ontology.",
+      "candidates": [
+        {
+          "cause_id": "disease:bacterial_leaf_blight",
+          "display_name": "Bacterial leaf blight",
+          "cause_type": "pathogen",
+          "pathogen": "Xanthomonas oryzae pv. oryzae",
+          "category": "Infectious Pathogen Disease",
+          "active_contrast_pairs": [
+            "contrast:blb_vs_nitrogen_deficiency",
+            "contrast:blb_vs_water_stress"
+          ],
+          "retrieval_rationale": "Matches leaf chlorosis, standing water, heavy rainfall, and patchy field spread."
+        },
+        {
+          "cause_id": "disorder:nitrogen_deficiency",
+          "display_name": "Nitrogen deficiency",
+          "cause_type": "abiotic_confounder",
+          "pathogen": null,
+          "category": "Abiotic Nutrient Disorder",
+          "active_contrast_pairs": [
+            "contrast:blb_vs_nitrogen_deficiency",
+            "contrast:nitrogen_deficiency_vs_water_stress"
+          ],
+          "retrieval_rationale": "Look-alike confounder presenting with leaf chlorosis during tillering."
+        },
+        {
+          "cause_id": "disorder:water_stress",
+          "display_name": "Water stress",
+          "cause_type": "abiotic_confounder",
+          "pathogen": null,
+          "category": "Abiotic Moisture Stress",
+          "active_contrast_pairs": [
+            "contrast:blb_vs_water_stress",
+            "contrast:nitrogen_deficiency_vs_water_stress"
+          ],
+          "retrieval_rationale": "Abiotic confounder associated with flooding/water stagnation and chlorosis."
+        }
+      ]
+    },
+    "step3_candidate_scoring": {
+      "title": "Step 3: 3-Valued Logic Candidate Scoring & Arithmetic",
+      "formula": "Score = 3*sign_match + 2*symptom_match + 2*env_match + 1*stage_match + 1*field_match - 3*contradictions",
+      "scored_candidates": [
+        {
+          "cause_id": "disease:bacterial_leaf_blight",
+          "display_name": "Bacterial leaf blight",
+          "formula_arithmetic": "(2 * 1 symptom) + (2 * 2 env) + (1 * 1 stage) + (1 * 1 field) - (0 contradiction) = 2 + 4 + 1 + 1 = 8",
+          "total_score": 8,
+          "confidence_band": "high",
+          "status": "Leading Primary Candidate",
+          "scoring_breakdown": [
+            {
+              "component": "Symptom Match (leaf_yellowing)",
+              "weight": "+2",
+              "count": 1,
+              "subtotal": "+2"
+            },
+            {
+              "component": "Environment Match (heavy_rainfall, standing_water)",
+              "weight": "+2 each",
+              "count": 2,
+              "subtotal": "+4"
+            },
+            {
+              "component": "Growth Stage Match (tillering)",
+              "weight": "+1",
+              "count": 1,
+              "subtotal": "+1"
+            },
+            {
+              "component": "Field Pattern Match (patchy_distribution)",
+              "weight": "+1",
+              "count": 1,
+              "subtotal": "+1"
+            },
+            {
+              "component": "Contradictions",
+              "weight": "-3",
+              "count": 0,
+              "subtotal": "0"
+            }
+          ]
+        },
+        {
+          "cause_id": "disorder:nitrogen_deficiency",
+          "display_name": "Nitrogen deficiency",
+          "formula_arithmetic": "(2 * 1 symptom) + (1 * 1 stage) - (3 * 1 contradicting field pattern) = 2 + 1 - 3 = 0",
+          "total_score": 0,
+          "confidence_band": "low",
+          "status": "Demoted / Penalized by Contradiction",
+          "scoring_breakdown": [
+            {
+              "component": "Symptom Match (leaf_yellowing)",
+              "weight": "+2",
+              "count": 1,
+              "subtotal": "+2"
+            },
+            {
+              "component": "Growth Stage Match (tillering)",
+              "weight": "+1",
+              "count": 1,
+              "subtotal": "+1"
+            },
+            {
+              "component": "Field Pattern Contradiction (patchy vs required uniform)",
+              "weight": "-3",
+              "count": 1,
+              "subtotal": "-3"
+            }
+          ]
+        },
+        {
+          "cause_id": "disorder:water_stress",
+          "display_name": "Water stress",
+          "formula_arithmetic": "(2 * 1 symptom) + (1 * 1 stage) = 2 + 1 = 3",
+          "total_score": 3,
+          "confidence_band": "medium",
+          "status": "Retained as Secondary Confounder",
+          "scoring_breakdown": [
+            {
+              "component": "Symptom Match (leaf_yellowing)",
+              "weight": "+2",
+              "count": 1,
+              "subtotal": "+2"
+            },
+            {
+              "component": "Growth Stage Match (tillering)",
+              "weight": "+1",
+              "count": 1,
+              "subtotal": "+1"
+            }
+          ]
+        }
+      ]
+    },
+    "step4_evidence_partitioning": {
+      "title": "Step 4: Evidence Partitioning (Supporting vs Contradicting vs Unknown)",
+      "description": "Enforces Blueprint Section 9 transparency rule: every candidate itemizes evidence into three mutually exclusive buckets.",
+      "evidence_by_candidate": {
+        "disease:bacterial_leaf_blight": {
+          "supporting_observations": [
+            "symptom:leaf_yellowing (Chlorotic symptom match)",
+            "env:heavy_rainfall (Weather driver promoting Xanthomonas)",
+            "env:standing_water (Stagnant water promotes bacterial entry)",
+            "field:patchy_distribution (Infectious clustering pattern)",
+            "stage:tillering (Susceptible phenological stage)"
+          ],
+          "contradicting_observations": [],
+          "missing_distinguishing_observations": [
+            "obs:lesion_margin_shape (Unobserved; check wavy border)",
+            "obs:bacterial_ooze_test (Unobserved; check cut-leaf streaming)"
+          ]
+        },
+        "disorder:nitrogen_deficiency": {
+          "supporting_observations": [
+            "symptom:leaf_yellowing (General chlorosis)",
+            "stage:tillering (Active vegetative stage)"
+          ],
+          "contradicting_observations": [
+            "field:patchy_distribution (Contradicts soil-wide uniform chlorosis requirement of nitrogen deficiency)"
+          ],
+          "missing_distinguishing_observations": [
+            "obs:leaf_age_progression (Unobserved; check if oldest leaves chlorose first)"
+          ]
+        },
+        "disorder:water_stress": {
+          "supporting_observations": [
+            "symptom:leaf_yellowing (Stress chlorosis)",
+            "stage:tillering (Growth stage match)"
+          ],
+          "contradicting_observations": [],
+          "missing_distinguishing_observations": [
+            "obs:leaf_rolling_folding (Unobserved; check inward curling)",
+            "obs:rewatering_recovery (Unobserved; check symptom reversal)"
+          ]
+        }
+      }
+    },
+    "step5_question_utility_calculation": {
+      "title": "Step 5: Unknowns & Mathematical Question Utility Selection",
+      "formula": "Utility = (Candidates_Separated * Reliability * Observability * Safety) / User_Effort",
+      "ranked_questions": [
+        {
+          "question_id": "q:q_lesion_margin",
+          "question_text": "Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?",
+          "target_observation": "obs:lesion_margin_shape",
+          "rationale": "Distinguishes BLB (wavy margins) from Nitrogen Deficiency and Water Stress (no lesions).",
+          "candidates_separated": 3,
+          "reliability_score": 5.0,
+          "observability_score": 5.0,
+          "safety_importance": 1.0,
+          "user_effort_score": 1.0,
+          "utility_formula": "(3 * 5.0 * 5.0 * 1.0) / 1.0",
+          "calculated_utility": 75.0,
+          "rank": 1,
+          "action": "Selected as Top-1 Clarifying Question to ask user"
+        },
+        {
+          "question_id": "q:q_older_vs_younger",
+          "question_text": "Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?",
+          "target_observation": "obs:leaf_age_progression",
+          "rationale": "Identifies Nitrogen Deficiency (uniform lower leaf chlorosis) vs BLB or Water Stress.",
+          "candidates_separated": 3,
+          "reliability_score": 5.0,
+          "observability_score": 5.0,
+          "safety_importance": 1.0,
+          "user_effort_score": 1.0,
+          "utility_formula": "(3 * 5.0 * 5.0 * 1.0) / 1.0",
+          "calculated_utility": 75.0,
+          "rank": 2,
+          "action": "Selected as Top-2 Clarifying Question"
+        },
+        {
+          "question_id": "q:q_leaf_rolling",
+          "question_text": "Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?",
+          "target_observation": "obs:leaf_rolling_folding",
+          "rationale": "Definitive physical response to moisture deficit and drought stress.",
+          "candidates_separated": 2,
+          "reliability_score": 5.0,
+          "observability_score": 5.0,
+          "safety_importance": 1.0,
+          "user_effort_score": 1.0,
+          "utility_formula": "(2 * 5.0 * 5.0 * 1.0) / 1.0",
+          "calculated_utility": 50.0,
+          "rank": 3,
+          "action": "Secondary Question"
+        },
+        {
+          "question_id": "q:q_water_test",
+          "question_text": "When cut leaf tissue with lesions is placed in a glass of clear water, does a cloudy or milky stream issue into the water?",
+          "target_observation": "obs:bacterial_ooze_test",
+          "rationale": "Definitive diagnostic sign proving vascular Xanthomonas infection.",
+          "candidates_separated": 3,
+          "reliability_score": 5.0,
+          "observability_score": 4.0,
+          "safety_importance": 1.0,
+          "user_effort_score": 2.0,
+          "utility_formula": "(3 * 5.0 * 4.0 * 1.0) / 2.0",
+          "calculated_utility": 30.0,
+          "rank": 4,
+          "action": "Selected as High-Value Follow-up Field Test"
+        }
+      ]
+    },
+    "step6_hybrid_evidence_retrieval": {
+      "title": "Step 6: Hybrid Knowledge Graph & PROV-O Evidence Retrieval",
+      "description": "Assembles verified graph subgraphs and verbatim literature text spans for grounded Small Language Model reasoning.",
+      "graph_context": {
+        "retrieved_triples": [
+          "disease:bacterial_leaf_blight rice:presentsAs symptom:leaf_yellowing",
+          "disease:bacterial_leaf_blight rice:favoredBy env:standing_water",
+          "disease:bacterial_leaf_blight rice:favoredBy env:heavy_rainfall",
+          "disease:bacterial_leaf_blight rice:hasFieldDistribution field:patchy_distribution",
+          "contrast:blb_vs_nitrogen_deficiency rice:differentiatedBy obs:lesion_margin_shape",
+          "contrast:blb_vs_nitrogen_deficiency rice:differentiatedBy obs:leaf_age_progression",
+          "disease:bacterial_leaf_blight rice:supportedBy claim:claim_blb_001"
+        ],
+        "provenance_receipts": [
+          {
+            "claim_id": "claim:claim_blb_001",
+            "source_id": "source:irri_rice_doctor_2024",
+            "source_section": "Symptoms",
+            "verbatim_text": "Lesions start as water-soaked, yellow-orange stripes on leaf tips or margins with wavy edges.",
+            "sme_reviewer": "Richard Lindsay (Pathogen SME)",
+            "sme_status": "SME_approved"
+          },
+          {
+            "claim_id": "claim:claim_ndef_001",
+            "source_id": "source:irri_rice_doctor_2024",
+            "source_section": "Nutrient Disorders",
+            "verbatim_text": "Nitrogen deficiency causes general yellowing starting strictly on the lowest, oldest leaves as nitrogen is remobilized.",
+            "sme_reviewer": "Richard Lindsay (Pathogen SME)",
+            "sme_status": "SME_approved"
+          }
+        ]
+      }
+    },
+    "step7_post_generation_verification": {
+      "title": "Step 7: 4-Layer Post-Generation Verification",
+      "description": "Enforces Section 14.8 quality checks before response delivery.",
+      "verification_checks": {
+        "structural_check": {
+          "passed": true,
+          "details": "Valid JSON, required fields present, status controlled"
+        },
+        "graph_check": {
+          "passed": true,
+          "details": "All disease IDs, symptom terms, and claim IDs verified in ontology"
+        },
+        "safety_check": {
+          "passed": true,
+          "details": "0 pesticide brand names, 0 volumetric dosages, cultural actions only"
+        },
+        "logical_check": {
+          "passed": true,
+          "details": "0 overlap between supporting & contradicting buckets, open-world partition respected"
+        }
+      },
+      "overall_status": "PASSED (100% Verified)"
+    },
+    "step8_structured_response": {
+      "title": "Step 8: Final JSON Response Contract Output",
+      "description": "Machine-readable structured output conforming to schemas/response.schema.json.",
+      "json_response": {
+        "case_id": "case-mgr-demo-001",
+        "status": "needs_more_information",
+        "normalized_observations": {
+          "growth_stage": "tillering",
+          "affected_part": [
+            "part:leaf"
+          ],
+          "symptoms": [
+            "symptom:leaf_yellowing"
+          ],
+          "distribution": "field:patchy_distribution",
+          "recent_conditions": [
+            "env:standing_water",
+            "env:heavy_rainfall"
+          ],
+          "region": "priority-region-1"
+        },
+        "observations_needed": [
+          {
+            "question_id": "q:q_lesion_margin",
+            "question": "Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?",
+            "reason": "Distinguishes Bacterial Leaf Blight (wavy margins) from Nitrogen Deficiency and Water Stress (no lesions).",
+            "priority": 1
+          },
+          {
+            "question_id": "q:q_older_vs_younger",
+            "question": "Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?",
+            "reason": "Identifies Nitrogen Deficiency (uniform lower leaf chlorosis due to N remobilization) versus BLB or Water Stress.",
+            "priority": 2
+          },
+          {
+            "question_id": "q:q_leaf_rolling",
+            "question": "Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?",
+            "reason": "Definitive physical response to moisture deficit and drought stress.",
+            "priority": 3
+          }
+        ],
+        "differential": [
+          {
+            "cause_id": "disease:bacterial_leaf_blight",
+            "display_name": "Bacterial leaf blight",
+            "cause_type": "pathogen",
+            "score": 8,
+            "confidence_band": "high",
+            "supporting_observations": [
+              "symptom:leaf_yellowing",
+              "env:heavy_rainfall",
+              "env:standing_water",
+              "stage:tillering",
+              "field:patchy_distribution"
+            ],
+            "contradicting_observations": [],
+            "missing_distinguishing_observations": [
+              "sign:bacterial_ooze_beads",
+              "sign:water_test_cloudy_streaming",
+              "symptom:water_soaked_wavy_lesion",
+              "symptom:leaf_tip_margin_necrosis"
+            ],
+            "distinguishing_checks": [
+              "Check lesion margin shape (wavy vs no lesions)",
+              "Inspect whether lowest leaves chlorose first",
+              "Perform cut-leaf streaming test in clear water"
+            ],
+            "rank": 1
+          },
+          {
+            "cause_id": "disorder:nitrogen_deficiency",
+            "display_name": "Nitrogen deficiency",
+            "cause_type": "abiotic_confounder",
+            "score": 3,
+            "confidence_band": "medium",
+            "supporting_observations": [
+              "symptom:leaf_yellowing",
+              "stage:tillering"
+            ],
+            "contradicting_observations": [],
+            "missing_distinguishing_observations": [
+              "symptom:uniform_older_leaf_chlorosis",
+              "symptom:stunted_growth"
+            ],
+            "distinguishing_checks": [
+              "Check lesion margin shape (wavy vs no lesions)",
+              "Inspect whether lowest leaves chlorose first",
+              "Perform cut-leaf streaming test in clear water"
+            ],
+            "rank": 2
+          },
+          {
+            "cause_id": "disorder:water_stress",
+            "display_name": "Water stress",
+            "cause_type": "abiotic_confounder",
+            "score": 3,
+            "confidence_band": "medium",
+            "supporting_observations": [
+              "symptom:leaf_yellowing",
+              "stage:tillering"
+            ],
+            "contradicting_observations": [],
+            "missing_distinguishing_observations": [
+              "symptom:leaf_rolling_folding",
+              "symptom:recovers_upon_rewatering",
+              "symptom:leaf_tip_margin_necrosis"
+            ],
+            "distinguishing_checks": [
+              "Check lesion margin shape (wavy vs no lesions)",
+              "Inspect whether lowest leaves chlorose first",
+              "Perform cut-leaf streaming test in clear water"
+            ],
+            "rank": 3
+          }
+        ],
+        "recommended_actions": [
+          {
+            "action_id": "action:avoid_excess_nitrogen",
+            "priority": 1,
+            "action": "Avoid excessive nitrogen top-dressing; split fertilizer applications into balanced doses.",
+            "action_type": "cultural"
+          },
+          {
+            "action_id": "action:ensure_field_drainage",
+            "priority": 2,
+            "action": "Drain standing water from paddy and allow soil surface to dry slightly to suppress bacterial propagation.",
+            "action_type": "cultural"
+          },
+          {
+            "action_id": "action:use_resistant_varieties",
+            "priority": 3,
+            "action": "Select certified resistant rice cultivars (e.g., carrying Xa4, xa5, or Xa21 genes) for upcoming planting cycle.",
+            "action_type": "genetic"
+          }
+        ],
+        "escalation": {
+          "required": false,
+          "triggers": [],
+          "refer_to": null
+        },
+        "grounding": [
+          {
+            "claim_id": "claim:claim_blb_001",
+            "source_id": "source:irri_rice_doctor_2024",
+            "source_section": "Symptoms",
+            "kg_nodes": [
+              "disease:bacterial_leaf_blight",
+              "symptom:water_soaked_wavy_lesion"
+            ]
+          },
+          {
+            "claim_id": "claim:claim_ndef_001",
+            "source_id": "source:irri_rice_doctor_2024",
+            "source_section": "Nutrient Disorders",
+            "kg_nodes": [
+              "disorder:nitrogen_deficiency",
+              "symptom:uniform_older_leaf_chlorosis"
+            ]
+          }
+        ],
+        "safety_flags": [
+          "PRINCIPLE_ACTIONS_ONLY_NO_CHEMICAL_DOSAGES"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+# ==============================================================================
+# Rice Pathogen SALM — Supervised Fine-Tuning (SFT / QLoRA) Configuration
+# ==============================================================================
+
+# Model Selection
+model:
+  base_model_name_or_path: "Qwen/Qwen2.5-1.5B-Instruct"
+  fallback_model_name: "meta-llama/Llama-3.2-1B-Instruct"
+  torch_dtype: "bfloat16"
+  trust_remote_code: true
+  device_map: "auto"
+
+# 4-Bit Quantization (QLoRA)
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_use_double_quant: true
+  bnb_4bit_compute_dtype: "bfloat16"
+
+# LoRA (Low-Rank Adaptation) Hyperparameters
+lora:
+  r: 16                                # LoRA attention dimension / rank
+  lora_alpha: 32                       # LoRA scaling factor (alpha / r = 2.0)
+  lora_dropout: 0.05                   # Dropout probability for LoRA layers
+  bias: "none"                         # "none", "all", or "lora_only"
+  target_modules:                      # Modules to apply LoRA adapters to
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  task_type: "CAUSAL_LM"
+
+# Optimization & Training Hyperparameters
+training:
+  output_dir: "outputs/salm_qwen1.5b_sft"
+  num_train_epochs: 3                  # Total training epochs
+  per_device_train_batch_size: 4       # Batch size per GPU
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4       # Effective batch size = 16 (4 * 4)
+  learning_rate: 0.0002                # Peak learning rate (2e-4)
+  lr_scheduler_type: "cosine"          # "cosine", "linear", "constant"
+  warmup_ratio: 0.05                   # 5% linear warmup
+  weight_decay: 0.01                   # Regularization
+  max_grad_norm: 1.0                   # Gradient clipping threshold
+  max_seq_length: 2048                 # Maximum token length
+  response_loss_only: true             # Mask loss on prompt; calculate only on assistant JSON
+  seed: 42
+
+# Logging & Evaluation Frequency
+logging:
+  logging_steps: 10
+  eval_strategy: "steps"
+  eval_steps: 50
+  save_strategy: "steps"
+  save_steps: 50
+  save_total_limit: 3
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+
+# Dataset & Data Paths
+dataset:
+  train_data_path: "data/sft_train_trajectories.jsonl"
+  val_data_path: "data/sft_val_trajectories.jsonl"
+  test_benchmark_path: "data/gold_eval_v0.1.jsonl"
+  prompt_template_format: "chatml"     # ChatML format: <|im_start|>system...<|im_end|>
