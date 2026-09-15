@@ -26,6 +26,12 @@ import time
 import re
 from typing import Dict, List, Any, Tuple, Optional
 
+try:
+    from tqdm import tqdm
+except ImportError:
+    def tqdm(iterable, desc="", unit=""):
+        return iterable
+
 WORKSPACE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, WORKSPACE_ROOT)
 
@@ -60,12 +66,21 @@ def run_kaggle_evaluation(adapter_path: str = "outputs/salm_qwen1.5b_sft", base_
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    base_model = AutoModelForCausalLM.from_pretrained(
-        base_model_id,
-        torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
-        device_map="auto" if device == "cuda" else None,
-        trust_remote_code=True
-    )
+    dtype_param = torch.bfloat16 if torch.cuda.is_available() else torch.float32
+    try:
+        base_model = AutoModelForCausalLM.from_pretrained(
+            base_model_id,
+            dtype=dtype_param,
+            device_map="auto" if device == "cuda" else None,
+            trust_remote_code=True
+        )
+    except TypeError:
+        base_model = AutoModelForCausalLM.from_pretrained(
+            base_model_id,
+            torch_dtype=dtype_param,
+            device_map="auto" if device == "cuda" else None,
+            trust_remote_code=True
+        )
     if device != "cuda" and device != "auto":
         base_model.to(device)
     base_model.eval()
@@ -105,8 +120,6 @@ def run_kaggle_evaluation(adapter_path: str = "outputs/salm_qwen1.5b_sft", base_
             output_tokens = model.generate(
                 **inputs,
                 max_new_tokens=512,
-                temperature=0.1,
-                top_p=0.9,
                 do_sample=False,
                 pad_token_id=tokenizer.pad_token_id
             )
@@ -180,7 +193,7 @@ def run_kaggle_evaluation(adapter_path: str = "outputs/salm_qwen1.5b_sft", base_
         expert_ratings = []
         latencies = []
 
-        for sc in gold_scenarios:
+        for sc in tqdm(gold_scenarios, desc=f"  [{cfg_name}]", unit="case"):
             sid = sc["scenario_id"]
             user_text = sc["farmer_utterance"]
             context = sc.get("context", {}).copy()
