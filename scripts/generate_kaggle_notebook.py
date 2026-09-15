@@ -1,0 +1,270 @@
+"""
+scripts/generate_kaggle_notebook.py
+Generates the complete, self-contained Kaggle Notebook for Rice SALM Step 18 SFT Training
+and Step 20 4-Configuration Benchmark Evaluation.
+"""
+
+import json
+import os
+
+WORKSPACE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+OUTPUT_NOTEBOOK = os.path.join(WORKSPACE_ROOT, "kaggle", "rice_salm_kaggle_train_and_eval.ipynb")
+
+cells = [
+    # Cell 1: Title & Overview Markdown
+    {
+        "cell_type": "markdown",
+        "metadata": {},
+        "source": [
+            "# 🌾 Rice Pathogen Small Agriculture Language Model (SALM)\n",
+            "## End-to-End Kaggle Notebook: SFT QLoRA Training & Multi-Configuration Benchmark Evaluation\n",
+            "\n",
+            "This notebook implements the complete execution pipeline for:\n",
+            "1. **Step 18**: Supervised Fine-Tuning (SFT) via QLoRA with 4-bit NF4 quantization, response-only completion loss masking, and LoRA rank adaptation on `Qwen/Qwen2.5-1.5B-Instruct`.\n",
+            "2. **Step 20**: Granular evaluation across **4 architectural configurations** on the 50-scenario gold benchmark:\n",
+            "   - **Configuration 1:** `SLM only` (Raw base model without KG or retrieval)\n",
+            "   - **Configuration 2:** `SLM + retrieval` (Base model with unstructured document RAG)\n",
+            "   - **Configuration 3:** `SLM + KG` (Deterministic Knowledge Graph Engine & 3VL Candidate Scoring)\n",
+            "   - **Configuration 4:** `SLM + KG + retrieval + verification` (Fine-tuned SALM model with Knowledge Graph, Document Grounding, and 4-Layer Verification)\n",
+            "\n",
+            "### Target Evaluation Metrics Measured:\n",
+            "- **Differential accuracy** (Top-1 diagnostic accuracy on determinable conditions)\n",
+            "- **Confounder recall** (Recall rate of mandatory abiotic confounders like Nitrogen deficiency and Water stress)\n",
+            "- **Question quality** (Quality score 0–3 of clarifying questions asked for ambiguous queries)\n",
+            "- **Premature diagnosis** (Premature guessing rate vs ask-first discipline score on ambiguous queries)\n",
+            "- **Groundedness** (Percentage of claims backed by verified W3C PROV-O graph receipts)\n",
+            "- **Safety** (Zero chemical pesticide brand/dosage violations & 100% emergency escalation recall)\n",
+            "- **Expert rating** (0 to 3 scale per the agricultural SME annotation rubric)\n",
+            "- **Latency** (Average response time per query in milliseconds)\n",
+            "- **Memory** (Disk footprint and RAM consumption)\n",
+            "\n",
+            "---  \n",
+            "**Kaggle Settings Recommendation:**\n",
+            "- **Accelerator:** GPU T4 x2 or GPU P100\n",
+            "- **Internet:** Turn `ON` in notebook settings (to clone the repo and download model weights)\n",
+            "- **Secrets:** Add `GITHUB_PAT` under `Add-ons > Secrets` if your repository is private, or enter your personal access token when prompted."
+        ]
+    },
+    # Cell 2: GPU Check & Package Installation
+    {
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ==============================================================================\n",
+            "# 1. Environment & Hardware Verification\n",
+            "# ==============================================================================\n",
+            "!nvidia-smi\n",
+            "\n",
+            "# Install required dependencies\n",
+            "!pip install -q \\\n",
+            "    \"torch>=2.2.0\" \\\n",
+            "    \"transformers>=4.40.0\" \\\n",
+            "    \"peft>=0.10.0\" \\\n",
+            "    \"trl>=0.8.6\" \\\n",
+            "    \"datasets>=2.18.0\" \\\n",
+            "    \"bitsandbytes>=0.43.0\" \\\n",
+            "    \"accelerate>=0.29.0\" \\\n",
+            "    \"scipy\" \\\n",
+            "    \"sentencepiece\" \\\n",
+            "    \"protobuf\" \\\n",
+            "    \"pyyaml\" \\\n",
+            "    \"tabulate\""
+        ]
+    },
+    # Cell 3: Clone Private Repository
+    {
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ==============================================================================\n",
+            "# 2. Clone Private GitHub Repository\n",
+            "# ==============================================================================\n",
+            "import os\n",
+            "import getpass\n",
+            "\n",
+            "# Attempt to retrieve GitHub token from Kaggle Secrets\n",
+            "try:\n",
+            "    from kaggle_secrets import UserSecretsClient\n",
+            "    user_secrets = UserSecretsClient()\n",
+            "    github_token = user_secrets.get_secret(\"GITHUB_PAT\")\n",
+            "except Exception:\n",
+            "    github_token = None\n",
+            "\n",
+            "# Prompt if not configured in Secrets\n",
+            "if not github_token:\n",
+            "    github_token = os.environ.get(\"GITHUB_PAT\")\n",
+            "    if not github_token:\n",
+            "        print(\"Please provide your GitHub Personal Access Token (PAT) with repo read access:\")\n",
+            "        github_token = getpass.getpass(\"GitHub Token: \")\n",
+            "\n",
+            "repo_url = f\"https://{github_token}@github.com/FaezehMillerAI/KGVISUALIZATION.git\"\n",
+            "target_dir = \"/kaggle/working/Rice\"\n",
+            "\n",
+            "if os.path.exists(target_dir):\n",
+            "    print(f\"Directory {target_dir} exists. Pulling latest main...\")\n",
+            "    !cd {target_dir} && git pull origin main\n",
+            "else:\n",
+            "    print(f\"Cloning repository into {target_dir}...\")\n",
+            "    !git clone {repo_url} {target_dir}\n",
+            "\n",
+            "%cd /kaggle/working/Rice\n",
+            "!ls -lh"
+        ]
+    },
+    # Cell 4: Verify Datasets and Registries
+    {
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ==============================================================================\n",
+            "# 3. Verify Registries, Ontologies & Benchmark Datasets\n",
+            "# ==============================================================================\n",
+            "import json\n",
+            "\n",
+            "print(\"Checking required dataset files:\")\n",
+            "train_file = \"data/sft_train_trajectories.jsonl\"\n",
+            "val_file = \"data/sft_val_trajectories.jsonl\"\n",
+            "eval_file = \"data/gold_eval_v0.1.jsonl\"\n",
+            "\n",
+            "for fpath in [train_file, val_file, eval_file]:\n",
+            "    with open(fpath, \"r\", encoding=\"utf-8\") as f:\n",
+            "        lines = [line for line in f if line.strip()]\n",
+            "        print(f\"  [+] {fpath:<35}: {len(lines)} verified samples\")"
+        ]
+    },
+    # Cell 5: Phase 1 — Run SFT QLoRA Training
+    {
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ==============================================================================\n",
+            "# 4. STEP 18: Execute SFT QLoRA Fine-Tuning Pipeline\n",
+            "# ==============================================================================\n",
+            "# Fine-tunes Qwen2.5-1.5B-Instruct using 4-bit NF4 quantization, response-only\n",
+            "# completion loss masking, and LoRA on all linear projection matrices.\n",
+            "\n",
+            "!python3 scripts/train_sft_qlora.py \\\n",
+            "    --config configs/training_sft_config.yaml \\\n",
+            "    --model_id Qwen/Qwen2.5-1.5B-Instruct \\\n",
+            "    --output_dir outputs/salm_qwen1.5b_sft"
+        ]
+    },
+    # Cell 6: Phase 2 — Run Multi-Configuration Evaluation
+    {
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ==============================================================================\n",
+            "# 5. STEP 20: Evaluate Whether the KG Actually Helps\n",
+            "# ==============================================================================\n",
+            "# Runs comparative benchmark evaluation across all 4 configurations:\n",
+            "#   1. SLM only\n",
+            "#   2. SLM + retrieval\n",
+            "#   3. SLM + KG\n",
+            "#   4. SLM + KG + retrieval + verification\n",
+            "\n",
+            "!python3 eval/evaluate_kaggle_comparison.py"
+        ]
+    },
+    # Cell 7: Display Markdown Comparison Table & Visualizations
+    {
+        "cell_type": "code",
+        "execution_count": None,
+        "metadata": {},
+        "outputs": [],
+        "source": [
+            "# ==============================================================================\n",
+            "# 6. Results Visualization & Summary Analysis\n",
+            "# ==============================================================================\n",
+            "import json\n",
+            "import pandas as pd\n",
+            "import matplotlib.pyplot as plt\n",
+            "from IPython.display import display, Markdown\n",
+            "\n",
+            "report_path = \"data/step20_kaggle_evaluation_report.json\"\n",
+            "with open(report_path, \"r\", encoding=\"utf-8\") as f:\n",
+            "    data = json.load(f)\n",
+            "\n",
+            "rows = []\n",
+            "for item in data[\"results\"]:\n",
+            "    cfg = item[\"configuration\"]\n",
+            "    m = item[\"metrics\"]\n",
+            "    rows.append({\n",
+            "        \"Configuration\": cfg,\n",
+            "        \"Differential Acc (%)\": f\"{m['differential_accuracy_percent']} %\",\n",
+            "        \"Confounder Recall (%)\": f\"{m['confounder_recall_percent']} %\",\n",
+            "        \"Question Quality (0-3)\": f\"{m['question_quality_score_0_to_3']} / 3.0\",\n",
+            "        \"Premature Diagnosis (%)\": f\"{m['premature_diagnosis_rate_percent']} %\",\n",
+            "        \"Ask-First Discipline\": f\"{m['ask_first_discipline_score_0_to_3']} / 3.0\",\n",
+            "        \"Groundedness (%)\": f\"{m['groundedness_percent']} %\",\n",
+            "        \"Chemical Violations\": m['safety_chemical_violations'],\n",
+            "        \"Escalation Recall (%)\": f\"{m['safety_escalation_recall_percent']} %\",\n",
+            "        \"Expert Rating (0-3)\": f\"{m['expert_rating_score_0_to_3']} / 3.0\",\n",
+            "        \"Avg Latency (ms)\": f\"{m['average_latency_ms']} ms\",\n",
+            "        \"RAM Footprint\": f\"{m['memory_ram_mb']} MB\"\n",
+            "    })\n",
+            "\n",
+            "df = pd.DataFrame(rows)\n",
+            "display(Markdown(\"### 📊 Step 20 Multi-Configuration Evaluation Matrix\"))\n",
+            "display(df)\n",
+            "\n",
+            "# Bar Chart Comparison of Diagnostic Accuracy & Groundedness\n",
+            "cfg_names = [r[\"Configuration\"] for r in data[\"results\"]]\n",
+            "accs = [r[\"metrics\"][\"differential_accuracy_percent\"] for r in data[\"results\"]]\n",
+            "grounds = [r[\"metrics\"][\"groundedness_percent\"] for r in data[\"results\"]]\n",
+            "\n",
+            "plt.figure(figsize=(10, 5))\n",
+            "x = range(len(cfg_names))\n",
+            "width = 0.35\n",
+            "plt.bar([i - width/2 for i in x], accs, width=width, label=\"Differential Accuracy (%)\", color=\"#10b981\")\n",
+            "plt.bar([i + width/2 for i in x], grounds, width=width, label=\"Groundedness (%)\", color=\"#3b82f6\")\n",
+            "plt.xticks(x, [c.replace(' + ', '\\n+ ') for c in cfg_names], fontsize=9)\n",
+            "plt.ylabel(\"Percentage (%)\")\n",
+            "plt.title(\"Rice SALM Step 20: Impact of Knowledge Graph on Accuracy & Groundedness\")\n",
+            "plt.ylim(0, 110)\n",
+            "plt.legend()\n",
+            "plt.grid(axis=\"y\", linestyle=\"--\", alpha=0.5)\n",
+            "plt.tight_layout()\n",
+            "plt.show()"
+        ]
+    }
+]
+
+notebook = {
+    "cells": cells,
+    "metadata": {
+        "accelerator": "GPU",
+        "colab": {"provenance": []},
+        "kernelspec": {
+            "display_name": "Python 3",
+            "language": "python",
+            "name": "python3"
+        },
+        "language_info": {
+            "codemirror_mode": {"name": "ipython", "version": 3},
+            "file_extension": ".py",
+            "mimetype": "text/x-python",
+            "name": "python",
+            "nbconvert_exporter": "python",
+            "pygments_lexer": "ipython3",
+            "version": "3.10.12"
+        }
+    },
+    "nbformat": 4,
+    "nbformat_minor": 4
+}
+
+with open(OUTPUT_NOTEBOOK, "w", encoding="utf-8") as f:
+    json.dump(notebook, f, indent=2)
+
+print(f"Successfully generated turnkey Kaggle Notebook at: {OUTPUT_NOTEBOOK}")
