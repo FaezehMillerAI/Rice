@@ -2,3 +2,5 @@ id,type,canonical_name,scientific_name,skos_pref_label,skos_alt_labels,category,
 disease:bacterial_leaf_blight,Disease,Bacterial leaf blight,Xanthomonas oryzae pv. oryzae,Bacterial leaf blight,BLB|Kresek|bacterial blight,Pathogen,Active,True
 disorder:nitrogen_deficiency,AbioticDisorder,Nitrogen deficiency,,Nitrogen deficiency,N deficiency|nitrogen starvation|yellowing from poor fertilizer,AbioticDisorder,Active,True
 disorder:water_stress,AbioticDisorder,Water-related stress,,Water-related stress,Drought stress|waterlogging stress|moisture stress|submergence stress,AbioticDisorder,Active,True
+disease:rice_blast,Disease,Rice blast,Magnaporthe oryzae,Rice blast,Leaf blast|neck blast|collar rot|blast disease|Pyricularia oryzae,Pathogen,Active,True
+disease:brown_spot,Disease,Brown spot,Bipolaris oryzae,Brown spot,Sesame spot|Helminthosporium leaf spot|Cochliobolus miyabeanus,Pathogen,Active,True

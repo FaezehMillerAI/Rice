@@ -90,3 +90,50 @@ obs:rewatering_recovery a rice:DiagnosticObservation ;
     skos:prefLabel "Symptom reversal upon rewatering"@en ;
     rice:supports disorder:water_stress ;
     rice:contradicts disease:bacterial_leaf_blight , disorder:nitrogen_deficiency .
+
+# --- Differential Pair 4: Rice Blast vs Brown Spot ---
+contrast:blast_vs_brown_spot a rice:DiagnosticContrast ;
+    skos:prefLabel "Blast vs Brown Spot Contrast"@en ;
+    rdfs:comment "First-class differential node distinguishing Rice Blast from Brown Spot."@en ;
+    rice:compares disease:rice_blast , disease:brown_spot ;
+    rice:differentiatedBy obs:lesion_shape_center_color , obs:spot_size_uniformity , obs:neck_node_blackening ;
+    rice:occursAtStage stage:tillering , stage:heading ;
+    rice:supportedBy claim:claim_blast_001 , claim:claim_bspot_001 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# --- Differential Pair 5: BLB vs Rice Blast ---
+contrast:blb_vs_blast a rice:DiagnosticContrast ;
+    skos:prefLabel "BLB vs Blast Contrast"@en ;
+    rdfs:comment "First-class differential node distinguishing Bacterial Leaf Blight from Rice Blast."@en ;
+    rice:compares disease:bacterial_leaf_blight , disease:rice_blast ;
+    rice:differentiatedBy obs:lesion_margin_shape , obs:lesion_shape_center_color , obs:bacterial_ooze_test ;
+    rice:occursAtStage stage:tillering ;
+    rice:supportedBy claim:claim_blb_001 , claim:claim_blast_001 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# --- Differential Pair 6: Brown Spot vs Nitrogen Deficiency ---
+contrast:brown_spot_vs_nitrogen_deficiency a rice:DiagnosticContrast ;
+    skos:prefLabel "Brown Spot vs Nitrogen Deficiency Contrast"@en ;
+    rdfs:comment "First-class differential node distinguishing Brown Spot from Nitrogen Deficiency."@en ;
+    rice:compares disease:brown_spot , disorder:nitrogen_deficiency ;
+    rice:differentiatedBy obs:spot_size_uniformity , obs:leaf_age_progression ;
+    rice:occursAtStage stage:tillering ;
+    rice:supportedBy claim:claim_bspot_001 , claim:claim_ndef_001 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# --- Additional Discriminative Observations ---
+obs:lesion_shape_center_color a rice:DiagnosticObservation ;
+    skos:prefLabel "Lesion shape and center color"@en ;
+    rice:supports disease:rice_blast ;
+    rice:contradicts disease:brown_spot , disease:bacterial_leaf_blight .
+
+obs:neck_node_blackening a rice:DiagnosticObservation ;
+    skos:prefLabel "Panicle neck node blackening"@en ;
+    rice:supports disease:rice_blast ;
+    rice:contradicts disease:brown_spot , disease:bacterial_leaf_blight .
+
+obs:spot_size_uniformity a rice:DiagnosticObservation ;
+    skos:prefLabel "Spot size uniformity and yellow halo"@en ;
+    rice:supports disease:brown_spot ;
+    rice:contradicts disease:rice_blast , disorder:nitrogen_deficiency .
+

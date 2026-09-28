@@ -118,8 +118,61 @@ claim:claim_wstress_001 a rice:EvidenceClaim , prov:Entity ;
     rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
     rice:smeApprovalStatus "SME_approved" .
 
+claim:claim_blast_001 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "Blast lesions on leaves are diamond-shaped with gray centers"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Symptoms" ;
+    rice:sourceTextSpan "Blast lesions on leaves are typically diamond-shaped or elliptical with gray or whitish centers and reddish-brown to dark brown margins." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
+claim:claim_blast_002 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "Neck blast attacks the panicle node causing rotting and breakage"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Symptoms" ;
+    rice:sourceTextSpan "Neck blast attacks the panicle base node turning it grayish-brown or black and causing it to rot and snap, producing empty whiteheads." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
+claim:claim_blast_003 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "Blast is favored by prolonged dew periods and high nitrogen"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Environmental Drivers" ;
+    rice:sourceTextSpan "Blast is favored by long periods of free moisture on leaves from dew, overcast skies, and high nitrogen fertilizer levels." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
+claim:claim_bspot_001 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "Brown spot produces oval spots resembling sesame seeds with yellow halos"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Symptoms" ;
+    rice:sourceTextSpan "Brown spot produces small, circular to oval dark brown spots resembling sesame seeds, typically with a light yellow halo." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
+claim:claim_bspot_002 a rice:EvidenceClaim , prov:Entity ;
+    skos:prefLabel "Brown spot severity correlates with poor nutrient-deficient soils"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 ;
+    prov:wasAssociatedWith agent:richard_lindsay ;
+    prov:generatedAtTime "2026-08-11"^^xsd:date ;
+    rice:sourceSection "Environmental Drivers" ;
+    rice:sourceTextSpan "Brown spot severity is closely correlated with poor, nutrient-deficient soils, particularly those lacking potassium, iron, or silicon." ;
+    rice:smeReviewer "Richard Lindsay (Pathogen SME)" ;
+    rice:smeApprovalStatus "SME_approved" .
+
 # --- Explicit Graph Relation Provenance Bindings ---
 
 disease:bacterial_leaf_blight rice:supportedBy claim:claim_blb_001 , claim:claim_blb_002 .
 disorder:nitrogen_deficiency rice:supportedBy claim:claim_ndef_001 .
 disorder:water_stress rice:supportedBy claim:claim_wstress_001 .
+disease:rice_blast rice:supportedBy claim:claim_blast_001 , claim:claim_blast_002 , claim:claim_blast_003 .
+disease:brown_spot rice:supportedBy claim:claim_bspot_001 , claim:claim_bspot_002 .
+

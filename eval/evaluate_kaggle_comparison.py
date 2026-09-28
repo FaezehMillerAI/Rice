@@ -99,7 +99,9 @@ def run_kaggle_evaluation(adapter_path: str = "outputs/salm_qwen1.5b_sft", base_
     verifier = VerificationEngine(WORKSPACE_ROOT)
     kg_engine = DiagnosticEngine(WORKSPACE_ROOT)
 
-    benchmark_file = os.path.join(WORKSPACE_ROOT, "data", "gold_eval_v0.1.jsonl")
+    v2_path = os.path.join(WORKSPACE_ROOT, "data", "gold_eval_v0.2.jsonl")
+    benchmark_file = v2_path if os.path.exists(v2_path) else os.path.join(WORKSPACE_ROOT, "data", "gold_eval_v0.1.jsonl")
+    print(f"[*] Evaluation Benchmark: {os.path.basename(benchmark_file)}")
     gold_scenarios = []
     with open(benchmark_file, "r", encoding="utf-8") as f:
         for line in f:

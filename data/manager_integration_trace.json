@@ -443,11 +443,36 @@
               "symptom:leaf_tip_margin_necrosis"
             ],
             "distinguishing_checks": [
-              "Check lesion margin shape (wavy vs no lesions)",
-              "Inspect whether lowest leaves chlorose first",
-              "Perform cut-leaf streaming test in clear water"
+              "Check lesion margin shape (wavy vs discrete spots)",
+              "Perform cut-leaf streaming test in clear water",
+              "Check for bacterial ooze beads on lesions early morning"
             ],
             "rank": 1
+          },
+          {
+            "cause_id": "disease:rice_blast",
+            "display_name": "Rice blast",
+            "cause_type": "pathogen",
+            "score": 4,
+            "confidence_band": "medium",
+            "supporting_observations": [
+              "symptom:leaf_yellowing",
+              "stage:tillering",
+              "field:patchy_distribution"
+            ],
+            "contradicting_observations": [],
+            "missing_distinguishing_observations": [
+              "sign:gray_spore_felt",
+              "symptom:spindle_shaped_lesion",
+              "symptom:neck_rot_blackened_node",
+              "symptom:collar_rot"
+            ],
+            "distinguishing_checks": [
+              "Check lesion shape: diamond/spindle-shaped with gray/white center and brown margin",
+              "Inspect panicle neck and nodes for blackened rot / empty whiteheads",
+              "Check for gray/olive fungal spore felt in moist morning conditions"
+            ],
+            "rank": 2
           },
           {
             "cause_id": "disorder:nitrogen_deficiency",
@@ -465,11 +490,11 @@
               "symptom:stunted_growth"
             ],
             "distinguishing_checks": [
-              "Check lesion margin shape (wavy vs no lesions)",
-              "Inspect whether lowest leaves chlorose first",
-              "Perform cut-leaf streaming test in clear water"
+              "Inspect whether lowest/oldest leaves chlorose first",
+              "Verify lack of discrete necrotic lesions",
+              "Assess whether field symptoms are uniform across the plot"
             ],
-            "rank": 2
+            "rank": 3
           },
           {
             "cause_id": "disorder:water_stress",
@@ -488,11 +513,33 @@
               "symptom:leaf_tip_margin_necrosis"
             ],
             "distinguishing_checks": [
-              "Check lesion margin shape (wavy vs no lesions)",
-              "Inspect whether lowest leaves chlorose first",
-              "Perform cut-leaf streaming test in clear water"
+              "Check for longitudinal inward leaf rolling/folding",
+              "Observe whether leaves unroll within 24 hours after rewatering",
+              "Inspect soil moisture and bund condition"
             ],
-            "rank": 3
+            "rank": 4
+          },
+          {
+            "cause_id": "disease:brown_spot",
+            "display_name": "Brown spot",
+            "cause_type": "pathogen",
+            "score": 3,
+            "confidence_band": "medium",
+            "supporting_observations": [
+              "symptom:leaf_yellowing",
+              "stage:tillering"
+            ],
+            "contradicting_observations": [],
+            "missing_distinguishing_observations": [
+              "symptom:oval_brown_spots",
+              "symptom:yellow_halo_around_brown_spot"
+            ],
+            "distinguishing_checks": [
+              "Check lesion shape: small, circular to oval dark brown spots resembling sesame seeds",
+              "Check for prominent yellow halo around dark brown spots",
+              "Assess soil fertility (potassium/silicon deficiency, poor sandy/acid soils)"
+            ],
+            "rank": 5
           }
         ],
         "recommended_actions": [
@@ -531,12 +578,12 @@
             ]
           },
           {
-            "claim_id": "claim:claim_ndef_001",
+            "claim_id": "claim:claim_blast_001",
             "source_id": "source:irri_rice_doctor_2024",
-            "source_section": "Nutrient Disorders",
+            "source_section": "Symptoms",
             "kg_nodes": [
-              "disorder:nitrogen_deficiency",
-              "symptom:uniform_older_leaf_chlorosis"
+              "disease:rice_blast",
+              "symptom:spindle_shaped_lesion"
             ]
           }
         ],

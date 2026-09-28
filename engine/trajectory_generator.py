@@ -1,7 +1,12 @@
 """
-Rice Pathogen SALM — Synthetic Teacher Trajectory Generator (Step 17 / Phase 8.1)
+Rice Pathogen SALM — Synthetic Teacher Trajectory Generator (Step 17 / Phase 8.1 / Step 22 Expansion)
 Synthesizes high-diversity, expert-grounded multi-turn SFT training trajectories
-using the Baseline 0 Diagnostic Engine as an automated teacher.
+using the Baseline 0 Diagnostic Engine as an automated teacher across 5 rice conditions:
+  1. Bacterial Leaf Blight (disease:bacterial_leaf_blight)
+  2. Nitrogen Deficiency (disorder:nitrogen_deficiency)
+  3. Water-Related Stress (disorder:water_stress)
+  4. Rice Blast (disease:rice_blast)
+  5. Brown Spot (disease:brown_spot)
 """
 
 import json
@@ -16,7 +21,7 @@ SYSTEM_PROMPT = """You are the Rice Pathogen Small Agriculture Language Model (S
 Your operational rules:
 1. Ground all reasoning in the canonical Rice Knowledge Graph and Three-Valued Logic (3VL: TRUE, FALSE, UNKNOWN).
 2. For under-specified queries, ask high-utility clarifying questions rather than prematurely guessing.
-3. For look-alike conditions (e.g. Bacterial Leaf Blight vs Nitrogen Deficiency vs Water Stress), evaluate confounding causes and provide distinguishing checks.
+3. For look-alike conditions (e.g. Bacterial Leaf Blight vs Nitrogen Deficiency vs Water Stress vs Rice Blast vs Brown Spot), evaluate confounding causes and provide distinguishing checks.
 4. Enforce principle-level cultural management advice. NEVER recommend commercial chemical brand names or volumetric pesticide dosages.
 5. If catastrophic symptoms or out-of-distribution conditions appear, escalate immediately to human plant pathology extension officers.
 6. Always explain your reasoning step-by-step inside a <thought>...</thought> block, followed by the exact structured JSON response schema."""
@@ -27,7 +32,7 @@ class TrajectoryGenerator:
         self.engine = DiagnosticEngine(workspace_root)
         self.verifier = VerificationEngine(workspace_root)
         
-        # Dialect Phrasings & Colloquial Templates
+        # 1. Bacterial Leaf Blight Templates
         self.blb_phrasings = [
             "The leaves have water-soaked wavy lesions starting from the tips and margins.",
             "I noticed wavy yellowish-orange stripes along the leaf edges after heavy rains.",
@@ -41,6 +46,7 @@ class TrajectoryGenerator:
             "Yellowing with distinctive wavy edges spreading from leaf tips across several vegetative tillers."
         ]
         
+        # 2. Nitrogen Deficiency Templates
         self.ndef_phrasings = [
             "The lower bottom leaves are uniformly yellowing, but upper leaves remain pale green.",
             "The entire field looks pale yellow, starting from the oldest bottom leaves with stunted tillering.",
@@ -54,6 +60,7 @@ class TrajectoryGenerator:
             "Lower leaves drying up uniformly from tip backwards; upper new leaves still pale green."
         ]
         
+        # 3. Water Stress Templates
         self.wstress_phrasings = [
             "Rice leaves are rolling inward like tubes and wilting in the high elevated corners of the field.",
             "Leaves are curled inward lengthwise and drooping due to lack of irrigation water.",
@@ -67,6 +74,35 @@ class TrajectoryGenerator:
             "Inward leaf rolling and drooping across unirrigated sections of the paddy."
         ]
         
+        # 4. Rice Blast Templates (New)
+        self.blast_phrasings = [
+            "The leaves have diamond spindle-shaped lesions with grey or whitish centers and reddish-brown margins.",
+            "I noticed spindle-shaped spots with ash-grey centers on upper leaves after several cool, foggy nights.",
+            "Diamond-shaped lesions spreading across leaf blades with brown borders during vegetative tillering.",
+            "Grey spore felt visible on the underside of spindle lesions during early morning dewy hours.",
+            "Lesions shaped like eyes or spindles with dark brown edges and greyish center on the leaf surface.",
+            "There is purplish brown rot at the leaf collar junction where blade meets sheath in several patches.",
+            "Spindle-shaped elliptical spots appeared after heavy split of nitrogen fertilizer during foggy weather.",
+            "Foliage has diamond lesions that coalesce and cause partial leaf blighting in focal hotspots.",
+            "Elliptical spots with pointy ends, gray centers, and brown borders on upper leaves.",
+            "Leaves show classic spindle-shaped blast spots with grey centers after prolonged dew periods."
+        ]
+        
+        # 5. Brown Spot Templates (New)
+        self.bspot_phrasings = [
+            "Numerous small circular to oval dark brown spots resembling sesame seeds with yellow halos on leaf blades.",
+            "Small round brown spots scattered uniformly across leaves in our unfertilized sandy field.",
+            "Leaves are covered with small oval brown spots with distinct yellowish rings around each speck.",
+            "Dark brown sesame-like spots all over the rice foliage; soil is poor and lacking fertilizer.",
+            "Oval brown spots with prominent yellow halos on seedlings grown from farm-saved seed.",
+            "Uniform brown spotting across all tillers on nutrient-deficient, sandy soil.",
+            "Small circular brown lesions with light yellow margins spreading across older and younger leaves.",
+            "Brown specks resembling sesame seeds on leaf blades without any water-soaked wavy borders.",
+            "Leaves have numerous small dark spots surrounded by chlorotic yellow halos in degraded soil.",
+            "Dark brown oval lesions with bright yellow halos across entire field plots lacking potassium."
+        ]
+        
+        # 6. Ambiguous / Under-specified Templates
         self.ambiguous_phrasings = [
             "My rice leaves are turning yellow.",
             "Some plants in my field have yellowish leaves during tillering.",
@@ -77,21 +113,25 @@ class TrajectoryGenerator:
             "Several tillers have pale yellow leaves.",
             "The rice plants look unhealthy and leaves are yellow.",
             "I see yellow patches in my paddy field.",
-            "Foliage is losing green color and turning pale yellow."
+            "Foliage is losing green color and turning pale yellow.",
+            "There are some spots and yellowing on the rice foliage.",
+            "Leaves look discolored after rain and cool nights."
         ]
         
+        # 7. Escalation Templates
         self.escalation_phrasings = [
             "Panicles are rotting with severe black grain discoloration and complete head blight across all fields.",
             "Catastrophic sudden wilting and total death of all seedlings within 24 hours across entire nursery.",
             "Uncontrollable rapid spread of black rotting panicles with complete grain loss across 10 hectares.",
             "Entire nursery bed collapsed overnight with complete systemic rotting and foul smell.",
-            "Panicles completely blackened and rotting with rapid district-wide collapse of the crop."
+            "Panicles completely blackened and rotting with rapid district-wide collapse of the crop.",
+            "Panicle neck nodes are blackened and rotting, snapping off and causing complete empty whiteheads across the field."
         ]
         
         self.growth_stages = ["seedling", "tillering", "heading", "flowering", "ripening"]
-        self.weather_conditions = ["heavy_rainfall", "high_humidity", "standing_water", "drought", "prolonged_dry_spell", "flooded", "normal_weather"]
+        self.weather_conditions = ["heavy_rainfall", "high_humidity", "standing_water", "drought", "prolonged_dry_spell", "cool_foggy", "dewy_mornings", "normal_weather"]
         self.water_conditions = ["flooded", "standing_water", "normal_irrigation", "drained", "dry_soil", "severe_drought"]
-        self.field_distributions = ["patchy_distribution", "uniform_fieldwide_distribution", "elevation_dependent_distribution"]
+        self.field_distributions = ["patchy_distribution", "uniform_fieldwide_distribution", "focal_hotspots", "elevation_dependent_distribution"]
         self.varieties = ["local_inbred", "hybrid_rice", "ir64", "swarna", "bpt5204", "unknown"]
 
     def generate_thought_trace(self, utterance: str, context: Dict[str, Any], explicit_obs: List[Dict[str, Any]], res: Dict[str, Any]) -> str:
@@ -115,9 +155,9 @@ class TrajectoryGenerator:
             lines.append("   - CRITICAL SAFETY TRIGGER DETECTED: Emergency pathogen escalation condition triggered.")
             lines.append("   - Action: Suppress standard differential diagnosis and trigger official pathology extension escalation.")
         elif status == "needs_more_information":
-            lines.append("   - Under-specified symptom profile: Missing critical distinguishing parameters (lesion margin, leaf age, water test).")
-            lines.append("   - Candidate Differential retained: Bacterial Leaf Blight, Nitrogen Deficiency, Water-Related Stress.")
-            lines.append(f'   - Question Utility Ranking: Generated {len(res.get("clarifying_questions", []))} clarifying questions to separate candidates.')
+            lines.append("   - Under-specified symptom profile: Missing critical distinguishing parameters (lesion margin, leaf age, lesion shape, water test).")
+            lines.append("   - Candidate Differential retained: Bacterial Leaf Blight, Nitrogen Deficiency, Water-Related Stress, Rice Blast, Brown Spot.")
+            lines.append(f'   - Question Utility Ranking: Generated {len(res.get("observations_needed", []))} clarifying questions to separate candidates.')
         else:
             diff = res.get("differential", [])
             for d in diff:
@@ -127,7 +167,9 @@ class TrajectoryGenerator:
                 lines.append(f'     * Missing Distinguishing: {", ".join(d.get("missing_distinguishing_observations", [])) or "None"}')
         
         lines.append("\n3. SAFETY & PROVENANCE VERIFICATION:")
-        lines.append(f'   - Escalation Required: {res.get("escalation_required", False)}')
+        esc_info = res.get("escalation", {})
+        esc_req = esc_info.get("required", False) if isinstance(esc_info, dict) else False
+        lines.append(f'   - Escalation Required: {esc_req}')
         lines.append("   - Prohibited Chemicals Checked: 0 brand names or dosages prescribed (Strictly principle-level cultural management).")
         lines.append(f'   - Grounding Claims Bound: {len(res.get("grounding", []))} PROV-O claims linked.')
         lines.append("</thought>")
@@ -191,9 +233,38 @@ class TrajectoryGenerator:
             ]
             if "dry" in water or "drought" in weather:
                 explicit_obs.append({"term_id": "sign:recovers_upon_rewatering", "state": "TRUE"})
+
+        elif scenario_type == "blast_positive":
+            utterance = random.choice(self.blast_phrasings)
+            explicit_obs = [
+                {"term_id": "symptom:spindle_shaped_lesion", "state": "TRUE"},
+                {"term_id": "part:leaf", "state": "TRUE"}
+            ]
+            if "cool" in weather or "fog" in weather or "dew" in weather or "humid" in weather:
+                explicit_obs.append({"term_id": "env:cool_night_temperatures", "state": "TRUE"})
+                explicit_obs.append({"term_id": "env:prolonged_dew_periods", "state": "TRUE"})
+            if random.random() < 0.35:
+                explicit_obs.append({"term_id": "sign:gray_spore_felt", "state": "TRUE"})
+            if random.random() < 0.3:
+                explicit_obs.append({"term_id": "field:focal_hotspots", "state": "TRUE"})
+            if random.random() < 0.2:
+                explicit_obs.append({"term_id": "symptom:collar_rot", "state": "TRUE"})
+
+        elif scenario_type == "bspot_positive":
+            utterance = random.choice(self.bspot_phrasings)
+            explicit_obs = [
+                {"term_id": "symptom:oval_brown_spots", "state": "TRUE"},
+                {"term_id": "symptom:yellow_halo_around_brown_spot", "state": "TRUE"},
+                {"term_id": "part:leaf", "state": "TRUE"}
+            ]
+            if random.random() < 0.5:
+                explicit_obs.append({"term_id": "env:nutrient_depleted_poor_soil", "state": "TRUE"})
+            if random.random() < 0.4:
+                explicit_obs.append({"term_id": "field:uniform_fieldwide_distribution", "state": "TRUE"})
                 
         elif scenario_type == "negative_3vl":
-            if random.random() < 0.5:
+            sub_opt = random.choice(["blb_neg", "streaming_neg", "blast_neg", "bspot_neg"])
+            if sub_opt == "blb_neg":
                 utterance = "Leaves are yellow across the whole field, but there are definitely no wavy lesions or water-soaked stripes."
                 explicit_obs = [
                     {"term_id": "symptom:leaf_yellowing", "state": "TRUE"},
@@ -201,25 +272,85 @@ class TrajectoryGenerator:
                     {"term_id": "symptom:water_soaked_wavy_lesion", "state": "FALSE"},
                     {"term_id": "field:uniform_fieldwide_distribution", "state": "TRUE"}
                 ]
-            else:
+            elif sub_opt == "streaming_neg":
                 utterance = "Leaf tips are turning brown and drying, but when I did the cut leaf water test, the water remained completely clear with no cloudy streaming."
                 explicit_obs = [
                     {"term_id": "symptom:leaf_yellowing", "state": "TRUE"},
                     {"term_id": "sign:water_test_cloudy_streaming", "state": "FALSE"},
                     {"term_id": "symptom:leaf_rolling_folding", "state": "TRUE"}
                 ]
+            elif sub_opt == "blast_neg":
+                utterance = "Spots on leaf blades, but they are circular sesame dots with halos and definitely not diamond or spindle shaped."
+                explicit_obs = [
+                    {"term_id": "symptom:spindle_shaped_lesion", "state": "FALSE"},
+                    {"term_id": "symptom:oval_brown_spots", "state": "TRUE"}
+                ]
+            else:
+                utterance = "Leaf lesions are diamond spindle shaped with gray center, not small oval sesame spots."
+                explicit_obs = [
+                    {"term_id": "symptom:oval_brown_spots", "state": "FALSE"},
+                    {"term_id": "symptom:spindle_shaped_lesion", "state": "TRUE"}
+                ]
                 
         elif scenario_type == "escalation":
             utterance = random.choice(self.escalation_phrasings)
-            explicit_obs = [
-                {"term_id": "symptom:leaf_tip_margin_necrosis", "state": "TRUE"}
-            ]
+            if "panicle" in utterance.lower() or "neck" in utterance.lower():
+                explicit_obs = [
+                    {"term_id": "symptom:neck_rot_blackened_node", "state": "TRUE"}
+                ]
+            else:
+                explicit_obs = [
+                    {"term_id": "symptom:leaf_tip_margin_necrosis", "state": "TRUE"}
+                ]
             context["water_condition"] = "flooded"
             context["weather"] = "cyclone_storm"
             
         elif scenario_type == "multiturn":
-            turn1_user = "The rice leaves in my paddy are turning yellow."
-            turn1_obs = [{"term_id": "symptom:leaf_yellowing", "state": "TRUE"}]
+            path = random.choice(["blb", "ndef", "wstress", "blast", "bspot"])
+            if path == "blb":
+                turn1_user = "The rice leaves in my paddy are turning yellow in patches after rain."
+                turn1_obs = [{"term_id": "symptom:leaf_yellowing", "state": "TRUE"}]
+                turn2_user = "I checked the leaves: the lesions have irregular wavy, water-soaked edges on the top leaf blades."
+                turn2_obs = [
+                    {"term_id": "symptom:leaf_yellowing", "state": "TRUE"},
+                    {"term_id": "symptom:water_soaked_wavy_lesion", "state": "TRUE"},
+                    {"term_id": "field:patchy_distribution", "state": "TRUE"}
+                ]
+            elif path == "ndef":
+                turn1_user = "Our rice crop looks yellowish and tillers seem weak across the whole field."
+                turn1_obs = [{"term_id": "symptom:leaf_yellowing", "state": "TRUE"}]
+                turn2_user = "I inspected leaf age: strictly the lowest, oldest leaves are pale yellow and dying, while upper leaves stay pale green."
+                turn2_obs = [
+                    {"term_id": "symptom:leaf_yellowing", "state": "TRUE"},
+                    {"term_id": "symptom:uniform_older_leaf_chlorosis", "state": "TRUE"},
+                    {"term_id": "field:uniform_fieldwide_distribution", "state": "TRUE"}
+                ]
+            elif path == "wstress":
+                turn1_user = "Rice leaf blades are rolling and tips look dry in the upland area."
+                turn1_obs = [{"term_id": "symptom:leaf_rolling_folding", "state": "TRUE"}]
+                turn2_user = "After running canal water to irrigate yesterday evening, the rolled leaves uncurled and recovered overnight."
+                turn2_obs = [
+                    {"term_id": "symptom:leaf_rolling_folding", "state": "TRUE"},
+                    {"term_id": "symptom:recovers_upon_rewatering", "state": "TRUE"}
+                ]
+            elif path == "blast":
+                turn1_user = "There are brown spots appearing on the leaves during foggy morning weather."
+                turn1_obs = [{"term_id": "symptom:leaf_yellowing", "state": "TRUE"}]
+                turn2_user = "Looking closely, the spots are diamond and spindle-shaped with ash-gray centers and reddish-brown borders."
+                turn2_obs = [
+                    {"term_id": "symptom:spindle_shaped_lesion", "state": "TRUE"},
+                    {"term_id": "env:cool_night_temperatures", "state": "TRUE"}
+                ]
+            else: # bspot
+                turn1_user = "I noticed small speckled spots on the leaves across our unfertilized sandy field."
+                turn1_obs = [{"term_id": "symptom:leaf_yellowing", "state": "TRUE"}]
+                turn2_user = "The spots are small, circular to oval like sesame seeds, with prominent yellow halos around each brown spot."
+                turn2_obs = [
+                    {"term_id": "symptom:oval_brown_spots", "state": "TRUE"},
+                    {"term_id": "symptom:yellow_halo_around_brown_spot", "state": "TRUE"},
+                    {"term_id": "env:nutrient_depleted_poor_soil", "state": "TRUE"}
+                ]
+
             turn1_res = self.engine.diagnose(turn1_user, context, turn1_obs)
             turn1_thought = self.generate_thought_trace(turn1_user, context, turn1_obs, turn1_res)
             
@@ -227,12 +358,6 @@ class TrajectoryGenerator:
             messages.append({"role": "user", "content": f"Context: {json.dumps(context)}\n\nFarmer Query: {turn1_user}"})
             messages.append({"role": "assistant", "content": f"{turn1_thought}\n\n```json\n{json.dumps(turn1_res, indent=2)}\n```"})
             
-            turn2_user = "I checked the leaves: the lesions have irregular wavy, water-soaked edges on the top leaf blades."
-            turn2_obs = [
-                {"term_id": "symptom:leaf_yellowing", "state": "TRUE"},
-                {"term_id": "symptom:water_soaked_wavy_lesion", "state": "TRUE"},
-                {"term_id": "field:patchy_distribution", "state": "TRUE"}
-            ]
             turn2_res = self.engine.diagnose(turn2_user, context, turn2_obs)
             turn2_thought = self.generate_thought_trace(turn2_user, context, turn2_obs, turn2_res)
             

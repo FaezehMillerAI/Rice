@@ -168,3 +168,99 @@ claim:claim_ndef_001 a rice:EvidenceClaim ;
 claim:claim_wstress_001 a rice:EvidenceClaim ;
     skos:prefLabel "Water stress causes inward leaf rolling and wilting without lesions"@en ;
     prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# Disease 4: Rice Blast
+disease:rice_blast a rice:Disease ;
+    skos:prefLabel "Rice blast"@en ;
+    skos:altLabel "Leaf blast"@en , "Neck blast"@en , "Collar rot"@en ;
+    rice:causedBy pathogen:magnaporthe_oryzae ;
+    rice:presentsAs symptom:spindle_shaped_lesion , symptom:neck_rot_blackened_node , symptom:collar_rot , symptom:leaf_yellowing ;
+    rice:hasSign sign:gray_spore_felt ;
+    rice:affectsPlantPart part:leaf , part:panicle_neck , part:collar ;
+    rice:favoredBy env:prolonged_dew_periods , env:cool_night_temperatures , env:excess_nitrogen_application , env:high_humidity ;
+    rice:occursAtStage stage:tillering , stage:heading ;
+    rice:hasFieldDistribution field:focal_hotspots ;
+    rice:resembles disease:brown_spot , disease:bacterial_leaf_blight ;
+    rice:managedBy action:use_blast_resistant_varieties , action:avoid_excess_nitrogen , action:maintain_proper_water_depth ;
+    rice:escalateWhen action:escalate_panicle_neck_blast ;
+    rice:supportedBy claim:claim_blast_001 , claim:claim_blast_002 , claim:claim_blast_003 .
+
+pathogen:magnaporthe_oryzae a rice:Pathogen ;
+    skos:prefLabel "Magnaporthe oryzae"@en ;
+    skos:altLabel "Pyricularia oryzae"@en .
+
+# Disease 5: Brown Spot
+disease:brown_spot a rice:Disease ;
+    skos:prefLabel "Brown spot"@en ;
+    skos:altLabel "Sesame spot"@en , "Helminthosporium leaf spot"@en ;
+    rice:causedBy pathogen:bipolaris_oryzae ;
+    rice:presentsAs symptom:oval_brown_spots , symptom:yellow_halo_around_brown_spot , symptom:leaf_yellowing ;
+    rice:affectsPlantPart part:leaf , part:grain_glumes ;
+    rice:favoredBy env:nutrient_depleted_poor_soil , env:high_humidity ;
+    rice:occursAtStage stage:tillering , stage:heading ;
+    rice:hasFieldDistribution field:uniform_fieldwide_distribution ;
+    rice:resembles disease:rice_blast , disorder:nitrogen_deficiency , disease:bacterial_leaf_blight ;
+    rice:managedBy action:improve_soil_fertility , action:certified_clean_treated_seed , action:regular_irrigation_avoid_water_stress ;
+    rice:escalateWhen action:escalate_seedling_mortality_severe_spotting ;
+    rice:supportedBy claim:claim_bspot_001 , claim:claim_bspot_002 .
+
+pathogen:bipolaris_oryzae a rice:Pathogen ;
+    skos:prefLabel "Bipolaris oryzae"@en ;
+    skos:altLabel "Cochliobolus miyabeanus"@en .
+
+# Additional Diagnostic Contrasts
+contrast:blast_vs_brown_spot a rice:DiagnosticContrast ;
+    skos:prefLabel "Blast vs Brown Spot Contrast"@en ;
+    rice:compares disease:rice_blast , disease:brown_spot ;
+    rice:differentiatedBy obs:lesion_shape_center_color , obs:spot_size_uniformity , obs:neck_node_blackening ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+contrast:blb_vs_blast a rice:DiagnosticContrast ;
+    skos:prefLabel "BLB vs Blast Contrast"@en ;
+    rice:compares disease:bacterial_leaf_blight , disease:rice_blast ;
+    rice:differentiatedBy obs:lesion_margin_shape , obs:lesion_shape_center_color , obs:bacterial_ooze_test ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+contrast:brown_spot_vs_nitrogen_deficiency a rice:DiagnosticContrast ;
+    skos:prefLabel "Brown Spot vs Nitrogen Deficiency Contrast"@en ;
+    rice:compares disease:brown_spot , disorder:nitrogen_deficiency ;
+    rice:differentiatedBy obs:spot_size_uniformity , obs:leaf_age_progression ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+# Additional Diagnostic Questions
+q:q_blast_spindle_lesion a rice:DiagnosticQuestion ;
+    skos:prefLabel "Blast Spindle Lesion Check"@en ;
+    rdfs:comment "Are the spots diamond- or spindle-shaped with gray/whitish centers and reddish-brown borders?"@en ;
+    rice:observesParameter obs:lesion_shape_center_color .
+
+q:q_brown_spot_shape a rice:DiagnosticQuestion ;
+    skos:prefLabel "Brown Spot Shape Check"@en ;
+    rdfs:comment "Are the leaf spots small and circular to oval resembling brown sesame seeds with yellow halos?"@en ;
+    rice:observesParameter obs:spot_size_uniformity .
+
+q:q_neck_rot a rice:DiagnosticQuestion ;
+    skos:prefLabel "Panicle Neck Rot Check"@en ;
+    rdfs:comment "Is the panicle stem or neck blackened causing the head to break or remain empty white?"@en ;
+    rice:observesParameter obs:neck_node_blackening .
+
+# Additional Provenance Claims
+claim:claim_blast_001 a rice:EvidenceClaim ;
+    skos:prefLabel "Blast lesions on leaves are diamond-shaped with gray centers and brown margins"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+claim:claim_blast_002 a rice:EvidenceClaim ;
+    skos:prefLabel "Neck blast attacks the panicle node causing rotting and breakage"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+claim:claim_blast_003 a rice:EvidenceClaim ;
+    skos:prefLabel "Blast is favored by prolonged dew periods and high nitrogen fertilizer levels"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+claim:claim_bspot_001 a rice:EvidenceClaim ;
+    skos:prefLabel "Brown spot produces oval spots resembling sesame seeds with yellow halos"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+claim:claim_bspot_002 a rice:EvidenceClaim ;
+    skos:prefLabel "Brown spot severity correlates with poor nutrient-deficient soils"@en ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+

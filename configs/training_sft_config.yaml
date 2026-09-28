@@ -64,5 +64,5 @@ logging:
 dataset:
   train_data_path: "data/sft_train_trajectories.jsonl"
   val_data_path: "data/sft_val_trajectories.jsonl"
-  test_benchmark_path: "data/gold_eval_v0.1.jsonl"
+  test_benchmark_path: "data/gold_eval_v0.2.jsonl"
   prompt_template_format: "chatml"     # ChatML format: <|im_start|>system...<|im_end|>

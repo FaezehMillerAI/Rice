@@ -36,7 +36,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Evaluate Fine-Tuned SALM Model against Release Gate")
     parser.add_argument("--base_model", type=str, default="qwen2.5:1.5b", help="Model identifier")
     parser.add_argument("--lora_adapter", type=str, default="outputs/salm_qwen1.5b_sft", help="Path to LoRA adapter")
-    parser.add_argument("--benchmark_file", type=str, default="data/gold_eval_v0.1.jsonl", help="Gold benchmark JSONL path")
+    default_bench = "data/gold_eval_v0.2.jsonl" if os.path.exists("data/gold_eval_v0.2.jsonl") else "data/gold_eval_v0.1.jsonl"
+    parser.add_argument("--benchmark_file", type=str, default=default_bench, help="Gold benchmark JSONL path")
     parser.add_argument("--output_report", type=str, default="data/step19_sft_eval_report.json", help="Path to save audit report")
     parser.add_argument("--mode", type=str, choices=["ollama", "mock_sft", "auto"], default="auto", help="Evaluation inference mode")
     parser.add_argument("--enforce_gate", action="store_true", help="Exit with code 1 if release gate fails")

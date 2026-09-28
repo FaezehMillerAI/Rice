@@ -120,3 +120,40 @@ q:q_field_spatial_pattern a rice:DiagnosticQuestion ;
     rice:reliabilityScore 4 ;
     rice:defaultPriority 2 ;
     prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+q:q_blast_spindle_lesion a rice:DiagnosticQuestion ;
+    skos:prefLabel "Blast Spindle Lesion Check"@en ;
+    skos:definition "Are there visible diamond- or spindle-shaped lesions with gray or whitish centers and reddish-brown borders?"@en ;
+    skos:hiddenLabel "Do the spots look like diamonds or eyes, wider in the middle with a gray or white center and red-brown edge?" ;
+    rice:observesParameter obs:lesion_shape_center_color ;
+    rice:questionRationale "Definitive morphological feature separating Rice Blast from Brown Spot and BLB."@en ;
+    rice:userEffortScore 1 ;
+    rice:observabilityScore 5 ;
+    rice:reliabilityScore 5 ;
+    rice:defaultPriority 1 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+q:q_brown_spot_shape a rice:DiagnosticQuestion ;
+    skos:prefLabel "Brown Spot Shape Check"@en ;
+    skos:definition "Are the leaf spots small and circular to oval, resembling dark brown sesame seeds with a yellow halo?"@en ;
+    skos:hiddenLabel "Are the spots small, round or oval like brown sesame seeds with a yellow ring around them?" ;
+    rice:observesParameter obs:spot_size_uniformity ;
+    rice:questionRationale "Identifies Brown Spot (Bipolaris oryzae) and distinguishes it from Rice Blast and nutrient deficiency."@en ;
+    rice:userEffortScore 1 ;
+    rice:observabilityScore 5 ;
+    rice:reliabilityScore 5 ;
+    rice:defaultPriority 1 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+
+q:q_neck_rot a rice:DiagnosticQuestion ;
+    skos:prefLabel "Panicle Neck Rot Check"@en ;
+    skos:definition "Is the panicle stem or neck blackened and rotted, causing the entire head to break over or stay empty and bleached (whiteheads)?"@en ;
+    skos:hiddenLabel "Is the stem just below the grain head turned black or broken, with empty white heads?" ;
+    rice:observesParameter obs:neck_node_blackening ;
+    rice:questionRationale "Definitive symptom of panicle/neck blast (Magnaporthe oryzae), requiring emergency expert escalation."@en ;
+    rice:userEffortScore 1 ;
+    rice:observabilityScore 5 ;
+    rice:reliabilityScore 5 ;
+    rice:defaultPriority 1 ;
+    prov:wasDerivedFrom source:irri_rice_doctor_2024 .
+

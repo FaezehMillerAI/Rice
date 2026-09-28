@@ -14,3 +14,18 @@ disorder:nitrogen_deficiency,sign:water_test_cloudy_streaming,Contradicting,stat
 disorder:water_stress,symptom:leaf_rolling_folding,Supporting,state:TRUE,Inward leaf rolling is a classic physiological drought avoidance mechanism.
 disorder:water_stress,sign:recovers_upon_rewatering,Supporting,state:TRUE,Symptom reversal within 24h of watering confirms moisture stress.
 disorder:water_stress,symptom:water_soaked_wavy_lesion,Contradicting,state:TRUE,Presence of wavy lesions indicates bacterial pathogen infection not moisture deficit.
+disease:rice_blast,symptom:spindle_shaped_lesion,Supporting,state:TRUE,Diamond or spindle shaped lesions with gray centers are pathognomonic for leaf blast.
+disease:rice_blast,symptom:neck_rot_blackened_node,Supporting,state:TRUE,Blackened rotted panicle neck confirms panicle/neck blast.
+disease:rice_blast,sign:gray_spore_felt,Supporting,state:TRUE,Velvety gray fungal spore mass in lesion centers confirms Magnaporthe infection.
+disease:rice_blast,env:prolonged_dew_periods,Supporting,state:TRUE,Prolonged dew and leaf wetness strongly favor blast sporulation.
+disease:rice_blast,sign:water_test_cloudy_streaming,Contradicting,state:TRUE,Bacterial streaming in water test rules out fungal blast.
+disease:rice_blast,symptom:water_soaked_wavy_lesion,Contradicting,state:TRUE,Wavy marginal stripes indicate bacterial leaf blight not blast spindles.
+disease:rice_blast,symptom:spindle_shaped_lesion,Contradicting,state:FALSE,Explicit absence of spindle-shaped lesions rules out classic leaf blast.
+disease:brown_spot,symptom:oval_brown_spots,Supporting,state:TRUE,Small circular to oval dark brown spots resembling sesame seeds indicate brown spot.
+disease:brown_spot,symptom:yellow_halo_around_brown_spot,Supporting,state:TRUE,Yellow chlorotic halo encircling brown spots is characteristic of Bipolaris oryzae.
+disease:brown_spot,env:nutrient_depleted_poor_soil,Supporting,state:TRUE,Poor nutrient-deficient or potassium-depleted soils strongly favor brown spot.
+disease:brown_spot,sign:water_test_cloudy_streaming,Contradicting,state:TRUE,Bacterial streaming confirms vascular bacteria not fungal brown spot.
+disease:brown_spot,symptom:spindle_shaped_lesion,Contradicting,state:TRUE,Spindle-shaped lesions with gray centers indicate blast not brown spot.
+disease:brown_spot,symptom:neck_rot_blackened_node,Contradicting,state:TRUE,Blackened broken panicle necks indicate neck blast not brown spot.
+disease:brown_spot,symptom:oval_brown_spots,Contradicting,state:FALSE,Explicit absence of oval brown spots rules out brown spot.
+

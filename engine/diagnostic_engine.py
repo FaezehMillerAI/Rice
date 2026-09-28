@@ -129,6 +129,20 @@ class DiagnosticEngine:
             obs_state_map["env:heavy_rainfall"] = "TRUE"
         if any(k in text_lower for k in ["unroll", "recover", "reversed"]) and "symptom:recovers_upon_rewatering" not in obs_state_map:
             obs_state_map["symptom:recovers_upon_rewatering"] = "TRUE"
+        if any(k in text_lower for k in ["spindle", "diamond", "eye-shaped", "elliptic", "gray center", "white center"]) and "symptom:spindle_shaped_lesion" not in obs_state_map:
+            obs_state_map["symptom:spindle_shaped_lesion"] = "TRUE"
+        if any(k in text_lower for k in ["neck rot", "broken neck", "panicle neck", "black neck", "panicle stem black", "whiteheads"]) and "symptom:neck_rot_blackened_node" not in obs_state_map:
+            obs_state_map["symptom:neck_rot_blackened_node"] = "TRUE"
+        if any(k in text_lower for k in ["gray spore", "velvety fuzz", "gray mold", "ash colored mold"]) and "sign:gray_spore_felt" not in obs_state_map:
+            obs_state_map["sign:gray_spore_felt"] = "TRUE"
+        if any(k in text_lower for k in ["sesame", "oval brown", "round brown", "brown dots", "pepper spots"]) and "symptom:oval_brown_spots" not in obs_state_map:
+            obs_state_map["symptom:oval_brown_spots"] = "TRUE"
+        if any(k in text_lower for k in ["yellow halo", "yellow ring around spot", "yellow border around brown"]) and "symptom:yellow_halo_around_brown_spot" not in obs_state_map:
+            obs_state_map["symptom:yellow_halo_around_brown_spot"] = "TRUE"
+        if any(k in text_lower for k in ["dew", "fog", "misty night", "leaf wetness"]) and "env:prolonged_dew_periods" not in obs_state_map:
+            obs_state_map["env:prolonged_dew_periods"] = "TRUE"
+        if any(k in text_lower for k in ["poor soil", "infertile", "potassium deficient", "low fertility"]) and "env:nutrient_depleted_poor_soil" not in obs_state_map:
+            obs_state_map["env:nutrient_depleted_poor_soil"] = "TRUE"
 
         # Check negative assertions
         if re.search(r"\b(?:no|without|zero)\s+(?:wavy\s+)?lesions\b", text_lower) or "no lesions" in text_lower or "zero lesions" in text_lower:
@@ -141,6 +155,12 @@ class DiagnosticEngine:
             obs_state_map["sign:bacterial_ooze_beads"] = "FALSE"
         if "no leaf rolling" in text_lower:
             obs_state_map["symptom:leaf_rolling_folding"] = "FALSE"
+        if "no spindle" in text_lower or "no diamond" in text_lower or "no gray center" in text_lower:
+            obs_state_map["symptom:spindle_shaped_lesion"] = "FALSE"
+        if "no neck rot" in text_lower or "panicle neck healthy" in text_lower or "panicle healthy" in text_lower:
+            obs_state_map["symptom:neck_rot_blackened_node"] = "FALSE"
+        if "no oval spots" in text_lower or "no sesame spots" in text_lower:
+            obs_state_map["symptom:oval_brown_spots"] = "FALSE"
 
         return obs_state_map
 
@@ -150,7 +170,7 @@ class DiagnosticEngine:
 
         if any(k in text_lower for k in ["rapid uncontained", "spreading across entire", "collapsing", "uncontrollable", "destroying"]):
             triggers.append("trigger:rapid_uncontrolled_spread")
-        if any(k in text_lower for k in ["panicle", "black grain", "head blight", "foul odor", "rotting"]):
+        if any(k in text_lower for k in ["panicle", "black grain", "head blight", "foul odor", "rotting", "neck rot", "broken neck", "whiteheads"]) or obs_state_map.get("symptom:neck_rot_blackened_node") == "TRUE":
             triggers.append("trigger:panicle_infection")
         if any(k in text_lower for k in ["seedling death", "kresek wilt", "nursery"]):
             triggers.append("trigger:seedling_mortality")
@@ -169,7 +189,7 @@ class DiagnosticEngine:
                 "env": ["env:high_humidity", "env:heavy_rainfall", "env:standing_water"],
                 "stages": ["stage:tillering", "stage:heading"],
                 "field": ["field:patchy_distribution"],
-                "contradicting_symptoms": ["symptom:uniform_older_leaf_chlorosis", "symptom:leaf_rolling_folding"],
+                "contradicting_symptoms": ["symptom:uniform_older_leaf_chlorosis", "symptom:leaf_rolling_folding", "symptom:spindle_shaped_lesion", "symptom:oval_brown_spots"],
                 "contradicting_field": ["field:uniform_fieldwide_distribution"],
                 "required_absent_penalties": ["symptom:water_soaked_wavy_lesion", "sign:water_test_cloudy_streaming"]
             },
@@ -181,8 +201,8 @@ class DiagnosticEngine:
                 "env": [],
                 "stages": ["stage:tillering"],
                 "field": ["field:uniform_fieldwide_distribution"],
-                "contradicting_symptoms": ["symptom:water_soaked_wavy_lesion"],
-                "contradicting_signs": ["sign:bacterial_ooze_beads", "sign:water_test_cloudy_streaming"],
+                "contradicting_symptoms": ["symptom:water_soaked_wavy_lesion", "symptom:spindle_shaped_lesion", "symptom:neck_rot_blackened_node"],
+                "contradicting_signs": ["sign:bacterial_ooze_beads", "sign:water_test_cloudy_streaming", "sign:gray_spore_felt"],
                 "required_absent_penalties": ["symptom:uniform_older_leaf_chlorosis"]
             },
             "disorder:water_stress": {
@@ -193,11 +213,36 @@ class DiagnosticEngine:
                 "env": ["env:drought_conditions"],
                 "stages": ["stage:tillering", "stage:heading"],
                 "field": ["field:topography_elevation_dependent"],
-                "contradicting_symptoms": ["symptom:water_soaked_wavy_lesion", "symptom:uniform_older_leaf_chlorosis"],
-                "contradicting_signs": ["sign:bacterial_ooze_beads", "sign:water_test_cloudy_streaming"],
+                "contradicting_symptoms": ["symptom:water_soaked_wavy_lesion", "symptom:uniform_older_leaf_chlorosis", "symptom:spindle_shaped_lesion", "symptom:oval_brown_spots"],
+                "contradicting_signs": ["sign:bacterial_ooze_beads", "sign:water_test_cloudy_streaming", "sign:gray_spore_felt"],
                 "required_absent_penalties": ["symptom:leaf_rolling_folding"]
+            },
+            "disease:rice_blast": {
+                "name": "Rice blast",
+                "type": "pathogen",
+                "signs": ["sign:gray_spore_felt"],
+                "symptoms": ["symptom:spindle_shaped_lesion", "symptom:neck_rot_blackened_node", "symptom:collar_rot", "symptom:leaf_yellowing"],
+                "env": ["env:prolonged_dew_periods", "env:cool_night_temperatures", "env:excess_nitrogen_application", "env:high_humidity"],
+                "stages": ["stage:tillering", "stage:heading"],
+                "field": ["field:focal_hotspots", "field:patchy_distribution"],
+                "contradicting_symptoms": ["symptom:water_soaked_wavy_lesion", "symptom:uniform_older_leaf_chlorosis", "symptom:leaf_rolling_folding"],
+                "contradicting_signs": ["sign:water_test_cloudy_streaming", "sign:bacterial_ooze_beads"],
+                "required_absent_penalties": ["symptom:spindle_shaped_lesion", "symptom:neck_rot_blackened_node"]
+            },
+            "disease:brown_spot": {
+                "name": "Brown spot",
+                "type": "pathogen",
+                "signs": [],
+                "symptoms": ["symptom:oval_brown_spots", "symptom:yellow_halo_around_brown_spot", "symptom:leaf_yellowing"],
+                "env": ["env:nutrient_depleted_poor_soil", "env:high_humidity"],
+                "stages": ["stage:tillering", "stage:heading"],
+                "field": ["field:uniform_fieldwide_distribution"],
+                "contradicting_symptoms": ["symptom:water_soaked_wavy_lesion", "symptom:spindle_shaped_lesion", "symptom:neck_rot_blackened_node", "symptom:leaf_rolling_folding"],
+                "contradicting_signs": ["sign:water_test_cloudy_streaming", "sign:bacterial_ooze_beads"],
+                "required_absent_penalties": ["symptom:oval_brown_spots"]
             }
         }
+
 
         scored = []
         for cid, prof in candidate_profiles.items():
@@ -274,6 +319,34 @@ class DiagnosticEngine:
             else:
                 conf = "low"
 
+            checks = {
+                "disease:bacterial_leaf_blight": [
+                    "Check lesion margin shape (wavy vs discrete spots)",
+                    "Perform cut-leaf streaming test in clear water",
+                    "Check for bacterial ooze beads on lesions early morning"
+                ],
+                "disorder:nitrogen_deficiency": [
+                    "Inspect whether lowest/oldest leaves chlorose first",
+                    "Verify lack of discrete necrotic lesions",
+                    "Assess whether field symptoms are uniform across the plot"
+                ],
+                "disorder:water_stress": [
+                    "Check for longitudinal inward leaf rolling/folding",
+                    "Observe whether leaves unroll within 24 hours after rewatering",
+                    "Inspect soil moisture and bund condition"
+                ],
+                "disease:rice_blast": [
+                    "Check lesion shape: diamond/spindle-shaped with gray/white center and brown margin",
+                    "Inspect panicle neck and nodes for blackened rot / empty whiteheads",
+                    "Check for gray/olive fungal spore felt in moist morning conditions"
+                ],
+                "disease:brown_spot": [
+                    "Check lesion shape: small, circular to oval dark brown spots resembling sesame seeds",
+                    "Check for prominent yellow halo around dark brown spots",
+                    "Assess soil fertility (potassium/silicon deficiency, poor sandy/acid soils)"
+                ]
+            }
+
             scored.append({
                 "cause_id": cid,
                 "display_name": prof["name"],
@@ -283,11 +356,11 @@ class DiagnosticEngine:
                 "supporting_observations": list(dict.fromkeys(supporting_clean)),
                 "contradicting_observations": list(dict.fromkeys(contradicting)),
                 "missing_distinguishing_observations": list(dict.fromkeys(missing)),
-                "distinguishing_checks": [
+                "distinguishing_checks": checks.get(cid, [
                     "Check lesion margin shape (wavy vs no lesions)",
                     "Inspect whether lowest leaves chlorose first",
                     "Perform cut-leaf streaming test in clear water"
-                ]
+                ])
             })
 
         scored.sort(key=lambda x: x["score"], reverse=True)
@@ -310,7 +383,13 @@ class DiagnosticEngine:
             "symptom:recovers_upon_rewatering": "q:q_rewatering_recovery",
             "obs:field_spatial_pattern": "q:q_field_spatial_pattern",
             "field:patchy_distribution": "q:q_field_spatial_pattern",
-            "field:uniform_fieldwide_distribution": "q:q_field_spatial_pattern"
+            "field:uniform_fieldwide_distribution": "q:q_field_spatial_pattern",
+            "obs:lesion_shape_center_color": "q:q_blast_spindle_lesion",
+            "symptom:spindle_shaped_lesion": "q:q_blast_spindle_lesion",
+            "obs:spot_size_uniformity": "q:q_brown_spot_shape",
+            "symptom:oval_brown_spots": "q:q_brown_spot_shape",
+            "obs:neck_node_blackening": "q:q_neck_rot",
+            "symptom:neck_rot_blackened_node": "q:q_neck_rot"
         }
 
         confirmed = {k for k, v in obs_state_map.items() if v in ["TRUE", "FALSE"]}
@@ -406,6 +485,46 @@ class DiagnosticEngine:
                     "action": "Repair and heighten field bunds to prevent peripheral runoff and retain rainwater.",
                     "action_type": "water_management"
                 }
+            ],
+            "disease:rice_blast": [
+                {
+                    "action_id": "action:use_blast_resistant_varieties",
+                    "priority": 1,
+                    "action": "Select certified blast-resistant cultivars (e.g., harboring Pi-ta, Pi-b, or Pi-z resistance genes) for upcoming planting seasons.",
+                    "action_type": "genetic"
+                },
+                {
+                    "action_id": "action:avoid_excess_nitrogen",
+                    "priority": 2,
+                    "action": "Avoid excessive nitrogen top-dressing; apply split doses with balanced potassium to reduce plant tissue susceptibility.",
+                    "action_type": "cultural"
+                },
+                {
+                    "action_id": "action:maintain_proper_water_depth",
+                    "priority": 3,
+                    "action": "Maintain adequate floodwater depth; avoid letting fields dry out completely during vegetative growth as water stress exacerbates blast susceptibility.",
+                    "action_type": "water_management"
+                }
+            ],
+            "disease:brown_spot": [
+                {
+                    "action_id": "action:improve_soil_fertility",
+                    "priority": 1,
+                    "action": "Apply balanced macro- and micro-nutrients, particularly potassium and silicon, to address nutrient-depleted or toxic soils.",
+                    "action_type": "agronomic"
+                },
+                {
+                    "action_id": "action:certified_clean_treated_seed",
+                    "priority": 2,
+                    "action": "Use clean, certified seeds and perform hot-water seed treatment (52-54°C for 15 mins) before nursery sowing.",
+                    "action_type": "preventive"
+                },
+                {
+                    "action_id": "action:regular_irrigation_avoid_water_stress",
+                    "priority": 3,
+                    "action": "Ensure continuous, moderate irrigation; prevent periodic drought stress which pre-disposes seedlings to Bipolaris infection.",
+                    "action_type": "water_management"
+                }
             ]
         }
         return action_map.get(top_candidate_id, [
@@ -439,7 +558,11 @@ class DiagnosticEngine:
             obs_state_map.get("sign:water_test_cloudy_streaming") in ["TRUE", "FALSE"] or
             obs_state_map.get("sign:bacterial_ooze_beads") in ["TRUE", "FALSE"] or
             obs_state_map.get("symptom:uniform_older_leaf_chlorosis") in ["TRUE", "FALSE"] or
-            obs_state_map.get("symptom:leaf_rolling_folding") in ["TRUE", "FALSE"]
+            obs_state_map.get("symptom:leaf_rolling_folding") in ["TRUE", "FALSE"] or
+            obs_state_map.get("symptom:spindle_shaped_lesion") in ["TRUE", "FALSE"] or
+            obs_state_map.get("symptom:oval_brown_spots") in ["TRUE", "FALSE"] or
+            obs_state_map.get("symptom:neck_rot_blackened_node") in ["TRUE", "FALSE"] or
+            obs_state_map.get("sign:gray_spore_felt") in ["TRUE", "FALSE"]
         )
 
         top_score = candidates[0]["score"] if candidates else 0
@@ -455,6 +578,28 @@ class DiagnosticEngine:
 
         top_cid = candidates[0]["cause_id"] if candidates else "disease:bacterial_leaf_blight"
         actions = self.get_management_actions(top_cid, is_escalated)
+
+        grounding_entries = []
+        for c in candidates[:2]:
+            cid = c["cause_id"]
+            for claim_id, row in self.claims.items():
+                if row.get("subject_uri") == cid:
+                    grounding_entries.append({
+                        "claim_id": claim_id,
+                        "source_id": row.get("source_id", "source:irri_rice_doctor_2024"),
+                        "source_section": row.get("source_section", "Symptoms"),
+                        "kg_nodes": [cid, row.get("object_uri", "")]
+                    })
+                    break
+        if not grounding_entries:
+            grounding_entries = [
+                {
+                    "claim_id": "claim:claim_blb_001",
+                    "source_id": "source:irri_rice_doctor_2024",
+                    "source_section": "Symptoms",
+                    "kg_nodes": ["disease:bacterial_leaf_blight", "symptom:water_soaked_wavy_lesion"]
+                }
+            ]
 
         response = {
             "case_id": context.get("case_id", "case-auto-gen-001"),
@@ -483,20 +628,7 @@ class DiagnosticEngine:
                 "triggers": esc_triggers,
                 "refer_to": refer_to
             },
-            "grounding": [
-                {
-                    "claim_id": "claim:claim_blb_001",
-                    "source_id": "source:irri_rice_doctor_2024",
-                    "source_section": "Symptoms",
-                    "kg_nodes": ["disease:bacterial_leaf_blight", "symptom:water_soaked_wavy_lesion"]
-                },
-                {
-                    "claim_id": "claim:claim_ndef_001",
-                    "source_id": "source:irri_rice_doctor_2024",
-                    "source_section": "Nutrient Disorders",
-                    "kg_nodes": ["disorder:nitrogen_deficiency", "symptom:uniform_older_leaf_chlorosis"]
-                }
-            ],
+            "grounding": grounding_entries,
             "safety_flags": ["PRINCIPLE_ACTIONS_ONLY_NO_CHEMICAL_DOSAGES"]
         }
 

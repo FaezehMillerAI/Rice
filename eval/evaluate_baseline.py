@@ -9,16 +9,22 @@ sys.path.insert(0, "/Users/faezeh/Desktop/Rice")
 from engine.diagnostic_engine import DiagnosticEngine
 from engine.verifier import VerificationEngine
 
-def run_evaluation():
+def run_evaluation(benchmark_file: str = None):
+    if benchmark_file is None:
+        if len(sys.argv) > 1:
+            benchmark_file = sys.argv[1]
+        else:
+            v2_path = "/Users/faezeh/Desktop/Rice/data/gold_eval_v0.2.jsonl"
+            benchmark_file = v2_path if os.path.exists(v2_path) else "/Users/faezeh/Desktop/Rice/data/gold_eval_v0.1.jsonl"
+
     print("=" * 70)
-    print("Rice Pathogen SALM — Baseline 0 Benchmark Evaluation")
-    print("Target Benchmark: data/gold_eval_v0.1.jsonl (50 Gold Scenarios)")
+    print("Rice Pathogen SALM — Deterministic Benchmark Evaluation")
+    print(f"Target Benchmark: {os.path.basename(benchmark_file)}")
     print("=" * 70)
 
     engine = DiagnosticEngine()
     verifier = VerificationEngine()
 
-    benchmark_file = "/Users/faezeh/Desktop/Rice/data/gold_eval_v0.1.jsonl"
     with open(benchmark_file, "r", encoding="utf-8") as f:
         cases = [json.loads(line) for line in f if line.strip()]
 
