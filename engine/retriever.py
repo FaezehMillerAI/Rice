@@ -152,12 +152,18 @@ class KGRetriever:
             evidence_source_ids = ["source:irri_rice_doctor_2024"]
 
         return {
+            # Fei's template keys
             "observations": active_observations,
             "candidates": candidate_ids,
             "missing_checks": missing_checks,
             "graph_context": graph_context,
             "evidence_fact_ids": evidence_fact_ids,
-            "evidence_source_ids": evidence_source_ids
+            "evidence_source_ids": evidence_source_ids,
+            # Srikanth's Excalidraw Section 5 alias keys
+            "normalized_observations": active_observations,
+            "candidate_causes": candidate_ids,
+            "missing_observations": missing_checks,
+            "suggested_questions": missing_checks
         }
 
 # Global singleton helper
