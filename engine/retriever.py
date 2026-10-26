@@ -21,6 +21,15 @@ class KGRetriever:
     def __init__(self, workspace_root: str = WORKSPACE_ROOT):
         self.workspace_root = workspace_root
         self.engine = DiagnosticEngine(workspace_root)
+        self.richard_facts = {}
+        rf_path = os.path.join(workspace_root, "data/scenarios/richard_facts_839.json")
+        if os.path.exists(rf_path):
+            try:
+                import json
+                with open(rf_path, "r", encoding="utf-8") as f:
+                    self.richard_facts = json.load(f)
+            except Exception:
+                self.richard_facts = {}
 
     def extract_case_fields(self, case_info: Union[Dict[str, Any], str]) -> Dict[str, Any]:
         """Extracts normalized user_text and growth_stage from various input formats."""
@@ -136,6 +145,37 @@ class KGRetriever:
         evidence_fact_ids = []
         evidence_source_ids = []
 
+        # First check Richard's 839 real facts
+        if self.richard_facts:
+            # Map candidate IDs to normalized disease keywords
+            candidate_keywords = []
+            for cid in candidate_ids:
+                clean = cid.split(":")[-1].replace("_", " ")
+                candidate_keywords.append(clean)
+
+            # Match facts that correlate with candidate causes and observations
+            for fid, fval in self.richard_facts.items():
+                f_dis = fval.get("disease", "").lower()
+                f_stmt = fval.get("statement", "").lower()
+                f_src = fval.get("source_id", "")
+
+                dis_match = any(kw in f_dis or f_dis in kw for kw in candidate_keywords)
+                if dis_match:
+                    # Check if statement mentions any active observation or key term
+                    obs_match = any(
+                        obs.split(":")[-1].replace("_", " ") in f_stmt
+                        for obs in active_observations
+                    )
+                    if obs_match or len(evidence_fact_ids) < 4:
+                        if fid not in evidence_fact_ids:
+                            evidence_fact_ids.append(fid)
+                        if f_src and f_src not in evidence_source_ids:
+                            evidence_source_ids.append(f_src)
+
+                if len(evidence_fact_ids) >= 10:
+                    break
+
+        # Fallback / supplement with engine claims
         for claim_id, row in self.engine.claims.items():
             subj = row.get("subject_uri", "")
             obj = row.get("object_uri", "")
@@ -149,7 +189,7 @@ class KGRetriever:
                     evidence_source_ids.append(src)
 
         if not evidence_source_ids:
-            evidence_source_ids = ["source:irri_rice_doctor_2024"]
+            evidence_source_ids = ["SOURCE_001"]
 
         return {
             # Fei's template keys
@@ -202,7 +242,7 @@ def retrieve_kg(
         top_k_questions=top_k_questions
     )
 
-def to_compact_target_response(response: Dict[str, Any]) -> Dict[str, Any]:
+def to_compact_target_response(response: Dict[str, Any], user_response: Optional[str] = None) -> Dict[str, Any]:
     """
     Converts a verbose DiagnosticEngine response into the compact SFT target schema:
     {
@@ -251,27 +291,28 @@ def to_compact_target_response(response: Dict[str, Any]) -> Dict[str, Any]:
     safety_flags = response.get("safety_flags", [])
 
     # Synthesize conversational user_response for farmers/extension officers (Srikanth 19-Oct schema mandate)
-    if escalation_required:
-        user_response = (
-            "This case presents critical symptoms that may indicate rapid spread or panicle damage. "
-            "Please avoid applying unverified chemicals. Immediately contact your local agricultural extension "
-            "officer or district plant clinic with a fresh plant sample for physical confirmation."
-        )
-    elif compact_status == "needs_more_information":
-        q_text = ""
-        if observations_needed:
-            q_text = " Please check: " + ", ".join(observations_needed[:2]) + "."
-        user_response = (
-            "The symptoms you described could indicate multiple overlapping conditions (such as "
-            f"{', '.join(differential[:2]) if differential else 'pathogen or nutrient stresses'}). "
-            f"To avoid misdiagnosis, we need a few more distinguishing field observations before confirming.{q_text}"
-        )
-    else:
-        act_text = actions[0] if actions else "monitor field conditions closely."
-        user_response = (
-            f"Based on the available evidence, the provisional assessment points to {differential[0] if differential else 'the identified condition'}. "
-            f"Recommended cultural action: {act_text} Avoid commercial chemical sprays without extension confirmation."
-        )
+    if not user_response:
+        if escalation_required:
+            user_response = (
+                "This case presents critical symptoms that may indicate rapid spread or panicle damage. "
+                "Please avoid applying unverified chemicals. Immediately contact your local agricultural extension "
+                "officer or district plant clinic with a fresh plant sample for physical confirmation."
+            )
+        elif compact_status == "needs_more_information":
+            q_text = ""
+            if observations_needed:
+                q_text = " Please check: " + ", ".join(observations_needed[:2]) + "."
+            user_response = (
+                "The symptoms you described could indicate multiple overlapping conditions (such as "
+                f"{', '.join(differential[:2]) if differential else 'pathogen or nutrient stresses'}). "
+                f"To avoid misdiagnosis, we need a few more distinguishing field observations before confirming.{q_text}"
+            )
+        else:
+            act_text = actions[0] if actions else "monitor field conditions closely."
+            user_response = (
+                f"Based on the available evidence, the provisional assessment points to {differential[0] if differential else 'the identified condition'}. "
+                f"Recommended cultural action: {act_text} Avoid commercial chemical sprays without extension confirmation."
+            )
 
     return {
         "status": compact_status,

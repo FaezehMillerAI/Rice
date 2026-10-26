@@ -1,0 +1,5036 @@
+{
+  "FACT_001": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Cause",
+    "statement": "It is caused by the fungus Magnaporthe oryzae"
+  },
+  "FACT_002": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "It occurs in areas with low soil moisture"
+  },
+  "FACT_003": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "It occurs in areas with frequent and prolonged periods of rain shower"
+  },
+  "FACT_004": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "It occurs in areas with cool temperature in the daytime"
+  },
+  "FACT_005": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "It occurs in areas with large day-night temperature differences that cause dew formation"
+  },
+  "FACT_006": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Overall cooler temperatures favor the developement of disease"
+  },
+  "FACT_007": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "It can affect plants in all growth stages"
+  },
+  "FACT_008": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Leaf blast incidence tends to lessen as plants mature"
+  },
+  "FACT_009": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Produces lesions or spots that are white to gray-green with dark green borders"
+  },
+  "FACT_010": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Produces elliptical shaped lesions"
+  },
+  "FACT_011": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Produces spindle shaped lesions"
+  },
+  "FACT_012": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Produces lesions with white-gray centers with red-brown border"
+  },
+  "FACT_013": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Produces diamond shaped lesions"
+  },
+  "FACT_014": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions can enlarge and coalesce"
+  },
+  "FACT_015": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Look-alikes",
+    "statement": "Blast lesions can be confused with brown spot lesions"
+  },
+  "FACT_016": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Distinguishing features",
+    "statement": "Blast lesions are usually elongated and pointed at each end, while brown spot lesions tend to be more round"
+  },
+  "FACT_017": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Distinguishing features",
+    "statement": "Blast lesions have a white-gray centre and red-brown border, while brown spot lesions are brown with a yellow halo surrounding"
+  },
+  "FACT_018": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Plant resistant varieties"
+  },
+  "FACT_019": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Sow seeds early, when possible, after the onset of the rainy season"
+  },
+  "FACT_020": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Avoid excessive use of fertilizer by splitting nitrogen fertilizer application in two or more treatments"
+  },
+  "FACT_021": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Flood the field as often as possible"
+  },
+  "FACT_022": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Apply silicon fertilizers (e.g. calicium silicate, or straws of uncontaminated rice varieties with high silicon content) to silicon deficient soils"
+  },
+  "FACT_023": {
+    "source_id": "SOURCE_001",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Apply systemic fungicides"
+  },
+  "FACT_024": {
+    "source_id": "SOURCE_002",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions are blackish to grayish brown"
+  },
+  "FACT_025": {
+    "source_id": "SOURCE_002",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Infected nodes can cause the culm, or the part of the plant that holds the panicle, to break"
+  },
+  "FACT_026": {
+    "source_id": "SOURCE_002",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions can cause girdling, making the neck and panicle fall over"
+  },
+  "FACT_027": {
+    "source_id": "SOURCE_002",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions can form a distinctive banded pattern"
+  },
+  "FACT_028": {
+    "source_id": "SOURCE_002",
+    "disease": "Blast",
+    "category": "Look-alikes",
+    "statement": "White panicles are similar to stem borer infection"
+  },
+  "FACT_029": {
+    "source_id": "SOURCE_002",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Causes whiteheads or white panicles"
+  },
+  "FACT_030": {
+    "source_id": "SOURCE_002",
+    "disease": "Blast",
+    "category": "Distinguishing features",
+    "statement": "If you pull on a whitehead caused by a stem borer, the panicle and stem will easily separate and slide out from the plant"
+  },
+  "FACT_031": {
+    "source_id": "SOURCE_002",
+    "disease": "Blast",
+    "category": "Distinguishing features",
+    "statement": "If you pull on a whitehead caused by blast, the stem remains firmly intact"
+  },
+  "FACT_032": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Cause",
+    "statement": "It is caused by Xanthomonas oryzae pv. Oryzae"
+  },
+  "FACT_033": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Causes wilting of seedlings"
+  },
+  "FACT_034": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Causes drying of leaves"
+  },
+  "FACT_035": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Occurs in temperate environments"
+  },
+  "FACT_036": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Occurs in tropical environments"
+  },
+  "FACT_037": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Occurs in areas with high humidity (above 70%)"
+  },
+  "FACT_038": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Occurs in irrigated and rainfed lowland areas"
+  },
+  "FACT_039": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Commonly observed when strong winds and heavy rain occur"
+  },
+  "FACT_040": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Can be severe under high nitrogen fertilization"
+  },
+  "FACT_041": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Wilting of plants"
+  },
+  "FACT_042": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Wilting and yellowing of leaves"
+  },
+  "FACT_043": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Lesions are initially dark green"
+  },
+  "FACT_044": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Lesions later become light brown to yellowish gray"
+  },
+  "FACT_045": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Infected leaves turn gray-green and roll up"
+  },
+  "FACT_046": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Leaves turn yellow to straw-colored"
+  },
+  "FACT_047": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Look-alikes",
+    "statement": "May be confused with stem borer damage"
+  },
+  "FACT_048": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Squeezed wilted leaves produce yellowish bacterial ooze from the cut end"
+  },
+  "FACT_049": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Unlike stem borer, leaves infected with bacterial blight are not easily pulled out from the soil"
+  },
+  "FACT_050": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "On older plants, lesions develop as water-soaked to yellow-orange stripes on leaves"
+  },
+  "FACT_051": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Young lesions cut from plant and placed in water produce thick or turbid liquid coming from the cut end"
+  },
+  "FACT_052": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Look-alikes",
+    "statement": "May be confused with bacterial leaf streak"
+  },
+  "FACT_053": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Lesions have a wavy margin and progress toward to leaf base"
+  },
+  "FACT_054": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "On younger leaves, bacterial ooze resembling a milky dew can be observed in the morning"
+  },
+  "FACT_055": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "The bacterial ooze later dries up and becomes small yellowish beads on the underside of the leaf"
+  },
+  "FACT_056": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Old lesions turn yellow to grayish white with black dots"
+  },
+  "FACT_057": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "On severly infected leaves, lesions may extend to the leaf sheath"
+  },
+  "FACT_058": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Plant resistant varieties"
+  },
+  "FACT_059": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Use balanced amounts of plant nutrients, especially nitrogen"
+  },
+  "FACT_060": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Ensure good drainage of fields"
+  },
+  "FACT_061": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Keep fields clean of weeds"
+  },
+  "FACT_062": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Plow under rice stubble, straw, rice ratoons and volunteer seedlings"
+  },
+  "FACT_063": {
+    "source_id": "SOURCE_003",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Allow fallow fields to dry"
+  },
+  "FACT_064": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Use resistant or tolerant varieties"
+  },
+  "FACT_065": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Regularly weed"
+  },
+  "FACT_066": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Use moderate amounts of fertilizers"
+  },
+  "FACT_067": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Too much nitogen fertilizer"
+  },
+  "FACT_068": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "High humidity"
+  },
+  "FACT_069": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Damaged roots or leaves increases susceptibility"
+  },
+  "FACT_070": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Flood water spreads disease between plants"
+  },
+  "FACT_071": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Ensure good drainage of fields and nurseries"
+  },
+  "FACT_072": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Use symptomless plants for seed production"
+  },
+  "FACT_073": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Action",
+    "statement": "Plough land to bury plant debris"
+  },
+  "FACT_074": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Leaves show grey-green streaks"
+  },
+  "FACT_075": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Streaks later join together and turn yellowish-white with wavy edges"
+  },
+  "FACT_076": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Leaves dry up and die"
+  },
+  "FACT_077": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Pale yellow streaks with wavy margins from the tips towards the base"
+  },
+  "FACT_078": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Small milky drops of ooze from the streaks"
+  },
+  "FACT_079": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "FACT_043, FACT_044, FACT_050, FACT_056, FACT_074,  FACT_219"
+  },
+  "FACT_080": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Yellow-white streaks with wavy edges"
+  },
+  "FACT_081": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Look-alikes",
+    "statement": "Stem borer"
+  },
+  "FACT_082": {
+    "source_id": "SOURCE_004",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Yellow liquid oozes from end of cut leaves"
+  },
+  "FACT_083": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Can cause yellowing or browning of seedlings"
+  },
+  "FACT_084": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Forms spindle-shaped or rhomboid lesions"
+  },
+  "FACT_085": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Sometimes forms irregular small spots"
+  },
+  "FACT_086": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "A gray mold layers forms at the base"
+  },
+  "FACT_087": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Upper parts turn reddish-brown"
+  },
+  "FACT_088": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Treat seeds with biocontrol agents, such as Bacillus subtilis"
+  },
+  "FACT_089": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Detect and remove contaminated seeds"
+  },
+  "FACT_090": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions can be brown spots or white spots"
+  },
+  "FACT_091": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Disease is promoted by high humidity"
+  },
+  "FACT_092": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Disease is promoted by temperatures between 20 and 30 degrees centigrade"
+  },
+  "FACT_093": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Use hyperspectral imaging for early detection, enabling timely intervention"
+  },
+  "FACT_094": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Prolonged leaf wetness promotes infection"
+  },
+  "FACT_095": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Use irrigation strategies that aim to reduce long-term leaf surface humidity"
+  },
+  "FACT_096": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Too much or too little water"
+  },
+  "FACT_097": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Too much or too little nutrients"
+  },
+  "FACT_098": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Small brown lesions on the stem nodes"
+  },
+  "FACT_099": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions expand until the stem breaks"
+  },
+  "FACT_100": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "The panicle dries and dies"
+  },
+  "FACT_101": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Rice seeds become deformed if lesions concentrate on one side"
+  },
+  "FACT_102": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Diseased leaves break off at the leaf collar"
+  },
+  "FACT_103": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions are spindle shaped and light brown"
+  },
+  "FACT_104": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions darken to black"
+  },
+  "FACT_105": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Forms white panicles"
+  },
+  "FACT_106": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Forms shriveled grains"
+  },
+  "FACT_107": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Forms small grain"
+  },
+  "FACT_108": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Targeted fungicide application if detected early"
+  },
+  "FACT_109": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Dark brown or grayish-white spots"
+  },
+  "FACT_110": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Can blacken the entire grain surface"
+  },
+  "FACT_111": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "The lemma turns brown"
+  },
+  "FACT_112": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Causes shriveled seeds"
+  },
+  "FACT_113": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Use plasma-based seed disinfection"
+  },
+  "FACT_114": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Use biocontrol agent coating"
+  },
+  "FACT_115": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Causes",
+    "statement": "Caused by the filamentous fungus Magnaporthe oryzae"
+  },
+  "FACT_116": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Use molecular diagnostic tools to ensure that planting material is pathogen-free"
+  },
+  "FACT_117": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Cold, waterlogged soils favour pathogen survival and spread"
+  },
+  "FACT_118": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use wide-narrow row spacing and semi-dry cultivation"
+  },
+  "FACT_119": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use conservation tillage with cover crops"
+  },
+  "FACT_120": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use precision tillage, guided by soil health monitors"
+  },
+  "FACT_121": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Avoid excessive planting density"
+  },
+  "FACT_122": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Excessive or poorly timed nitrogen application enhance susceptibility"
+  },
+  "FACT_123": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Balanced applications of phosphorous and potassium enhance resistance"
+  },
+  "FACT_124": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Apply silicon fertilizers to strengthen stems and leaves"
+  },
+  "FACT_125": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Avoid waterlogging"
+  },
+  "FACT_126": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Maintain adequate ventilation and light penetration"
+  },
+  "FACT_127": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Action",
+    "statement": "Use sensor based irrigation to control soil moisture"
+  },
+  "FACT_128": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Prolonged cloudy weather promotes disease"
+  },
+  "FACT_129": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Low light intensity weakens plant vigour"
+  },
+  "FACT_130": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Wind facilitates spore spread"
+  },
+  "FACT_131": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Dry, sunny conditions inhibit the pathogen"
+  },
+  "FACT_132": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use compound, single-site fungicides prudently to minimise resistance evolution and off-target effects"
+  },
+  "FACT_133": {
+    "source_id": "SOURCE_005",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use resistance rice varieties"
+  },
+  "FACT_134": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Cause",
+    "statement": "It is caused by Rhizoctonia solani"
+  },
+  "FACT_135": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Occurs in areas with high temperature (28-32 degrees)"
+  },
+  "FACT_136": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Occurs in areas with high levels of nitrogen fertilizer"
+  },
+  "FACT_137": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Occurs in areas with high relative humidity"
+  },
+  "FACT_138": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Occurs more during the rainy season"
+  },
+  "FACT_139": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Oval or ellipsoidal greenish gray lesions 1-3 cm long"
+  },
+  "FACT_140": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Lesions expand to the upper parts of the sheaths and leaves"
+  },
+  "FACT_141": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Lesions on the leaves are irregular shapes with gray-white centers and brown margins"
+  },
+  "FACT_142": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Look-alikes",
+    "statement": "Symptoms similar to stem rot"
+  },
+  "FACT_143": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Look-alikes",
+    "statement": "Symptoms similar to stemborer"
+  },
+  "FACT_144": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Distinguishing features",
+    "statement": "Check for irregular lesions on leaf sheaths that are initially water soaked to greenish gray and later become grayish white with brown margin"
+  },
+  "FACT_145": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Distinguishing features",
+    "statement": "Check for the presence of sclerotia"
+  },
+  "FACT_146": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Action",
+    "statement": "Use a reasonable level of fertilizer adapted to the cropping season"
+  },
+  "FACT_147": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Action",
+    "statement": "Avoid overly dense planting"
+  },
+  "FACT_148": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Action",
+    "statement": "Carefully control weeds"
+  },
+  "FACT_149": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Action",
+    "statement": "Drain rice fields early in the crop season"
+  },
+  "FACT_150": {
+    "source_id": "SOURCE_006",
+    "disease": "Sheath blight",
+    "category": "Action",
+    "statement": "Use fungicides to treat seeds"
+  },
+  "FACT_151": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Cause",
+    "statement": "Is caused by necrotrophic fungus Rhizoctonia solani Kühn"
+  },
+  "FACT_152": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Use of high yielding semi dwarf cultivars increases incidence"
+  },
+  "FACT_153": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Use of high dose nitrogenous fertilizers accentuates incidence"
+  },
+  "FACT_154": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Use of dense planting accentuates incidence"
+  },
+  "FACT_155": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Causes greenish-gray water soaked lesions that are circular, oblong or elipsoid and 1cm long"
+  },
+  "FACT_156": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "lesions enlarge and attain irregular shape, the center of which becomes gray white with brown margins"
+  },
+  "FACT_157": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Rotting of the leaf sheath"
+  },
+  "FACT_158": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "drying up of the whole leaf"
+  },
+  "FACT_159": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "No grain filling and discoloration of seeds with brownish-black spots or black to ashy gray patches"
+  },
+  "FACT_160": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Causes death of the whole leaf, tiller and whole plant"
+  },
+  "FACT_161": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "At the field level, the infection usually affects the plants in a circular pattern"
+  },
+  "FACT_162": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Favours high ambient temperatures (25-30 degrees centigrade)"
+  },
+  "FACT_163": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Favours high relative humidity (80-100%)"
+  },
+  "FACT_164": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Favours wet leaves"
+  },
+  "FACT_165": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Disease severity increases with excess nitrogen application"
+  },
+  "FACT_166": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Disease is accentuated by the presence of brown plant hopper, root-knot nematide, and tungro virus."
+  },
+  "FACT_167": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Severe disease incidence when crop canopy is dense with high contact frequency between tissues"
+  },
+  "FACT_168": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "japonica rice is generally more suscpetible than indica rice"
+  },
+  "FACT_169": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use slow-release nitrogenous fertilizer such as crotonylidene diurea and guanyl urea phosphate with the solo application of silica, phosphorus and potash"
+  },
+  "FACT_170": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Application of potassium, zinc, sulfer, and iron reduce disease severity"
+  },
+  "FACT_171": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Application of soil amendments including neem cake, farm yard manure, vermicompost and rice husk can reduce disease incidience"
+  },
+  "FACT_172": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Spraying ganoderma diethyl ester formulation can reduce disease severity"
+  },
+  "FACT_173": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Minimal tillage promotes disease development"
+  },
+  "FACT_174": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Infection is increases in transplanted rice compared to direct-seeded rice"
+  },
+  "FACT_175": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Disease can be promoted when rice is grown in rotation with soybean"
+  },
+  "FACT_176": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use foliar spray and seed treated fungicides"
+  },
+  "FACT_177": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Systemic fungicides offer better disease management than non-systemic fungicides"
+  },
+  "FACT_178": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use selective fungicides between pannicle differentiation and heading"
+  },
+  "FACT_179": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Periodically monitor the field and apply fungicides at the initial stages of infection, especially at the booting stage"
+  },
+  "FACT_180": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use strobilurin systemic fungicides"
+  },
+  "FACT_181": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use Triazole fungicides"
+  },
+  "FACT_182": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Avoid repeated use of a single chemical for a prolonged time to avoid resistance evolution"
+  },
+  "FACT_183": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use combinatory chemical formulations, such as strobilurins and triazoles"
+  },
+  "FACT_184": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use wider plant spacing to reduce canopy thickness"
+  },
+  "FACT_185": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use split application or slow releasing nitrogenous fertilizers"
+  },
+  "FACT_186": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "avoid excessive phosphorous fertilizers"
+  },
+  "FACT_187": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "use potassium containing fertilizers"
+  },
+  "FACT_188": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use silicon application through carbonized rice husk to delay disease spread"
+  },
+  "FACT_189": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use bamboo tar (a waste product from charcoal production) to inhibit disease"
+  },
+  "FACT_190": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Remove plant debris and weeds to reduce disease incidence"
+  },
+  "FACT_191": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Rotate rice crop with non-host crops"
+  },
+  "FACT_192": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Extracts of garlic, ginger, neem leaf and clove inhibit fungal growth"
+  },
+  "FACT_193": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use biocontrol agents, such as the actinomycete, Streptomyces species, to reduce fungal growth and disease incidence"
+  },
+  "FACT_194": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use Ethyl acetate extracted from Streptomyces diastatochromogenes, KX852460, to reduce disease"
+  },
+  "FACT_195": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use fungal antagonists, such as Trichoderma species, in soil treatments, foliar sprays, or root dipping, to manage disease"
+  },
+  "FACT_196": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use fungal atagonists in combination with plant promoting agents, like vesicular arbuscular mycorrhiza or rhizobacteria."
+  },
+  "FACT_197": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Treat seeds with biocontrol agents, such as Bacillus subtillis or Pseudomonas fluorescens"
+  },
+  "FACT_198": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use nanopartices of gold and silver against the fungus."
+  },
+  "FACT_199": {
+    "source_id": "SOURCE_007",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use disease tolerant rice varieties"
+  },
+  "FACT_200": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Cause",
+    "statement": "caused by Xanthomonas oryzae pv. oryzae"
+  },
+  "FACT_201": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Produces tannish-gray to white lesions along the veins"
+  },
+  "FACT_202": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Entire leaves turn pale yellow and wilt"
+  },
+  "FACT_203": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Plants less than 21 days old are most susceptible"
+  },
+  "FACT_204": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Temperatures between 28 and 34 degrees centigrade promote disease"
+  },
+  "FACT_205": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Yellow lesions with wavy mardins"
+  },
+  "FACT_206": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Lesions become whitish straw colour"
+  },
+  "FACT_207": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Bacterial ooze appears on infected leaves"
+  },
+  "FACT_208": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Avoid using contaminated irrigation water"
+  },
+  "FACT_209": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Spray foliar bactericides"
+  },
+  "FACT_210": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Disinfect seeds by heating at 57 degrees centigrade for 10 minutes"
+  },
+  "FACT_211": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "plants grown in soil containing potash are more resistant"
+  },
+  "FACT_212": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Use phosphorous fertilizers to reduce disease incidence"
+  },
+  "FACT_213": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Use nitrogen supplements at tillering to increase plant vigour"
+  },
+  "FACT_214": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Use bacterial biocontrols, such as Pseudomonas putida, in foliar sprays to suppress disease"
+  },
+  "FACT_215": {
+    "source_id": "SOURCE_008",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Use resistant or tolerant varieties"
+  },
+  "FACT_216": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Cause",
+    "statement": "Is caused by Xanthomonas oryzae pv. oryzae"
+  },
+  "FACT_217": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Bacterial blight frequently co-occurs with other rice diseases, such as bacterial leaf streak and pantoea species, all of which produce overlapping symptoms"
+  },
+  "FACT_218": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Look-alikes",
+    "statement": "Often mistaken for bacterial leaf streak (BLS - caused by Xanthomonas oryzae pv. Oryzicola"
+  },
+  "FACT_219": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Produces water-soaked lesions that form yellowish stripes with wavy margins"
+  },
+  "FACT_220": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Bacterial leaf streak produces narrow, translucent streaks that are limited between veins and lack the wavy edges that are characteristic of bacterial blight"
+  },
+  "FACT_221": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Bacterial blight invades the vascular tissue resulting in systemic spread throughout the plant"
+  },
+  "FACT_222": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Unlike bacterial blight, bacterial leaf streak is generally limited to the interveinal spaces and tends to spread slower"
+  },
+  "FACT_223": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Severe bacterial blight is marked by rapid wilting and plant collapse"
+  },
+  "FACT_224": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Rapid wilting of seedlings is not observed in bacterial leaf streak"
+  },
+  "FACT_225": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Yellow bacterial ooze is rarely observed with bacterial leaf streak"
+  },
+  "FACT_226": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "PCR for specific markers can distinguish bacterial leaf streak from bacterial blight"
+  },
+  "FACT_227": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Distinguishing features",
+    "statement": "Use a loop-mediated isothermal amplification with lateral flow dipstick (LAMP-LFD) for quick on-site differentiation between blight and leaf streak"
+  },
+  "FACT_228": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Disease is promoted by periods of high moisture"
+  },
+  "FACT_229": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Symptoms",
+    "statement": "Produces bacterial ooze"
+  },
+  "FACT_230": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Use resistant rice varieties"
+  },
+  "FACT_231": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Use high-quality and disease-free planting material"
+  },
+  "FACT_232": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Excessive nitrogen increases disease severity"
+  },
+  "FACT_233": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Apply nitrogen in split, moderate doses to reduce crop susceptibility"
+  },
+  "FACT_234": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Apply balanced phosphorous to reduce crop susceptibility"
+  },
+  "FACT_235": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Conditions",
+    "statement": "Deep flooding early on promotes disease and spread"
+  },
+  "FACT_236": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Use proper irrigation and limit canopy wetness"
+  },
+  "FACT_237": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Remove and destroy infected plant residues post-harvest"
+  },
+  "FACT_238": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Bury plant residues"
+  },
+  "FACT_239": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "rotate rice with non-rice crops"
+  },
+  "FACT_240": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Eliminate alternative host weeds"
+  },
+  "FACT_241": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Use certified, disease-free seed"
+  },
+  "FACT_242": {
+    "source_id": "SOURCE_009",
+    "disease": "Bacterial blight",
+    "category": "Actions",
+    "statement": "Establish nurseries in well-drained, upland areas"
+  },
+  "FACT_243": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Cause",
+    "statement": "Caused by Rhizoctonia solani AG1-IA"
+  },
+  "FACT_244": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Disease development is favoured by warm temperatures (28-32 degrees centigrade)"
+  },
+  "FACT_245": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Disease development is favoured by high relative humidity (greater than 95%)"
+  },
+  "FACT_246": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Disease development is favoured by dense plant canopies"
+  },
+  "FACT_247": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Disease development is favoured by excessive nitrogen fertilization"
+  },
+  "FACT_248": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use systemic fungicies such as triazoles"
+  },
+  "FACT_249": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Warnings",
+    "statement": "Avoid repeated use of a single chemical for a prolonged time to avoid resistance evolution, environmental contamination, and non-target toxicity"
+  },
+  "FACT_250": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Forms water-soaked lesions"
+  },
+  "FACT_251": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Lesions develop grey-white centers with brown margins"
+  },
+  "FACT_252": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Lesions expand horizontally around the sheath"
+  },
+  "FACT_253": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Symptoms",
+    "statement": "Lesions expand vertically towards flag leaves"
+  },
+  "FACT_254": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Conditions",
+    "statement": "Vertical spread occurs with rainfall events and high humidity"
+  },
+  "FACT_255": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Deploy resistant cultivars"
+  },
+  "FACT_256": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply systemic fungicides at appropriate growth stages"
+  },
+  "FACT_257": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply biocontrol agents in seed treatments"
+  },
+  "FACT_258": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply biocontrol agents in seedling dips"
+  },
+  "FACT_259": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use biocontrol agents as soil application"
+  },
+  "FACT_260": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply biocontrol agents as foliar sprays"
+  },
+  "FACT_261": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply biocontrol agents, including Bacillus based products"
+  },
+  "FACT_262": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply biocontrol agents, including Streptomyces based products"
+  },
+  "FACT_263": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply biocontrol agents, including Pseudomonas based products"
+  },
+  "FACT_264": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use biocontrols in combination with resistance inducers, such as potassium silicate"
+  },
+  "FACT_265": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use fungal antagonists and plant growth promoters, such as Trichoderma species"
+  },
+  "FACT_266": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Remove and destroy crop residues and sclerotia-infested stubble after harvest"
+  },
+  "FACT_267": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use balanced fertilizer application, particularly avoiding excessive nitrogen"
+  },
+  "FACT_268": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use optimized plant spacing to reduce canopy humidity"
+  },
+  "FACT_269": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Use alternate wetting and drying water management to reduce humidity"
+  },
+  "FACT_270": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Rotate crops with non-host crops"
+  },
+  "FACT_271": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Plant early to avoid peak disease pressure"
+  },
+  "FACT_272": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply systemic fungicides at judicious times based on disease forecasting models"
+  },
+  "FACT_273": {
+    "source_id": "SOURCE_010",
+    "disease": "Sheath blight",
+    "category": "Actions",
+    "statement": "Apply chitosan nanoparticles as antifungal agents and plant defence elicitors"
+  },
+  "FACT_274": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Cause",
+    "statement": "It is caused by a filamentous ascomycete fungus Magnaporthe oryzae (Anaemorphic form- Pyricularia oryzae)"
+  },
+  "FACT_275": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Cloudy weather promotes disease"
+  },
+  "FACT_276": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "High relative humidity (93-99%) promotes disease"
+  },
+  "FACT_277": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Low night temperature (15-20 degrees centigrade) promotes disease"
+  },
+  "FACT_278": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Long duration of dew promotes disease"
+  },
+  "FACT_279": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Cause",
+    "statement": "Mycelium and conidia over-winter on straw and seeds and collateral hosts to act as primary inoculum"
+  },
+  "FACT_280": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Can infect all the developmental stages of the rice plant"
+  },
+  "FACT_281": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Disease can appear on all parts of the plant, including roots, leaf, collar, neck, panicle and even in the glumes"
+  },
+  "FACT_282": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Produces elongated diamond shaped lesions with grey or whitish centres and brown or reddish-brown margin"
+  },
+  "FACT_283": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Small lesions merge together and become eye shaped and give blistering appearance"
+  },
+  "FACT_284": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Node portion of the culm turns brown, grayish brown or black"
+  },
+  "FACT_285": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "The portion above the infected node may die and break down"
+  },
+  "FACT_286": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions start at the base of the flag leaf near the leaf shealth"
+  },
+  "FACT_287": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions proceed upward to the leaf that girdles the flag leaf and turn brown, dry and fall off"
+  },
+  "FACT_288": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Produces chalky kernels and sterile grain"
+  },
+  "FACT_289": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "The node immediately below the ear forms grayish brown lesions"
+  },
+  "FACT_290": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "The whole inflorescence may break off at the rotten neck"
+  },
+  "FACT_291": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "No grain may be formed"
+  },
+  "FACT_292": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Causes discoloration of grains"
+  },
+  "FACT_293": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Susceptibility increases with higher doses of nitrogen"
+  },
+  "FACT_294": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Leaf wetness period of 14 h are more than sufficient for conidia release"
+  },
+  "FACT_295": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Closer planting of rice favours the microclimate for disease development"
+  },
+  "FACT_296": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Longer dew periods and regular moisture stress in upland rice leads to increased disease incidence"
+  },
+  "FACT_297": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Remove or burn plant stubbles"
+  },
+  "FACT_298": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use long term crop rotations"
+  },
+  "FACT_299": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use summer ploughing and remove collateral hosts"
+  },
+  "FACT_300": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Avoid high plant density"
+  },
+  "FACT_301": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Avoid excessive nitrogenous fertilizers"
+  },
+  "FACT_302": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Flooding a rice field can kill the pathogen"
+  },
+  "FACT_303": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Plants grown under consistent, deeper irrigation floods (greater than 4 inches) are less prone to blast disease"
+  },
+  "FACT_304": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Plants that are grown under shallow floods, moist soil or drought-stressed conditions are more prone to blast"
+  },
+  "FACT_305": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Early planting is recommended for blast disease control"
+  },
+  "FACT_306": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply nitrogen in split doses"
+  },
+  "FACT_307": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "A limit of 15kgN/ha is recommended"
+  },
+  "FACT_308": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply calcium silicate slag or rice straw of varieties with high silicon content to reduce blast incidence"
+  },
+  "FACT_309": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply triazole fungicides to control blast"
+  },
+  "FACT_310": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply garlic juice (Allicin) against blast"
+  },
+  "FACT_311": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply plant extracts, including 25% C.arabica to control blast"
+  },
+  "FACT_312": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use a spore suspesion of Chartomium cochliodes as a seed treatment"
+  },
+  "FACT_313": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use a seed treatment of biocontrol agents, such as Trichoderma cirdi"
+  },
+  "FACT_314": {
+    "source_id": "SOURCE_011",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use resistant rice varieties"
+  },
+  "FACT_315": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Cause",
+    "statement": "The blast fungus Magnaporthe oryzae (synonym of Pyricularia oryzae)"
+  },
+  "FACT_316": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "It can infect leaves, nodes, stems, spikes and panicles"
+  },
+  "FACT_317": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "It can kill the entire plant at seedling stage"
+  },
+  "FACT_318": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Small necrotic lesions appear on leaves within 96 hours"
+  },
+  "FACT_319": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions enlarge and coalesce after 6-7 days"
+  },
+  "FACT_320": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Drought reduces pathogenicity"
+  },
+  "FACT_321": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "High humidity enables condia production and release, causing disease spread"
+  },
+  "FACT_322": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Rotate crops with non-host crops"
+  },
+  "FACT_323": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply triazole fungicides or strobilurin fungicides"
+  },
+  "FACT_324": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use beneficial bacteria, such as pseudomonas fluorescens, to suppress blast disease"
+  },
+  "FACT_325": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use externally applied RNAs to inhibit fungal gene expression"
+  },
+  "FACT_326": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply microbial elicitors, such as chitin or chitosan, to trigger plant immunity"
+  },
+  "FACT_327": {
+    "source_id": "SOURCE_012",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use resistant crop varieties"
+  },
+  "FACT_328": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Cause",
+    "statement": "caused by the fungus Pyricularia oryzae (teleomorph Magnaporthe oryzae)"
+  },
+  "FACT_329": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Optimal conditions for blast development include temperature between 20-30 degrees"
+  },
+  "FACT_330": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Optimal conditions for blast development include prolonged leaf wetness"
+  },
+  "FACT_331": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Optimal conditions for blast development include high humidity"
+  },
+  "FACT_332": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Precipitation and dew enhance disease"
+  },
+  "FACT_333": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "High temperatures, drought and cold waves reduce host resistance"
+  },
+  "FACT_334": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Rising humidity and rainfall intensify disease severity and frequency"
+  },
+  "FACT_335": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "High temperatures (28-30 degrees) can suppress outbreaks"
+  },
+  "FACT_336": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Avoid using contaminated or old susceptibile seeds"
+  },
+  "FACT_337": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Avoid excessive nitrogen fertilizer"
+  },
+  "FACT_338": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use split application of nitrogen rather than single application at preflood"
+  },
+  "FACT_339": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Nitrate-based fertilizers are less conducive to blast development than ammonium-based ones"
+  },
+  "FACT_340": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply biofertilzers to enhance plant resistance"
+  },
+  "FACT_341": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Reduced soil organic carbon increases susceptibility to blast"
+  },
+  "FACT_342": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "High soil nitrogen levels increases susceptibility to blast"
+  },
+  "FACT_343": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Poor soil pH increases susceptibility to blast"
+  },
+  "FACT_344": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Innapropriate irrigation management increases susceptibility to blast"
+  },
+  "FACT_345": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Low silion content in soil increases blast disease"
+  },
+  "FACT_346": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use resistant varieties with integrated disease management practices"
+  },
+  "FACT_347": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Plant early"
+  },
+  "FACT_348": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Remove plant debris"
+  },
+  "FACT_349": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use long crop rotations"
+  },
+  "FACT_350": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use summer ploughing"
+  },
+  "FACT_351": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use clean cultivation or weeding (removal of collateral hosts) in the main field"
+  },
+  "FACT_352": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Maintain optimal water levels or flood rice fields"
+  },
+  "FACT_353": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Raise seedlings in wet seedbeds"
+  },
+  "FACT_354": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Sort seeds with salt solution (20% for course rice and 15% for fine rice) to remove diseased and light seeds"
+  },
+  "FACT_355": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Treat seeds with tricyclazole"
+  },
+  "FACT_356": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use disease-free high-quality seeds"
+  },
+  "FACT_357": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Continuous planting of susceptible rice varieties in a monoculture can increase blast prevalence"
+  },
+  "FACT_358": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Plant genetically diverse varieties together for disease management"
+  },
+  "FACT_359": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Crop rotation with non-host crops is effective in disrupting the disease cycle"
+  },
+  "FACT_360": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Treat seeds with Pseudomonas fluorescens or Trichoderma viride or Trichoderma harzianum"
+  },
+  "FACT_361": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use a foliar spray of titepati (Artemisia vulgaris) leaf extract"
+  },
+  "FACT_362": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use chemical fungicides like carbendazim and tricyclazole"
+  },
+  "FACT_363": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply tricyclazole and hexaconazole three times weekly"
+  },
+  "FACT_364": {
+    "source_id": "SOURCE_013",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Apply propiconazole"
+  },
+  "FACT_365": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Cause",
+    "statement": "Six species of stem borer attach rice. These are the yellow stemborer, white stem borer, striped stemborer, gold-fringed stemborer, dark-headed stemborer, and the pink stemborer"
+  },
+  "FACT_366": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "They feed upon tillers and causes deadhearts"
+  },
+  "FACT_367": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "They feed upon tillers and cause drying of the central tiller"
+  },
+  "FACT_368": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Causes whiteheads"
+  },
+  "FACT_369": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Conditions",
+    "statement": "The yellow stem borer is a pest of deepwater rice with continuous flooding"
+  },
+  "FACT_370": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Conditions",
+    "statement": "Striped stem borer are abundant in temperate countries and in non-flooded areas"
+  },
+  "FACT_371": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Conditions",
+    "statement": "The pink stem borer is found in upland rice that is grown near sugarcane or related grasses"
+  },
+  "FACT_372": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Conditions",
+    "statement": "The presence of alternate hosts encourages the stem borer"
+  },
+  "FACT_373": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Conditions",
+    "statement": "High nitrogenous field favours stem borer population build up"
+  },
+  "FACT_374": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Conditions",
+    "statement": "Fields planted later favours more damage by stemborers"
+  },
+  "FACT_375": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Conditions",
+    "statement": "Stubble that remains in the field can harbor stem borer larvae or pupae"
+  },
+  "FACT_376": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Deadhearts or dead tillers can easily be pulled from the base"
+  },
+  "FACT_377": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Emerging panicles are whiteish and unfilled or empty, forming whiteheads"
+  },
+  "FACT_378": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Tiny holes form on the plant"
+  },
+  "FACT_379": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Frass or fecal matter can be found inside damaged stems"
+  },
+  "FACT_380": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Look-alikes",
+    "statement": "Whiteheads can resemble blast damage"
+  },
+  "FACT_381": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Distinguishing features",
+    "statement": "If you pull on a whitehead caused by a stem borer, the panicle and stem will easily separate and slide out from the plant, if blast then it will usually not"
+  },
+  "FACT_382": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Distinguishing features",
+    "statement": "Dissect stem to look for stemborer larvae or pupae"
+  },
+  "FACT_383": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Conditions",
+    "statement": "White stemborer favors rainfed wetland rice"
+  },
+  "FACT_384": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use resistant rice varieties"
+  },
+  "FACT_385": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "At seedbed and transplanting, handpick and destroy egg masses"
+  },
+  "FACT_386": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Raise level of irrigation water periodically to submerge the eggs on the lower parts of the plant"
+  },
+  "FACT_387": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Before transplanting, cut the leaf-top to reduce carry-over of eggs from the seedbed to the field"
+  },
+  "FACT_388": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Harvest crops at the ground level to remove larvae in the stubble"
+  },
+  "FACT_389": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Remove stubble and volunteer rice"
+  },
+  "FACT_390": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Plow and flood the field before planting"
+  },
+  "FACT_391": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Encourage biological control agents, such as braconid, eulophid, mymarid, scelionid, chalcid, pteromalid andtrichogrammatid wasps, ants, lady beetles, staphylinid beetles, gryllid, green meadow grasshopper,and mirid, phorid and platystomatid flies, bethylid, braconid, elasmid, eulophid, eurytomid andichneumonid wasps, carabid and lady bird beetles, chloropid fly, gerrid and pentatomid bugs, ants,and mites, earwigs, bird, asilid fly, vespid wasp, dragonflies, damselflies, and spiders"
+  },
+  "FACT_392": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Apply bacterial, fungal, nematode or insect biocontrol agents, such as mermithid nematodes, chalcid, elasmid and eulophid"
+  },
+  "FACT_393": {
+    "source_id": "SOURCE_014",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Apply nitrogen fertilizer in split doses, following the recommended rate and time of application"
+  },
+  "FACT_394": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Cause",
+    "statement": "Caused yellow stem borer, Scirpophaga incertulas, pink stem borer, Sesamia inference, dark headed stem borer, Chilo polychrysus, stripped stem borer, Chilo suppressalis"
+  },
+  "FACT_395": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "larvae penetrate the nodes and causes the leaf whorl to not unfold and turns brown and dry"
+  },
+  "FACT_396": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Develops empty of patially filled grain"
+  },
+  "FACT_397": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Causes dead heart, where the upper leaves turn brown and dry"
+  },
+  "FACT_398": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Causes drying out of empty panicles that remain stiff, straight and whitish; a symptom known as white ears or shite head"
+  },
+  "FACT_399": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "pest lays 2-3 rows of round, pale-yellow eggs in the leaf shealth and around the stem"
+  },
+  "FACT_400": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Forms oblong holes in parallel rows in the unfolded leaves"
+  },
+  "FACT_401": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "When severe, tunnelling occurs on leaf blades which causes plants to have a ragged appearance"
+  },
+  "FACT_402": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Causes the production of partially filled or empty grains"
+  },
+  "FACT_403": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Larvae bore into growing points resulting in the central leaf to not unfold"
+  },
+  "FACT_404": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Affected tillers fail to bear panicles"
+  },
+  "FACT_405": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "Initial boring and feeding cause broad, longitudinal, whitish, discoloured areas"
+  },
+  "FACT_406": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Symptoms",
+    "statement": "When severe, leaf blades become wilted, dry, and yellow"
+  },
+  "FACT_407": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use synthetic pesticides as soil granular and spray formulation to control"
+  },
+  "FACT_408": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use plant formulations, such as neem, tobacco,  mahogany oil, eucalyptus, karanja, cedar wood, palmarosa, jatropha, mahua, pinnai, citronella, vetiver, catnip"
+  },
+  "FACT_409": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Cow urine can act as an antifeedant"
+  },
+  "FACT_410": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use biological control agents, such as mycobial powder and extract from Bacillus thuringiensis, Trichogramma japonicum, T. chilonis, T. dendrolimi, T. ostriniae, Lecanicillium lecanii, Beauveria bassiana, Metarhizium anisopliae, Neorautanenia mitis, Derris elliptica"
+  },
+  "FACT_411": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use resistant rice cultivars, such as Gontra Bidhan 3, MTU-2020, or IR 50."
+  },
+  "FACT_412": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use pheromones, such as (Z)-9-hexadecenal,  to attract insects into traps and disrupt mating"
+  },
+  "FACT_413": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use allomones, like extracts of resistant rice cultivars like TKM 6, to repel stem borers"
+  },
+  "FACT_414": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Soak seed with insecticide and fertilizer"
+  },
+  "FACT_415": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Clip leaves of rice plants at maximum tillering stage"
+  },
+  "FACT_416": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use seedling root dipping"
+  },
+  "FACT_417": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Remove, burn or plough rice stubble"
+  },
+  "FACT_418": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Drain out water of infested paddy fields"
+  },
+  "FACT_419": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Remove alternate hosts and other weeds from the seedbed, paddy field, and surrounding area"
+  },
+  "FACT_420": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Cultivation of certain rice varieties near the main crop can be used as a trap crop to reduce damage on main crop"
+  },
+  "FACT_421": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Crop rotation with soya or pulses"
+  },
+  "FACT_422": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Crop rotation with maize"
+  },
+  "FACT_423": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use kerosene or electric light traps against stem borers"
+  },
+  "FACT_424": {
+    "source_id": "SOURCE_015",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Identify the most vulnerable life stages of the pest (usually immature stages or first instar larvae) for timely adoption of different management practices"
+  },
+  "FACT_425": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Cause",
+    "statement": "Brown spot is a fungal disease"
+  },
+  "FACT_426": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Produces numerous big spots on the leaves which can kill the whole leaf"
+  },
+  "FACT_427": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes unfilled grains"
+  },
+  "FACT_428": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes spotted or discolored seeds"
+  },
+  "FACT_429": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease develops in areas with high relative humidity (86-100%)"
+  },
+  "FACT_430": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Occurs in temperatures between 16 and 36 degrees centigrade"
+  },
+  "FACT_431": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "It is common in unflooded soils"
+  },
+  "FACT_432": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "It is common in nutrient-deficient soil"
+  },
+  "FACT_433": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "It is common in soils that accumulate toxic substances"
+  },
+  "FACT_434": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "It is promoted when leaves are wet for 8-24 hours"
+  },
+  "FACT_435": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Can occur at all crop stages but most critical during maximum tillering up to the ripening stages of the crop"
+  },
+  "FACT_436": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes small, circular, yellow brown or brown lesions that may girdle the coleoptile and distorts primary and secondary leaves"
+  },
+  "FACT_437": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes small, circular lesions that are dark brown to purple-brown"
+  },
+  "FACT_438": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Lesions are circular to oval with a light brown to gray center surrounded by a reddish brown margin"
+  },
+  "FACT_439": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "lesions are 5-14 mm long on susceptible rice varieties"
+  },
+  "FACT_440": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "lesions are brown and pinhead-sized on resistant rice varieties"
+  },
+  "FACT_441": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes dark brown to black oval spots or discoloration on the entire surface"
+  },
+  "FACT_442": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Incomplete or disrupted grain filling and reduction in grain quality"
+  },
+  "FACT_443": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Look-alikes",
+    "statement": "lesions can be mistaken for blast"
+  },
+  "FACT_444": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Distinguishing features",
+    "statement": "Brown spot causes circular, brownish spots with a gray centre and reddish margin"
+  },
+  "FACT_445": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Improve soil fertility by monitoring soil nutrients regularly"
+  },
+  "FACT_446": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply required fertilizers"
+  },
+  "FACT_447": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "For soild that are low in silicon, apply calcium silicate slag before planting"
+  },
+  "FACT_448": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use resistance rice varieties (contact your local agricultural office for up-to-date list of varieties available)"
+  },
+  "FACT_449": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use fungicides as seed treatments"
+  },
+  "FACT_450": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Treat seeds with hot water (53-54 degrees centigrade) for 10-12 minutes before planting"
+  },
+  "FACT_451": {
+    "source_id": "SOURCE_016",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "To increase effectiveness of heat treatment, pre-soak seeds in cold water for eight hours"
+  },
+  "FACT_452": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Cause",
+    "statement": "Rice brown spot caused by Bipolaris oryzae (synonym: Cochliobolus miyabeanus)"
+  },
+  "FACT_453": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Bipolaris oryzae infects coleoptiles, leaf blades, sheath, stems glumes and seeds"
+  },
+  "FACT_454": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "When it infects the junction of the last leaf and panicle stalk, it causes partially filled to chaffy grains and panicles hang over due to wet rot of the stalk"
+  },
+  "FACT_455": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "infection forms small circular or oval brown spots with near uniform distribution"
+  },
+  "FACT_456": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "lesions enlarge and have grey or whitish centres"
+  },
+  "FACT_457": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "In susceptible varieties, lesion sizes can reach more than 1cm in diameter"
+  },
+  "FACT_458": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Lesions are often surrounded by a yellow halo"
+  },
+  "FACT_459": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Infected rice seeds are spotted"
+  },
+  "FACT_460": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease is promoted by mineral deficiencies in the soil"
+  },
+  "FACT_461": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease is promoted by high temperature"
+  },
+  "FACT_462": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease is promoted by poor water supply"
+  },
+  "FACT_463": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Control brown spot by using good soil moisture"
+  },
+  "FACT_464": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Control brown spot by destroying alternate hosts, such as wild rice"
+  },
+  "FACT_465": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Control brown spot by destroying infected crop residues"
+  },
+  "FACT_466": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use healthy seed"
+  },
+  "FACT_467": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use a balance of certain micro- and macro-elements in the soil"
+  },
+  "FACT_468": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use moderate nitrogen fertilizer (up to 180 kg/ha) to decrease disease severity"
+  },
+  "FACT_469": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use inorganic inputs of 103.5 kg/ha of N (urea 46%), 3.9 kg/ha of P (P205 43.7%) and 30 kg/ha of K (K2O 60%) to control brown spot"
+  },
+  "FACT_470": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use silicon fertilizer to decrease the impact of brown spot"
+  },
+  "FACT_471": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply zinc sulphate at 3% as a foliar application to reduce brown spot incidence"
+  },
+  "FACT_472": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use resistant or tolerant rice varieties"
+  },
+  "FACT_473": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use neem extract against brown spot at the onset of symptoms and repeater 15 days later"
+  },
+  "FACT_474": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use leaf extract of Nerium oleander"
+  },
+  "FACT_475": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use essental oil of Callistemon citrinus as a seed treatment, combined with foliar treatment with ethanolic and aqueous extracts of Nerium oleander or Cymbopogon citratus"
+  },
+  "FACT_476": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use Trichoderma harzianum formulations applied at 20 g/l at 60, 70 and 80 days after transplanting to reduce disease levels"
+  },
+  "FACT_477": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Treat rice seeds with Trichoderma viride combined with foliar treatments with Pseudomonas fluorescens to reduce disease severity"
+  },
+  "FACT_478": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply synthetic fungicides (such as triazoles or strobilurins) as either seed and/or leaf treatments"
+  },
+  "FACT_479": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply foliar fungicides at the onset of disease symptoms"
+  },
+  "FACT_480": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply foliar fungicides from day 20 after sowing"
+  },
+  "FACT_481": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Effective control of brown spot requires an integrated approach that combines different control measures"
+  },
+  "FACT_482": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use organo-mineral soil fertilisation (farmyard manure, diammonium phosphate and muriate of potash and NPK) in addition to seed fungicide treaments and foliar fungicide treatments"
+  },
+  "FACT_483": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Integrate silicon fertilizer with triazole treatment"
+  },
+  "FACT_484": {
+    "source_id": "SOURCE_017",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "The absence of water stress increases disease tolerance"
+  },
+  "FACT_485": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Cause",
+    "statement": "Brown spot caused by Bipolaris oryzae (synonym of Helminthosporium oryzae)"
+  },
+  "FACT_486": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "The disease is severe in areas with water scarcity combined with nutrient deficient soil, especially nitrogen"
+  },
+  "FACT_487": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease severity is higher in drought prone areas"
+  },
+  "FACT_488": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease severity is higher under direct seeded rice tracts"
+  },
+  "FACT_489": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes blighting of coleoptiles"
+  },
+  "FACT_490": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes the formation of oval, dark brown to purplish-brown spots"
+  },
+  "FACT_491": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Scorches and kills the leaves"
+  },
+  "FACT_492": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes early senescence of leaves"
+  },
+  "FACT_493": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes reduced number of tillers"
+  },
+  "FACT_494": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Causes reduced elongation of roots and shoots"
+  },
+  "FACT_495": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Forms brown spots with grey or whitish centre, oval to cylindrical in shape"
+  },
+  "FACT_496": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Have scorched appearance and dry up"
+  },
+  "FACT_497": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Produces shriveled and discolored grains"
+  },
+  "FACT_498": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Infected parts produce spores with velvety appearance"
+  },
+  "FACT_499": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease spread is promoted by continuous rain and cloudy weather and high day temperature"
+  },
+  "FACT_500": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "The host leaf has to remain wet for 8 to 24 hours for disease establishment"
+  },
+  "FACT_501": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Deficiency of nitrogen or potassium increases disease intensity"
+  },
+  "FACT_502": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Dough and mature stage of grains are most affected"
+  },
+  "FACT_503": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use disease tolerant rice varieties"
+  },
+  "FACT_504": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use biological control agents, such as Trichoderma species, Bacillus species, or Pseudomonas species"
+  },
+  "FACT_505": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use leaf extracts of Azadirachta indica (neem), or Piper caninum on fields infected with brown spot"
+  },
+  "FACT_506": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Control disease with sheep urine and goat dung"
+  },
+  "FACT_507": {
+    "source_id": "SOURCE_018",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply triazole or strobilurin fungicides"
+  },
+  "FACT_508": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Cause",
+    "statement": "is caused by Bipolaris oryzae"
+  },
+  "FACT_509": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Mostly reported in poor soil with fewer nutrients"
+  },
+  "FACT_510": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "After 18 hours of infection, entry regions appear on the leaves"
+  },
+  "FACT_511": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "When mycelium enters the next invaded cell, brownish appearance occurs"
+  },
+  "FACT_512": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Brown spots merge into bigger chlorotic lesions with a halo around them"
+  },
+  "FACT_513": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Leaf blades are totally destroyed"
+  },
+  "FACT_514": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Reduces green pigment in leaves"
+  },
+  "FACT_515": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Forms circular or oval minute brown to reddish brown spots"
+  },
+  "FACT_516": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Older spots are light reddish brown or have a grey centre with dark to reddish brown margins"
+  },
+  "FACT_517": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Forms small dark brown spots"
+  },
+  "FACT_518": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Forms purple-brown oval or circular spots with a gray center"
+  },
+  "FACT_519": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Forms light reddish lesions with dark reddish or brown margins"
+  },
+  "FACT_520": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease development is favoured by humidity higher than 90%"
+  },
+  "FACT_521": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease development is favoured by temperatures between 24 and 30 degrees centigrade"
+  },
+  "FACT_522": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "High wind and rainfall promotes disease spread"
+  },
+  "FACT_523": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Lesions are formed on leaves"
+  },
+  "FACT_524": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Symptoms",
+    "statement": "Symptoms are present on the panicles"
+  },
+  "FACT_525": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Limited rains along with heavy dew favours disease epidemics"
+  },
+  "FACT_526": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease severity is lower in years with heavy rains"
+  },
+  "FACT_527": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Extended periods of leaf wetness promote infection"
+  },
+  "FACT_528": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Dry soils favour the increase in disease frequency"
+  },
+  "FACT_529": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "High disease severity occurs in areas with water shortages"
+  },
+  "FACT_530": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease is reduced in years with continuous rainfall"
+  },
+  "FACT_531": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Epidemics are severe in seasons with low rainfall and high dew"
+  },
+  "FACT_532": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Disease promoted by soil with poor nutritional profile and low pH"
+  },
+  "FACT_533": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Select resistant rice sources"
+  },
+  "FACT_534": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Severe disease occurs in soil deficient in K"
+  },
+  "FACT_535": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Conditions",
+    "statement": "Severe disease occurs in soil deficient in silicon"
+  },
+  "FACT_536": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use resistant rice varieties that have a high level of phenolic and protein content"
+  },
+  "FACT_537": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply fungicides as a seed treatment to control disease"
+  },
+  "FACT_538": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply foliar fungicides to control disease"
+  },
+  "FACT_539": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply neem extract and Nerium oleander to control pathogen"
+  },
+  "FACT_540": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply extract of ethanol and essential oil of Callistemon citrinus and Ocimum gratissium as a seed treatment"
+  },
+  "FACT_541": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Treat seeds with oil extracts of Cymbopogon citratus, Ocimum gratissimum or Thymus vulgaris"
+  },
+  "FACT_542": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use plant extract of Thuja orientalis to decrease brown spot incidence"
+  },
+  "FACT_543": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Apply plant defence activators like Bezoic acid, hydroquinone, jasmonic acid or salicyclic acid."
+  },
+  "FACT_544": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use biocontrol seed treatments or spray applications, like Pseudomonas fluorescens, and Streptomyces and Bacillus species"
+  },
+  "FACT_545": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use intermediate levels of nitrogen fertilizer in the form of nitrate"
+  },
+  "FACT_546": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Use potassium containing fertilizers alongside nitrogen fertilizers"
+  },
+  "FACT_547": {
+    "source_id": "SOURCE_019",
+    "disease": "Brown Spot",
+    "category": "Actions",
+    "statement": "Ensure that soil is not deficient in zinc, silicon, manganse and calicium"
+  },
+  "FACT_548": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Cause",
+    "statement": "Caused by the rice stem borer, Chilo suppressalis"
+  },
+  "FACT_549": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use crop rotation"
+  },
+  "FACT_550": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Remove crop residues after harvest"
+  },
+  "FACT_551": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Select appropriate planting dates to suppress the pest"
+  },
+  "FACT_552": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Release natural enemies against the pest, including Trichogramma species"
+  },
+  "FACT_553": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Use pheromone trapping that attracts male pests to reduce pest population growth"
+  },
+  "FACT_554": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Actions",
+    "statement": "Judiciously apply chemical pesticides against pest to avoid negative health and environmental impacts"
+  },
+  "FACT_555": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Warnings",
+    "statement": "Avoid overuse of pesticides due to resistance evolution and environmental damage"
+  },
+  "FACT_556": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Warnings",
+    "statement": "Caution should be used with peticides to avoid negative health impact on public health"
+  },
+  "FACT_557": {
+    "source_id": "SOURCE_020",
+    "disease": "Stem Borer",
+    "category": "Warnings",
+    "statement": "Caution should be used with pesticides because they will also kill beneficial insects, such as natural enemies of the pest"
+  },
+  "FACT_558": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Cause",
+    "statement": "The disease is caused by a fungus called Rhizoctonia solani AG1-1A"
+  },
+  "FACT_559": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Symptoms",
+    "statement": "The fungus infects the rice sheath at or just above the waterline of flooded fields"
+  },
+  "FACT_560": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Symptoms",
+    "statement": "Causes long, oval, purple-bordered lesions (spots)"
+  },
+  "FACT_561": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Look-alikes",
+    "statement": "Sheath blight can be confused with other sheath diseases"
+  },
+  "FACT_562": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Warnings",
+    "statement": "Ensure that diagnosis is not confused with other sheath diseases to avoid unnecessary fungicide application"
+  },
+  "FACT_563": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Conditions",
+    "statement": "Short leafy rice cultivars are more susceptible to Sheath Blight"
+  },
+  "FACT_564": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Conditions",
+    "statement": "high nitrogen fertilizer rates (>60 Kg N per acre) increase Sheath Blight susceptibility"
+  },
+  "FACT_565": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Conditions",
+    "statement": "Disease is promoted by high humidity"
+  },
+  "FACT_566": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Conditions",
+    "statement": "Daytime temperatures between 26 and 33 degrees centigrate promote disease"
+  },
+  "FACT_567": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Conditions",
+    "statement": "Nighttime temperatures above 23 degrees centigrade promote disease"
+  },
+  "FACT_568": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Conditions",
+    "statement": "Hot and dry weather reduces the incidence and severity of sheath blight disease"
+  },
+  "FACT_569": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Symptoms",
+    "statement": "Can cause widespread death of leaves"
+  },
+  "FACT_570": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Actions",
+    "statement": "Plant less susceptible cultivars on fields with a history of disease"
+  },
+  "FACT_571": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Actions",
+    "statement": "Avoid thick stands, use a seeding rate of no more than 50 plants per metre"
+  },
+  "FACT_572": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Actions",
+    "statement": "Avoid excessive nitrogen fertilizer based on the field and cultivar, especially at preflood"
+  },
+  "FACT_573": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Conditions",
+    "statement": "Sheath blight is often a problem only in certain fields or parts of a field"
+  },
+  "FACT_574": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Actions",
+    "statement": "Scout fields for sheath blight symptoms from panicle initiation to 50 % heading"
+  },
+  "FACT_575": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Actions",
+    "statement": "Apply fungicides if sheath blight is widespread in the field and threatening the upper two or three leaves before 50% heading"
+  },
+  "FACT_576": {
+    "source_id": "SOURCE_021",
+    "disease": "Sheath Blight",
+    "category": "Actions",
+    "statement": "If sheath blight is not widespread in the field but concentrated in certain areas, then treat only those areas with fungicide"
+  },
+  "FACT_577": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Cause",
+    "statement": "Caused by a fungus called Pyricularia oryzae"
+  },
+  "FACT_578": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesions are typically spindle- to diamond-shaped spots"
+  },
+  "FACT_579": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Lesion size vary from small to large depending on plant susceptibility"
+  },
+  "FACT_580": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Field lesions have a reddish brown border and off-white to tan centre"
+  },
+  "FACT_581": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Symptoms",
+    "statement": "Can cause neck blast"
+  },
+  "FACT_582": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Disease is favoured by long dew periods of more than 9 hours"
+  },
+  "FACT_583": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Disease is increases by fog, shade, or frequent light rains"
+  },
+  "FACT_584": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Late seeding dates increase the likelihood of blast infection"
+  },
+  "FACT_585": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Plant resistant cultivars, especially in fields with a history of blast or difficult to irrigate"
+  },
+  "FACT_586": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Use clean, fungicide-treated seed"
+  },
+  "FACT_587": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Plant early (April) to avoid the likelihood of heavy blast pressure late in the season"
+  },
+  "FACT_588": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Avoid high nitrogen rates or high organic matter soils"
+  },
+  "FACT_589": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Maintain a consistent, deep flood (>10 cm), especially after the drain and dry period for straighthead prevention"
+  },
+  "FACT_590": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Avoid losing the flood or shallow floods"
+  },
+  "FACT_591": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Periodically scout fields for symptoms, if detected, increase the flood depth for the rest of the season."
+  },
+  "FACT_592": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Periodically scout fields for symptoms, if detected, prepare for preventative application of fungicides"
+  },
+  "FACT_593": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Combine fungicide treatments with proper flooding practices"
+  },
+  "FACT_594": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Conditions",
+    "statement": "Plants are more susceptible if they are grown under shallow floods, moist soil or drought stressed conditions"
+  },
+  "FACT_595": {
+    "source_id": "SOURCE_021",
+    "disease": "Blast",
+    "category": "Actions",
+    "statement": "Fungicides work best if applied twice, the first at late boot and the second when the panicldes of the main tillers are 50-75% heading but when the neck is still in boot"
+  },
+  "FACT_596": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Cause",
+    "statement": "The fungus Bipolaris oryzae (formally Helmintosporium oryzae) causes brown spot"
+  },
+  "FACT_597": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Symptoms",
+    "statement": "Infects leaves"
+  },
+  "FACT_598": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Conditions",
+    "statement": "Usually infects seedlings, but can infect mature plants if stressed"
+  },
+  "FACT_599": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Conditions",
+    "statement": "Rice suffering from nitrogen, potassium, or phosphorous deficiency is especially susceptible to brown spot"
+  },
+  "FACT_600": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Conditions",
+    "statement": "Spores can infect the plant when free moisture is available"
+  },
+  "FACT_601": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Symptoms",
+    "statement": "Infection causes oval-shaped lesions"
+  },
+  "FACT_602": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Symptoms",
+    "statement": "On tolerant, healthy leaves, spots are small (less than 3 mm across) and dark brown"
+  },
+  "FACT_603": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Symptoms",
+    "statement": "On susceptible or nutritionally deficient plants, spots enlarge to 6 mm or larger with a tan centre and dark border"
+  },
+  "FACT_604": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Warnings",
+    "statement": "Brown spot lesions are occasionally confused with leaf blast lesions"
+  },
+  "FACT_605": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Actions",
+    "statement": "Plant cultivars that are resistant to brown spot"
+  },
+  "FACT_606": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Actions",
+    "statement": "Use clean, fungicide-treated seed"
+  },
+  "FACT_607": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Actions",
+    "statement": "Routinely sample and test soil for nutrients and apply the recommended fertilizers, especially potassium"
+  },
+  "FACT_608": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Actions",
+    "statement": "Use the recommended rate and timing of nitrogen fertilization"
+  },
+  "FACT_609": {
+    "source_id": "SOURCE_021",
+    "disease": "Brown spot",
+    "category": "Warnings",
+    "statement": "Fungicides are not recommended for brown spot control because the disease is usually associated with a nutritional problem that fungicides cannot correct"
+  },
+  "FACT_610": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Cause",
+    "statement": "Caused by the rice leaf folder, Cnaphalocrocis medinalis"
+  },
+  "FACT_611": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Leaffolder caterpillars fold a rice leaf around themselves and attach the leaf margins together with silk strands"
+  },
+  "FACT_612": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Caterpillars feed on the leaves creating longitudinal white and transparent streaks"
+  },
+  "FACT_613": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "Heavy use of fertilizer encourages rapid multiplication of the insect"
+  },
+  "FACT_614": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "The pest favours high humidity and shady areas of the field"
+  },
+  "FACT_615": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "The pest is promoted by the presence of grassy weeds in the field and surrounding borders"
+  },
+  "FACT_616": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "Rice leaf folders are more abundant during rainy seasons"
+  },
+  "FACT_617": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "They occur year round"
+  },
+  "FACT_618": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "They are active from May to October"
+  },
+  "FACT_619": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Cause tubular folded leaves"
+  },
+  "FACT_620": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Leaf tips sometimes fasten to the basal part of leaf"
+  },
+  "FACT_621": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Heavily infested fields appear scorched with many folded leaves"
+  },
+  "FACT_622": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Pest lays disc-shaped ovoid eggs laid singly"
+  },
+  "FACT_623": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Young larvae feed on the base of the youngest unopened leaves"
+  },
+  "FACT_624": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Fecal matter may be visible from the larvae"
+  },
+  "FACT_625": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Warnings",
+    "statement": "Early season insecticide use have little or no economic returns and instead kill natural enemies of pests"
+  },
+  "FACT_626": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Use resistant varieties, contact you local agricultural office for an up-to-date list of available varieties"
+  },
+  "FACT_627": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Follow rice with a different crop or a fallow period"
+  },
+  "FACT_628": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Avoid ratooning"
+  },
+  "FACT_629": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Flood and plough field after harvesting"
+  },
+  "FACT_630": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Remove grassy weeds from fields and borders"
+  },
+  "FACT_631": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Reduce planting density"
+  },
+  "FACT_632": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Use balanced fertilizer rates"
+  },
+  "FACT_633": {
+    "source_id": "SOURCE_022",
+    "disease": "Leaf folder",
+    "category": "Warnings",
+    "statement": "Avoid using pesticides without the necessary safety equipment and expertise"
+  },
+  "FACT_634": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Cause",
+    "statement": "The rice leaffolder, Cnaphalocrocis medinalis"
+  },
+  "FACT_635": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Symptoms",
+    "statement": "Pest folds and feeds on leaves, resulting in chlorophyll loss"
+  },
+  "FACT_636": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Warnings",
+    "statement": "Misuse of chemical pesticides can cause environmental pollution and insect resistance"
+  },
+  "FACT_637": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Plant soybean (Glycine max) and sesame (Sesamum indicum) on ridges in rice fields to provide habitat for pest natural enemies"
+  },
+  "FACT_638": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Grow nectar plants along the field to increase the function of natural enemies in the rice field"
+  },
+  "FACT_639": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Annual wild rice (Zizania aquatica) fields adjacent to rice fields can promote pest natural enemies"
+  },
+  "FACT_640": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Plant functional plants, such as Astragalus sinicus and Brassica campestris, in winter to provide overwinter habitats for pest natural enemies,"
+  },
+  "FACT_641": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Use pest-tolerant rice varieties, including varieties with leaf morphological features and biochemical traits (e.g. nutritional or defensive compounds)."
+  },
+  "FACT_642": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "Rice varieties with dark green, wide, and soft leaves are more susceptible to pest"
+  },
+  "FACT_643": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "Rice varieties with light leaf colour and a hard texture are unsuitable for pest larvae feeding"
+  },
+  "FACT_644": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "Excessive nitrogen fertilizer application increases pest population"
+  },
+  "FACT_645": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Balanced fertilization, including reduced nitrogen, delayed nitrogen fertilization, increased potassium fertilization, and optimised N-P-K ratio, leads to reduced leaf folder damage"
+  },
+  "FACT_646": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Apply silicon fertilizer to improve rice plant tolerance to pests and attract natural enemies"
+  },
+  "FACT_647": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Conditions",
+    "statement": "Low humidity inhibits rice leaf folder reproduction"
+  },
+  "FACT_648": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Adjust the field drying period to lower field humidity during rice leaf folder incubation period"
+  },
+  "FACT_649": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Flood field for 2-3 days during the pupation of rice leaf folders to reduce population"
+  },
+  "FACT_650": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Appropriate plowing and irrigation after early rice harvest can reduce pest population for late rice"
+  },
+  "FACT_651": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Warnings",
+    "statement": "Avoid spraying insectides at the early rice growth stage because rice yields are often not reduced by some early damage, and it will protect natural enemies"
+  },
+  "FACT_652": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Use sex pheromone traps to control pest, using 15 traps per hectare"
+  },
+  "FACT_653": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Use food attractant traps to capture pests"
+  },
+  "FACT_654": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Use pheromone-mediated mating disruption to reduce pest reproduction"
+  },
+  "FACT_655": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Release pest natural enemies, such as Trichogramma species"
+  },
+  "FACT_656": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Apply microbial pesticides, such as Bacillus thuringiensis, Beaveria bassiana, Empedobacter brevis, Mamestra brassicae nuclear polyhedrosis virus, and Metarhizium anisopiae CQMa421"
+  },
+  "FACT_657": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Apply plant-derived pesticides, such as Celastrus angulatus"
+  },
+  "FACT_658": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Implement a rice-animal co-culture system with a predator of leaf folders, such as frogs, turtles, ducks and fish"
+  },
+  "FACT_659": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "If necessary - based on monitoring of leaf folder populations and damage characteristics (more than 150 larvae or new folds per 100 rice plant hills/clusters at the tillering stage, and 60 larvae or new folds per 100 rice plant hills/clusters at the booting stage) - apply highly efficient, low toxicity and low residue insecticides"
+  },
+  "FACT_660": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Warnings",
+    "statement": "Pesticide usage must follow all applicable national rules and regulations governing pesticide safety"
+  },
+  "FACT_661": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Insecticides with different mechanisms of action and no cross-resistance should be used alternately between different locations or generations to inhibit resistance"
+  },
+  "FACT_662": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "The optimal insecticide application time during the leaf folder life cycle is from egg hatching peak to the early larval stage"
+  },
+  "FACT_663": {
+    "source_id": "SOURCE_023",
+    "disease": "Leaf folder",
+    "category": "Actions",
+    "statement": "Coordinate insecticide application so that it targets other pest species, such as stem borers, while also reducing harm to natural enemies"
+  },
+  "FACT_664": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Cause",
+    "statement": "The brown plant hopper, Nilaparvata lugens."
+  },
+  "FACT_665": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Outbreaks occur when the population of arthropod natural enemies decreases due to floods, drought, or farming practices like excessive use of fertilizers or pesticides"
+  },
+  "FACT_666": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Outbreaks are promoted by the use of urea fertilizer as a nitrogen source"
+  },
+  "FACT_667": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "High arthropod diversity and populations of predators and parasitoids can suppress outbreaks"
+  },
+  "FACT_668": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Plants are most sensitive to infestation at booting and milking stage"
+  },
+  "FACT_669": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Adult brown plant hoppers are brownish black with a yellowish brown body (about 4-5mm) with a distinct white band on its mesonotum (back) and dark brown edges"
+  },
+  "FACT_670": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Infected plants turn yellow and quickly dry up"
+  },
+  "FACT_671": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Infected areas can create a wide area of brownish plants, a symptom known as 'hopper burn'"
+  },
+  "FACT_672": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Outbreaks are exacerbated by viral diseases which are transmitted by the brown plant hopper"
+  },
+  "FACT_673": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Brown plant hopper eggs are usually laid in groups at the lower part of the rice plant, mostly in leaf sheaths but also on leaf blades"
+  },
+  "FACT_674": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Brown plant hopper populations are increased by ratooning rice or an absence of a fallow period"
+  },
+  "FACT_675": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Rice stubble can provide a reservoir, refugia or breeding point for brown plant hopper"
+  },
+  "FACT_676": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Remove rice stubble from field following harvest"
+  },
+  "FACT_677": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Infection is promoted by dense plant stands"
+  },
+  "FACT_678": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Brown plant hopper development is promoted by temperatures between 25 and 30 degrees centigrade"
+  },
+  "FACT_679": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Brown plant hopper populations are promoted by humid environments (70-85% RH)"
+  },
+  "FACT_680": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Brown plant hopper populations are promoted by rice varieties with dense canopies or by close spacing of plants"
+  },
+  "FACT_681": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Infestation can be promoted by high levels of nitrogen fertilzer"
+  },
+  "FACT_682": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Infestation can be promoted by continuously flooded fields"
+  },
+  "FACT_683": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Promote natural enemies of the pest by avoiding insecticide application"
+  },
+  "FACT_684": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Plant resistant rice cultivars"
+  },
+  "FACT_685": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest outbreaks are promoted by high-yielding susceptible rice cultivars"
+  },
+  "FACT_686": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest outbreaks are promoted by continuous irrigation"
+  },
+  "FACT_687": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest outbreaks are promoted by excessive insecticides"
+  },
+  "FACT_688": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest outbreaks are promoted by high planting density"
+  },
+  "FACT_689": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest outbreaks are promoted by extensive rice fields"
+  },
+  "FACT_690": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Use crop rotation with non-host plants (soybeans, mung beans, sweet potato) or fallow periods to help reduce the pest population"
+  },
+  "FACT_691": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Concurrently plant rice with secondary non-host plants to reduce pest population"
+  },
+  "FACT_692": {
+    "source_id": "SOURCE_024",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Judiciously apply insecticides to control pest while minimising emergence of resistance and negative impact on natural enemies and the environment"
+  },
+  "FACT_693": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Cause",
+    "statement": "The brown plant hopper, Nilaparvata lugens (StaI)"
+  },
+  "FACT_694": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "High populations of planthoppers cause leaves to turn orange-yellow"
+  },
+  "FACT_695": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Causes leaves to become brown and dry, a condition known as hopperburn, that kills the plant"
+  },
+  "FACT_696": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Planthoppers can be a problem in rainfed and irrigated wetland environments"
+  },
+  "FACT_697": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "It occurs in fields with continuous submerged conditions"
+  },
+  "FACT_698": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "It occurs in fields with high levels of shade"
+  },
+  "FACT_699": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "It occurs in areas of high humidity"
+  },
+  "FACT_700": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest development is favoured by closed rice plant canopies"
+  },
+  "FACT_701": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest development is favoured by densely seeded crops"
+  },
+  "FACT_702": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest development is favoured by excessive use of nitrogen"
+  },
+  "FACT_703": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Conditions",
+    "statement": "Pest development is favoured by early season insecticide spraying"
+  },
+  "FACT_704": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Pest produces crescent-shaped white eggs in the midrib or leaf sheath"
+  },
+  "FACT_705": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Pest has white to brown nymphs"
+  },
+  "FACT_706": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Adult pests are brown to white adults feeding near the base of tillers"
+  },
+  "FACT_707": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Pests cause yellowing, browning and drying of plants"
+  },
+  "FACT_708": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Pests cause ovipositionsal marks on plants"
+  },
+  "FACT_709": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Causes honeydew and sooty moulds to form in the bases of infected areas"
+  },
+  "FACT_710": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Symptoms",
+    "statement": "Causes plants to acquire secondary infections, such as ragged stunt or grassy stunt virus disease"
+  },
+  "FACT_711": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Look-alikes",
+    "statement": "Hopperburn - caused by brown plant hoppers - is similar to the damage caused by rice black bug"
+  },
+  "FACT_712": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Distinguishing features",
+    "statement": "To confirm that it is brown plant hoppers rather than rice black bug, check for the presence of sooty moulds at the base of the plant"
+  },
+  "FACT_713": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Causes",
+    "statement": "Outbreaks result from pesticides that destroy natural enemies"
+  },
+  "FACT_714": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Causes",
+    "statement": "Outbreaks can result from the wind transmitting planthoppers from other infected areas"
+  },
+  "FACT_715": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Remove weeds from the field and surrounding areas"
+  },
+  "FACT_716": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Avoid indescriminate insecticide use"
+  },
+  "FACT_717": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Use resistant rice varieties. Contact your local agriculture office for an up-to-date list of available varities."
+  },
+  "FACT_718": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Check for pests daily in the seedbed, at each side of the seed bed, on stems and the water surface"
+  },
+  "FACT_719": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Check for pests weekly in the field on stems and the water surface. Bend plants slightly and gently tap it near the base to see if planthoppers fall out"
+  },
+  "FACT_720": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "If not scouting fields daily then use light traps (e.g., an electric bulb or kerosene lamp near a light coloured wall or over a pan of water) at night. If hundreds of planthoppers are observed, check seedbed or field immediately for infestation"
+  },
+  "FACT_721": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Do not place lights near seedbeds or fields"
+  },
+  "FACT_722": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Flood the seedbed for a day, so that only the tips of seedlings are exposed, to control planthoppers"
+  },
+  "FACT_723": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Sweep small seedbeds with a net to remove some brown planthoppers, particularly from dry seed beds"
+  },
+  "FACT_724": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Even rice already damaged by hopperburn should not be treated with insecticides if natural enemies (including water striders, mirid bugs, spiders and various egg parasitoids) out-number planthoppers"
+  },
+  "FACT_725": {
+    "source_id": "SOURCE_025",
+    "disease": "Brown plant hopper",
+    "category": "Actions",
+    "statement": "Only apply insecticides to the seedbed if there is an average of more than one planthopper per stem, and there arae more planthoppers than natural enemies, and flooding the seedbed is not an option."
+  },
+  "FACT_726": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Cause",
+    "statement": "Nitrogen deficient crops have low yield"
+  },
+  "FACT_727": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is common in all rice-growing soils where modern varieties are grown without sufficient mineral nitrogen fertilization"
+  },
+  "FACT_728": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency often occurs at tillering and panicle initation, when the demand for nitrogen is high"
+  },
+  "FACT_729": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency may occur due to nitrogen being applied at the wrong time or in an inappropriate manner"
+  },
+  "FACT_730": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is common in soils with very low organic matter content"
+  },
+  "FACT_731": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is likely in saline soils"
+  },
+  "FACT_732": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is likely in phosphorous-deficient soils"
+  },
+  "FACT_733": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is likely in poorly drained wetland soils"
+  },
+  "FACT_734": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is likely in acid sulfate soils"
+  },
+  "FACT_735": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is likely in alkaline soils"
+  },
+  "FACT_736": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is likely in calcareous soils"
+  },
+  "FACT_737": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency is likely in soils with a high potential for ammonia volatization losses"
+  },
+  "FACT_738": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Nitrogen deficient plants are stunted"
+  },
+  "FACT_739": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Nitrogen deficient plants are yellowish green"
+  },
+  "FACT_740": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Nitrogen deficiency plants become light green and chlorotic at the tip"
+  },
+  "FACT_741": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Deficiency may cause entire field to turn yellowish"
+  },
+  "FACT_742": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Deficiency often leads to older leaves yellowing or dying, while young leaves remain greener"
+  },
+  "FACT_743": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Leaves of nitrogen deficient plants are narrow, small, short, erect and lemon-yellowish green"
+  },
+  "FACT_744": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Nitrogen deficient crops have reduced tillering and grain number"
+  },
+  "FACT_745": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Look-alikes",
+    "statement": "The visual symptoms of nitrogen deficiency can be confused with sulphur deficiency"
+  },
+  "FACT_746": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Distinguishing features",
+    "statement": "Sulphur deficiency tends to affect younger leaves or all of the plant, whereas nitrogen deficiency tends to affect older leaves"
+  },
+  "FACT_747": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Look-alikes",
+    "statement": "Mild nitrogen deficiency can be confused with iron deficiency"
+  },
+  "FACT_748": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Distinguishing features",
+    "statement": "Iron deficiency tends to affect younger leaves, whereas Nitrogen deficiency tends to affect older leaves"
+  },
+  "FACT_749": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Distinguishing features",
+    "statement": "To confirm deficiency, bring soil and plant samples to the laboratory for testing"
+  },
+  "FACT_750": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Apply nitrogen fertilizer efficiently"
+  },
+  "FACT_751": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Use a suitable plant spacing for your particular cultivar to ensure efficient use of nitrogen fertilizer"
+  },
+  "FACT_752": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Ensure that the number of splits and timing of Nitrogen fertilizer is appropriate for your crop establishment method (i.e. transplanted versus directly seeded)"
+  },
+  "FACT_753": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Keep the field flooded to prevent denitrification"
+  },
+  "FACT_754": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Avoid nitrogen loss from water runoff over bunds immediately following nitrogen fertilizer application"
+  },
+  "FACT_755": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Control weeds that compete with rice for nitrogen"
+  },
+  "FACT_756": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Correct deficiencies of other nutrients, such as phosphorous, potassium and zinc"
+  },
+  "FACT_757": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Solve other soil problems, like shallow rooting depth or toxicities"
+  },
+  "FACT_758": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "For long-term corrections, ensure that soil contains a sufficient amount of organic matter by applying manure, crop residues, or compost"
+  },
+  "FACT_759": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Conditions",
+    "statement": "Nitrogen deficiency problems can be particularly common in rainfed lowland rice and intensive irrigated rice systems where rice is rotated with other upland crops like wheat or maize"
+  },
+  "FACT_760": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "In irrigated rice-rice systems, carry our dry, shallow tillage (5-10cm) within two weeks of harvest to ensure soil oxidation and crop residue decomposition during fallow period"
+  },
+  "FACT_761": {
+    "source_id": "SOURCE_027",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Allow periodic drainage and drying of permanently submerged soils"
+  },
+  "FACT_762": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Cause",
+    "statement": "When plants receive too much nitrogen"
+  },
+  "FACT_763": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Fields with excessive nitrogen have plants that look overly green"
+  },
+  "FACT_764": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Fields with excessive nitrogen have plants that may become lodged at maturity (i.e., become bent, or fall over, or stems and roots become flattened)"
+  },
+  "FACT_765": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Fields with excessive nitrogen may have plants with thin stems"
+  },
+  "FACT_766": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Fields with excessive nitrogen have plants that may be prone to disease"
+  },
+  "FACT_767": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Fields with excessive nitrogen have plants that may be prone to insect pests"
+  },
+  "FACT_768": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Symptoms",
+    "statement": "Fields with excessive nitrogen may have patchy patterns resulting from uneven application"
+  },
+  "FACT_769": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Look-alikes",
+    "statement": "Nitrogen excess can have similar symptoms to phosphous deficiency where plants have dark green leaves"
+  },
+  "FACT_770": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Distinguishing features",
+    "statement": "phosphorous deficient plants produce fewer tillers"
+  },
+  "FACT_771": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Distinguishing features",
+    "statement": "phosphorous deficient plants have stunted growth"
+  },
+  "FACT_772": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Apply sufficient nitrogen to meet the plants' needs (20 kg nitrogen per tonne of grain produced)"
+  },
+  "FACT_773": {
+    "source_id": "SOURCE_028",
+    "disease": "Nitrogen",
+    "category": "Actions",
+    "statement": "Identify how much nitrogen is coming from the soil and other sources and adjust additional nitrogen needs accordingly"
+  },
+  "FACT_774": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Iron toxicity generally occurs  in lowland rice soils with permanent flooding during crop growth"
+  },
+  "FACT_775": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Toxicity causes tiny brown spots starting from the tip and spreading towards the leaf base"
+  },
+  "FACT_776": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Toxicity causes whole leaves to become orange-yellow to brown coloured"
+  },
+  "FACT_777": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Toxicity causes spots that combine on leaf interveins and cause the leaves to turn brown and die"
+  },
+  "FACT_778": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Toxicity can cause leaves to be narrow but often remain green"
+  },
+  "FACT_779": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Toxicity can cause leaf tips of some rice varieties to become orrange-yellow and dry up"
+  },
+  "FACT_780": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "In severe toxicity, leaves appear purple-brown"
+  },
+  "FACT_781": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Toxicity causes stunted growth and extremely limited tillering"
+  },
+  "FACT_782": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Toxicity cause roots to be coarse, sparse and damaged with a dark brown coating on the root surface with many dead roots"
+  },
+  "FACT_783": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Toxicity can be identified by freshly uprooted rice hills having a poor root system with many black roots"
+  },
+  "FACT_784": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Distinguishing features",
+    "statement": "To confirm iron toxicity, send soil and plant sample to lab for testing"
+  },
+  "FACT_785": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Plant tolerant rice varieties to prevent iron toxicity"
+  },
+  "FACT_786": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Where direct seeding is practiced, coat seeds with oxidants such as calcium peroxide"
+  },
+  "FACT_787": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Delay planting until after iron concentrations have peaked (i.e. not less than 10-20 days after flooding)"
+  },
+  "FACT_788": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Use intermittent irrigation and avoid continuous flooding on poorly drained soils with high iron and organic matter content"
+  },
+  "FACT_789": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Balance the use of fertilizers (nitrogen, phosphorous and potassium, as well as lime)"
+  },
+  "FACT_790": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Apply sufficient potassium fertilizer"
+  },
+  "FACT_791": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Apply lime on acidic soils"
+  },
+  "FACT_792": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Avoid applying excessive amounts of organic matter (manure, straw) on iron- and organic matter containing soils where drainage is poor"
+  },
+  "FACT_793": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Use urea instead of ammonium sulfate to prevent soil acidification"
+  },
+  "FACT_794": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Where iron toxicity is present, apply additional potassium, phosphorous and magnesium fertilizers"
+  },
+  "FACT_795": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Incorporate manganese dioxide in the topsoil to decrease iron reduction"
+  },
+  "FACT_796": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Carry out midseason drainage to remove accumulated iron"
+  },
+  "FACT_797": {
+    "source_id": "SOURCE_029",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Drain the field and keep it free of floodwater (but moist) for 7-10 days to improve oxygen supply during tillering"
+  },
+  "FACT_798": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Cause",
+    "statement": "Iron toxicity is a syndrome of disorder associated with large concentrations of iron (II) in the soil solution"
+  },
+  "FACT_799": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Generally occurs under specific flooded conditions, which involve the microbial reduction of insoluble iron (III) into soluble iron (II)"
+  },
+  "FACT_800": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Occurs in acid sulfate soild"
+  },
+  "FACT_801": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Occurs in acid clay soils"
+  },
+  "FACT_802": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Occurs in peat soils"
+  },
+  "FACT_803": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Occurs in valley-bottom soild that receive interflow water from adjacent slopes"
+  },
+  "FACT_804": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Iron toxicity is frequently associated with soils with a poor nutrient status"
+  },
+  "FACT_805": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Iron toxicity is frequently associated with soils where respiration inhibitors have accumulated"
+  },
+  "FACT_806": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Causes bronzing of rice leaves"
+  },
+  "FACT_807": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Occurs in soild with low pH, high concentrations of reducible Fe, low cationic exchange capacity, and exchangeable potassium content"
+  },
+  "FACT_808": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "It may occur in soils with phosphorous and zinc deficiency, and hydrogen sulfide toxicity"
+  },
+  "FACT_809": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "It is linked to water logging and only occurs under anoxic soil conditions"
+  },
+  "FACT_810": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "It is enhanced by a sustained supply of organic matter"
+  },
+  "FACT_811": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "It increases with the duration of submergence, potentially reaching a peak 2-8 weeks after soil flooding"
+  },
+  "FACT_812": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Plants suffering iron toxicity in acid-sulfate soils may cover large contiguous area"
+  },
+  "FACT_813": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Plants suffering iron toxicity in clayey acid soils with high concentrations of hydrogen sulfide occur in isolated or localized patches"
+  },
+  "FACT_814": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Plants suffering iron toxicity in poorly drained sandy soils with inflow of water from adjacent slopes, such as inland valley swamps, occur in localized patches of the field (at the valley fringe)"
+  },
+  "FACT_815": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Bronzing begins with tiny brown spots that spread from the leaf tip to the base"
+  },
+  "FACT_816": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Leaf tips become orange-yellow and dry up in some rice varieties"
+  },
+  "FACT_817": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "The entire leaves become orange to rusty brown"
+  },
+  "FACT_818": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "The leaves become purple-brown when toxicity is severe"
+  },
+  "FACT_819": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Rice plants remain stunted with extremely limited tillering"
+  },
+  "FACT_820": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Causes reduced plant height and dry-matter accumulation"
+  },
+  "FACT_821": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Tiller formation and productivity can be severly reduced"
+  },
+  "FACT_822": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "It is associated with fewer panicles per hill"
+  },
+  "FACT_823": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "It can cause delayed flowering and maturity by up to 25 days or cause no flowering"
+  },
+  "FACT_824": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Symptoms",
+    "statement": "Can cause root growth to stop and roots break down and are coated with a dark brown to black precipitates"
+  },
+  "FACT_825": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Symptoms can be more pronounced in a dry as compared to a wet season crop"
+  },
+  "FACT_826": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Toxicity is generally linked to high-rainfall and humid areas"
+  },
+  "FACT_827": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Conditions",
+    "statement": "Soil toxicity tends to be more at sites where the parent rock is rich in iron"
+  },
+  "FACT_828": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Attempt to intercept interflow of iron containing water from surrounding areas by either constructing irrigation or drainage canals, or with rows of other plants such as bananas"
+  },
+  "FACT_829": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Avoid adding large quantities of easily decomposable organic matter, particularly in clay and acid-sulfate soils"
+  },
+  "FACT_830": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Apply potassium fertilizers to limit microbial iron reduction in the rhizosphere"
+  },
+  "FACT_831": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Use flush irrigation rather than flood irrigation to reduce iron toxicity"
+  },
+  "FACT_832": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Delay flooding to reduce iron toxicity"
+  },
+  "FACT_833": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Use shortened submergence periods to reduce iron toxicity"
+  },
+  "FACT_834": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Drain the field mid-season to temporarily remove iron toxicity"
+  },
+  "FACT_835": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Consider using direct seeding rather than transplanting seedlings because root damage during transplanting can make plants more susceptible"
+  },
+  "FACT_836": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Ensure soil contains sufficient potassium to prevent iron toxicity, by either applying mineral potassium fertilizers, or if unavailable then use rice straw"
+  },
+  "FACT_837": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Zinc application increases rice tolerance to iron toxicity"
+  },
+  "FACT_838": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Depending on the soil and season, application of potassium, phosphorous, calcium, magnesium and zinc, solely or in combinations, can reduce bronzing symptoms and increase rice yield"
+  },
+  "FACT_839": {
+    "source_id": "SOURCE_030",
+    "disease": "Iron toxicity",
+    "category": "Actions",
+    "statement": "Use iron tolerant rice cultivars"
+  }
+}

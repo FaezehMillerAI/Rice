@@ -1,3 +1,33 @@
-source_id,title,publisher,author,publication_date,access_date,source_type,diseases,regions,languages,copyright_owner,license_status,training_permission,retrieval_permission,redistribution_permission,citation_required,reviewer,sme_relevance_score,notes
-source:irri_rice_doctor_2024,IRRI Rice Doctor Diagnostic Manual,IRRI,International Rice Research Institute,2024-01-15,2026-08-11,Official Fact Sheet,Blast|BLB|Brown Spot|N-Deficiency|Water Stress,Global Tropical,en,IRRI,Train and redistribute,approved,approved,approved,yes,Richard Lindsay,5,Authoritative diagnostic reference standard
-source:irri_knowledge_bank_2025,IRRI Rice Knowledge Bank,IRRI,IRRI Extension Team,2025-03-10,2026-08-11,Extension Manual,BLB|Sheath Blight|Tungro|Nutrient Deficiencies,Southeast Asia,en,IRRI,Train and redistribute,approved,approved,approved,yes,Richard Lindsay,5,Practical field diagnostic guide
+source_id,title,publisher,author,publication_date,license_status,training_permission,reviewer
+source:irri_rice_doctor_2024,IRRI Rice Doctor Diagnostic Manual,IRRI,International Rice Research Institute,2024-01-15,Train and redistribute,approved,Richard Lindsay
+source:irri_knowledge_bank_2025,IRRI Rice Knowledge Bank,IRRI,IRRI Extension Team,2025-03-10,Train and redistribute,approved,Richard Lindsay
+SOURCE_001,Blast (leaf and collar) - IRRI Rice Knowledge Bank,IRRI,IRRI,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_002,Blast (node and neck) - IRRI Rice Knowledge Bank,IRRI,IRRI,2011,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_003,Bacterial blight - IRRI Rice Knowledge Bank,IRRI,IRRI,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_004,2016-bacterial-leaf-blight-of-rice,CABI,CABI,2016,CC BY-NC-SA 4.0 licence,Allowed,Richard / Srikanth
+SOURCE_005,Advances in understanding and controlling rice blast disease Mechanisms and management strategies,Xu et al. Wuhan University of Bioengineering and China Three Gorges University,Xu et al. Wuhan University of Bioengineering and China Three Gorges University,2026,CC BY-NC-ND 4.0,Allowed,Richard / Srikanth
+SOURCE_006,Sheath blight - IRRI Rice Knowledge Bank,IRRI,IRRI,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_007,Rhizoctonia solani Kühn Pathophysiology: Status and Prospects of Sheath Blight Disease Management in Rice,Senapati et al. ICAR-Indian Agricultural Research Institute,Senapati et al. ICAR-Indian Agricultural Research Institute,2022,Creative Commons Attribution License (CC BY),Allowed,Richard / Srikanth
+SOURCE_008,An overview of bacterial blight disease of rice and strategies for its management,Gnanamanickam et al.,Gnanamanickam et al.,1999,Unknown,Allowed,Richard / Srikanth
+SOURCE_009,Strengthening Defences A Path Forward for Bacterial Leaf Blight Managment in East and Southern African Rice Production,Onaga et al. Africa Rice Centre,Onaga et al. Africa Rice Centre,2026,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_010,Rice sheath blight management,Naqvi et al.,Naqvi et al.,2026,Creative Commons - Open access,Allowed,Richard / Srikanth
+SOURCE_011,"Rice Blast, A Major Threat to the Rice Production and its Various Management Techniques",Simkhada & Thapa,Simkhada & Thapa,2022,Creative Commons Attribution-NonCommercial 4.0 International License,Allowed,Richard / Srikanth
+SOURCE_012,Pathogenicity and virulence of the blast fungus Magnaporthe oryzae,Molinari & Talbot (The Sainsbury Laboratory),Molinari & Talbot (The Sainsbury Laboratory),2026,Creative Commons Attribution License,Allowed,Richard / Srikanth
+SOURCE_013,Defending rice crop from blast disease in the context of climate change for food security in Nepal,Khadka et al (Nepal Agricultural Research Council),Khadka et al (Nepal Agricultural Research Council),2025,Creative Commons Attribution License (CC BY),Allowed,Richard / Srikanth
+SOURCE_014,Stem borer - IRRI Rice Knowledge Bank,IRRI,IRRI,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_015,Review on bionomics and management of rice stem borer,Dutta and Roy,Dutta and Roy,2022,Creative Commons Attribution-NonCommercial 3.0 Unported License.,Allowed,Richard / Srikanth
+SOURCE_016,Brown spot - IRRI Rice Knowledge Bank,IRRI,IRRI,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_017,"Brown Spot of Rice Worldwide Disease Impact, Phenotypicand Genetic Diversity of the Causal Pathogen Bipolarisoryzae, and Management of the Disease",Kouka Hilaire Kaboré et al,Kouka Hilaire Kaboré et al,2025,CC BY-NC-ND 4.0,Allowed,Richard / Srikanth
+SOURCE_018,Status of Rice Brown Spot (Helminthosporium oryza) Management in India A Review,Surendhar et al,Surendhar et al,2021,Creative Commons Attribution License,Allowed,Richard / Srikanth
+SOURCE_019,Brown Leaf Spot An Exacerbated Embryonic Disease of Rice A Review,Imran et al,Imran et al,2020,Creative Commons Attribution (CC BY) license NB. Unconfirmed,Allowed,Richard / Srikanth
+SOURCE_020,Selecting strategies for rice stem borer management using the Analytical Hierarchy Process (AHP),Abdollahzadeh et al,Abdollahzadeh et al,2016,unknown,Allowed,Richard / Srikanth
+SOURCE_021,Management of Rice Diseases,Wamishe et al,Wamishe et al,2017?,unknown,Allowed,Richard / Srikanth
+SOURCE_022,Rice leaffolder - IRRI Rice Knowledge Bank,IRRI - Jo Catindig,IRRI - Jo Catindig,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_023,"Sustainable Management Strategies for Rice Leaffolder, Cnaphalocrocis medinalis (Guenée) Progress and Prospects",Yang et al,Yang et al,2025,Creative commons,Allowed,Richard / Srikanth
+SOURCE_024,"A Review on Brown Planthopper (Nilaparvata lugens Stål), a Major Pest of Rice in Asia and Pacific",Iamba and Dono,Iamba and Dono,2021,Creative commons,Allowed,Richard / Srikanth
+SOURCE_025,Planthopper - IRRI Rice Knowledge Bank,IRRI - Jo Catindig,IRRI - Jo Catindig,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_026,A Global Perspective of Rice Brown Planthopper Management Ⅲ - Strategies for BPH Management,Krishnaiah,Krishnaiah,2014,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_027,Nitrogen deficiency - IRRI Rice Knowledge Bank,Roland Buresh and James Quilty,Roland Buresh and James Quilty,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_028,Nitrogen excess - IRRI Rice Knowledge Bank,Roland Buresh and James Quilty,Roland Buresh and James Quilty,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_029,Iron toxicity - IRRI Rice Knowledge Bank,Roland Buresh and James Quilty,Roland Buresh and James Quilty,unknown,Creative Commons,Allowed,Richard / Srikanth
+SOURCE_030,Iron toxicity in rice conditions and management concepts,Becker and Asch,Becker and Asch,2005,Creative Commons,Allowed,Richard / Srikanth

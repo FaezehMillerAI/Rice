@@ -4,3 +4,10 @@ disorder:nitrogen_deficiency,AbioticDisorder,Nitrogen deficiency,,Nitrogen defic
 disorder:water_stress,AbioticDisorder,Water-related stress,,Water-related stress,Drought stress|waterlogging stress|moisture stress|submergence stress,AbioticDisorder,Active,True
 disease:rice_blast,Disease,Rice blast,Magnaporthe oryzae,Rice blast,Leaf blast|neck blast|collar rot|blast disease|Pyricularia oryzae,Pathogen,Active,True
 disease:brown_spot,Disease,Brown spot,Bipolaris oryzae,Brown spot,Sesame spot|Helminthosporium leaf spot|Cochliobolus miyabeanus,Pathogen,Active,True
+disease:sheath_blight,Disease,Sheath blight,Rhizoctonia solani,Sheath blight,Sheath blight|snake skin lesion|banded blight,Pathogen,Active,True
+pest:stem_borer,Pest,Stem borer,Scirpophaga incertulas,Stem borer,Yellow stem borer|stem borer|whitehead pest|deadheart pest,Pest,Active,True
+disease:bacterial_leaf_streak,Disease,Bacterial leaf streak,Xanthomonas oryzae pv. oryzicola,Bacterial leaf streak,Bacterial leaf streak|BLS,Pathogen,Active,False
+disease:stem_rot,Disease,Stem rot,Sclerotium oryzae,Stem rot,Stem rot|sclerotial stem rot,Pathogen,Active,False
+disorder:iron_toxicity,AbioticDisorder,Iron toxicity,,Iron toxicity,Iron toxicity|bronzing|acid sulfate soil disorder,AbioticDisorder,Active,True
+pest:brown_planthopper,Pest,Brown planthopper,Nilaparvata lugens,Brown planthopper,BPH|brown planthopper|hopper burn pest,Pest,Active,True
+pest:leaf_folder,Pest,Leaf folder,Cnaphalocrocis medinalis,Leaf folder,Leaf folder|rice leaffolder,Pest,Active,False
