@@ -1,0 +1,77 @@
+{
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000001",
+    "family_id": "SCN-FAMILY-000001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "region:global",
+    "input": {
+        "user_text": "The rice leaves are yellow in patches after heavy rain and standing water.",
+        "growth_stage_id": null,
+        "production_system_id": null,
+        "cultivar_id": null
+    },
+    "annotations": {
+        "observations": [
+            {
+                "concept_id": "symptom:leaf_yellowing",
+                "state": "PRESENT"
+            },
+            {
+                "concept_id": "field_pattern:patchy",
+                "state": "PRESENT"
+            },
+            {
+                "concept_id": "condition:standing_water",
+                "state": "PRESENT"
+            },
+            {
+                "concept_id": "symptom:lesion_presence",
+                "state": "UNKNOWN"
+            }
+        ],
+        "acceptable_differential": [
+            "disease:bacterial_leaf_blight",
+            "disorder:nitrogen_deficiency",
+            "disorder:water_stress"
+        ],
+        "required_confounders": [
+            "disorder:nitrogen_deficiency",
+            "disorder:water_stress"
+        ],
+        "correct_first_behavior": "ASK",
+        "required_questions": [
+            "question:lesion_presence",
+            "question:leaf_age_affected"
+        ],
+        "escalation_required": false,
+        "supporting_fact_ids": [
+            "FACT-000041",
+            "FACT-000077"
+        ],
+        "supporting_source_ids": [
+            "SRC-000005",
+            "SRC-000012"
+        ]
+    },
+    "target_response": {
+        "status": "needs_more_information",
+        "observations_needed": [
+            "question:lesion_presence",
+            "question:leaf_age_affected"
+        ],
+        "differential": [
+            "disease:bacterial_leaf_blight",
+            "disorder:nitrogen_deficiency",
+            "disorder:water_stress"
+        ],
+        "actions": [],
+        "escalation_required": false,
+        "grounding": [
+            "FACT-000041",
+            "FACT-000077"
+        ],
+        "safety_flags": [],
+        "user_response": "The possible causes include bacterial leaf blight, nitrogen deficiency, and water stress, but there is not enough information to narrow this down yet. Could you check whether lesions are present and which leaf ages are affected? No treatment action is recommended until those observations are available."
+    }
+}

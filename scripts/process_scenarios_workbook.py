@@ -48,7 +48,8 @@ def load_workbook_sheets(xlsx_path: str) -> Dict[str, List[List[str]]]:
         for s in wb_tree.iterfind('.//main:sheet', ns):
             s_name = s.attrib['name']
             r_id = s.attrib.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
-            target_file = 'xl/' + rid_to_target[r_id] if not rid_to_target[r_id].startswith('xl/') else rid_to_target[r_id]
+            raw_target = rid_to_target[r_id].lstrip('/')
+            target_file = 'xl/' + raw_target if not raw_target.startswith('xl/') else raw_target
             
             # Read worksheet
             s_tree = ET.fromstring(z.read(target_file))
@@ -57,8 +58,12 @@ def load_workbook_sheets(xlsx_path: str) -> Dict[str, List[List[str]]]:
                 cells = []
                 for c in row.iterfind('.//main:c', ns):
                     val = c.find('main:v', ns)
+                    is_node = c.find('main:is', ns)
                     t = c.attrib.get('t')
-                    if val is not None and val.text:
+                    if is_node is not None:
+                        t_node = is_node.find('main:t', ns)
+                        cells.append(t_node.text if (t_node is not None and t_node.text) else "")
+                    elif val is not None and val.text:
                         if t == 's':
                             idx = int(val.text)
                             cells.append(shared_strings[idx] if idx < len(shared_strings) else "")
