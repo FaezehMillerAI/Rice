@@ -14,8 +14,22 @@ import re
 import xml.etree.ElementTree as ET
 from typing import Dict, List, Any, Tuple, Optional
 
-WORKSPACE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-WORKBOOK_PATH = os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios.xlsx")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+WORKSPACE_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
+
+WORKBOOK_CANDIDATES = [
+    os.path.join(SCRIPT_DIR, "rice_slm_diagnostic_scenarios_completed.xlsx"),
+    os.path.join(SCRIPT_DIR, "rice_slm_diagnostic_scenarios.xlsx"),
+    os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios_completed.xlsx"),
+    os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios.xlsx")
+]
+WORKBOOK_PATH = next((p for p in WORKBOOK_CANDIDATES if os.path.exists(p)), WORKBOOK_CANDIDATES[0])
+
+# Determine output directory
+if os.path.exists(os.path.join(WORKSPACE_ROOT, "data/scenarios")):
+    DEFAULT_OUT_DIR = os.path.join(WORKSPACE_ROOT, "data/scenarios")
+else:
+    DEFAULT_OUT_DIR = SCRIPT_DIR
 
 def load_workbook_sheets(xlsx_path: str) -> Dict[str, List[List[str]]]:
     """Extracts all sheets from an XLSX file without requiring openpyxl."""
@@ -305,7 +319,7 @@ def process_and_export():
     print(f"Scenarios with minor concept/fact warnings: {len(validation_issues)}")
 
     # 3. Export to JSONL
-    out_dir = os.path.join(WORKSPACE_ROOT, "data/scenarios")
+    out_dir = DEFAULT_OUT_DIR
     os.makedirs(out_dir, exist_ok=True)
     out_jsonl = os.path.join(out_dir, "workbook_scenarios_v0.2.jsonl")
     

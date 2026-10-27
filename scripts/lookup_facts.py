@@ -18,9 +18,24 @@ import zipfile
 import re
 import xml.etree.ElementTree as ET
 
-WORKSPACE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-WORKBOOK_PATH = os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios.xlsx")
-FACTS_JSON_PATH = os.path.join(WORKSPACE_ROOT, "data/scenarios/richard_facts_839.json")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+WORKSPACE_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
+
+# Resolve workbook path (local package folder first, then repo path)
+WORKBOOK_CANDIDATES = [
+    os.path.join(SCRIPT_DIR, "rice_slm_diagnostic_scenarios_completed.xlsx"),
+    os.path.join(SCRIPT_DIR, "rice_slm_diagnostic_scenarios.xlsx"),
+    os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios_completed.xlsx"),
+    os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios.xlsx")
+]
+WORKBOOK_PATH = next((p for p in WORKBOOK_CANDIDATES if os.path.exists(p)), WORKBOOK_CANDIDATES[0])
+
+# Resolve facts JSON path (local package folder first, then repo path)
+FACTS_CANDIDATES = [
+    os.path.join(SCRIPT_DIR, "richard_facts_839.json"),
+    os.path.join(WORKSPACE_ROOT, "data/scenarios/richard_facts_839.json")
+]
+FACTS_JSON_PATH = next((p for p in FACTS_CANDIDATES if os.path.exists(p)), FACTS_CANDIDATES[0])
 
 CONFOUNDER_PAIRS = [
     {
@@ -94,14 +109,19 @@ def load_data():
             for s in wb_tree.iterfind('.//main:sheet', ns):
                 if s.attrib['name'] == 'Concepts':
                     rid = s.attrib.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
-                    target = 'xl/' + rid_to_target[rid] if not rid_to_target[rid].startswith('xl/') else rid_to_target[rid]
+                    raw_target = rid_to_target[rid].lstrip('/')
+                    target = 'xl/' + raw_target if not raw_target.startswith('xl/') else raw_target
                     stree = ET.fromstring(z.read(target))
                     for row in stree.iterfind('.//main:row', ns):
                         cells = []
                         for c in row.iterfind('.//main:c', ns):
                             val = c.find('main:v', ns)
+                            is_node = c.find('main:is', ns)
                             t = c.attrib.get('t')
-                            if val is not None and val.text:
+                            if is_node is not None:
+                                t_node = is_node.find('main:t', ns)
+                                cells.append(t_node.text if (t_node is not None and t_node.text) else "")
+                            elif val is not None and val.text:
                                 idx = int(val.text) if t == 's' else None
                                 cells.append(shared_strings[idx] if idx is not None and idx < len(shared_strings) else val.text)
                             else:
@@ -115,14 +135,19 @@ def load_data():
 
                 if not facts and s.attrib['name'] == 'Facts':
                     rid = s.attrib.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
-                    target = 'xl/' + rid_to_target[rid] if not rid_to_target[rid].startswith('xl/') else rid_to_target[rid]
+                    raw_target = rid_to_target[rid].lstrip('/')
+                    target = 'xl/' + raw_target if not raw_target.startswith('xl/') else raw_target
                     stree = ET.fromstring(z.read(target))
                     for row in stree.iterfind('.//main:row', ns):
                         cells = []
                         for c in row.iterfind('.//main:c', ns):
                             val = c.find('main:v', ns)
+                            is_node = c.find('main:is', ns)
                             t = c.attrib.get('t')
-                            if val is not None and val.text:
+                            if is_node is not None:
+                                t_node = is_node.find('main:t', ns)
+                                cells.append(t_node.text if (t_node is not None and t_node.text) else "")
+                            elif val is not None and val.text:
                                 idx = int(val.text) if t == 's' else None
                                 cells.append(shared_strings[idx] if idx is not None and idx < len(shared_strings) else val.text)
                             else:
