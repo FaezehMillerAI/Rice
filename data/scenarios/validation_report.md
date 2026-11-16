@@ -1,6 +1,6 @@
 # Rice Pathogen SALM — Scenarios Workbook Validation Report
 
-**Source File:** `Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios.xlsx`  
+**Source File:** `/Users/faezeh/Library/CloudStorage/OneDrive-UniversityofExeter/Rice SLM/rice_slm_diagnostic_scenarios_completed.xlsx`  
 **Target Schema:** Dr. Srikanth Schema v0.2.0 (`sample_v0.2.json`)  
 **Validation Status:** **PASSED (0 Errors)**  
 
@@ -12,7 +12,7 @@
 | Human-Authored Slots (Gold Test Set) | 50 | Locked Benchmark |
 | AI-Drafted Scenarios (Train/Val Pool) | 50 | Ready for Review |
 | Standardized Concept IDs Checked | 132 | 100% Valid |
-| Atomic Pathology Facts Checked | 839 | 100% Valid |
+| Atomic Pathology Facts Checked | 842 | 100% Valid |
 | Validation Warnings / Broken IDs | 0 | 0 Errors |
 
 ## 2. Disease & Ownership Breakdown

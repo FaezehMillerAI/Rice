@@ -7,7 +7,9 @@ from typing import Dict, List, Any, Optional, Tuple
 class DiagnosticEngine:
     """Deterministic Diagnostic & Triage Reasoning Engine (Baseline 0)"""
 
-    def __init__(self, workspace_root: str = "/Users/faezeh/Desktop/Rice"):
+    def __init__(self, workspace_root: Optional[str] = None):
+        if workspace_root is None:
+            workspace_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         self.workspace_root = workspace_root
         self.terms = {}
         self.diseases = {}
@@ -143,6 +145,14 @@ class DiagnosticEngine:
             obs_state_map["env:prolonged_dew_periods"] = "TRUE"
         if any(k in text_lower for k in ["poor soil", "infertile", "potassium deficient", "low fertility"]) and "env:nutrient_depleted_poor_soil" not in obs_state_map:
             obs_state_map["env:nutrient_depleted_poor_soil"] = "TRUE"
+        if any(k in text_lower for k in ["sheath", "waterline", "water line", "snakeskin", "banded", "greenish-grey", "greenish gray"]) and "symptom:sheath_lesions" not in obs_state_map:
+            obs_state_map["symptom:sheath_lesions"] = "TRUE"
+        if any(k in text_lower for k in ["sclerotia", "mustard seed", "brown balls on sheath"]) and "sign:sclerotia" not in obs_state_map:
+            obs_state_map["sign:sclerotia"] = "TRUE"
+        if any(k in text_lower for k in ["deadheart", "dead heart", "dead central shoot", "central shoot", "pulls out easily", "bore hole", "stem hole", "frass", "larvae"]) and "symptom:deadheart" not in obs_state_map:
+            obs_state_map["symptom:deadheart"] = "TRUE"
+        if any(k in text_lower for k in ["bore hole", "stem hole", "frass", "larva", "larvae", "caterpillar", "exit hole"]) and "sign:stem_borer_damage" not in obs_state_map:
+            obs_state_map["sign:stem_borer_damage"] = "TRUE"
 
         # Check negative assertions
         if re.search(r"\b(?:no|without|zero)\s+(?:wavy\s+)?lesions\b", text_lower) or "no lesions" in text_lower or "zero lesions" in text_lower:
@@ -240,6 +250,30 @@ class DiagnosticEngine:
                 "contradicting_symptoms": ["symptom:water_soaked_wavy_lesion", "symptom:spindle_shaped_lesion", "symptom:neck_rot_blackened_node", "symptom:leaf_rolling_folding"],
                 "contradicting_signs": ["sign:water_test_cloudy_streaming", "sign:bacterial_ooze_beads"],
                 "required_absent_penalties": ["symptom:oval_brown_spots"]
+            },
+            "disease:sheath_blight": {
+                "name": "Sheath blight",
+                "type": "pathogen",
+                "signs": ["sign:sclerotia"],
+                "symptoms": ["symptom:sheath_lesions"],
+                "env": ["env:high_humidity", "env:excess_nitrogen_application"],
+                "stages": ["stage:tillering", "stage:heading"],
+                "field": ["field:patchy_distribution"],
+                "contradicting_symptoms": ["symptom:spindle_shaped_lesion", "symptom:water_soaked_wavy_lesion", "symptom:deadheart"],
+                "contradicting_signs": ["sign:water_test_cloudy_streaming", "sign:stem_borer_damage"],
+                "required_absent_penalties": ["symptom:sheath_lesions"]
+            },
+            "pest:stem_borer": {
+                "name": "Yellow stem borer",
+                "type": "pest",
+                "signs": ["sign:stem_borer_damage"],
+                "symptoms": ["symptom:deadheart", "symptom:neck_rot_blackened_node"],
+                "env": [],
+                "stages": ["stage:tillering", "stage:heading"],
+                "field": ["field:patchy_distribution"],
+                "contradicting_symptoms": ["symptom:spindle_shaped_lesion", "symptom:water_soaked_wavy_lesion", "symptom:oval_brown_spots"],
+                "contradicting_signs": ["sign:water_test_cloudy_streaming", "sign:gray_spore_felt", "sign:sclerotia"],
+                "required_absent_penalties": ["symptom:deadheart"]
             }
         }
 
@@ -344,6 +378,16 @@ class DiagnosticEngine:
                     "Check lesion shape: small, circular to oval dark brown spots resembling sesame seeds",
                     "Check for prominent yellow halo around dark brown spots",
                     "Assess soil fertility (potassium/silicon deficiency, poor sandy/acid soils)"
+                ],
+                "disease:sheath_blight": [
+                    "Inspect leaf sheaths near the waterline for oval greenish-grey lesions",
+                    "Check for spherical brown sclerotia resting on or near sheath lesions",
+                    "Check whether lesions coalesce upward into banded patterns"
+                ],
+                "pest:stem_borer": [
+                    "Pull the dead central shoot (deadheart) or whitehead gently to test if it slides out easily",
+                    "Inspect lower stems for tiny entry/exit holes or frass",
+                    "Split an affected stem lengthwise to check for internal larvae or feeding tunnels"
                 ]
             }
 
@@ -525,6 +569,34 @@ class DiagnosticEngine:
                     "action": "Ensure continuous, moderate irrigation; prevent periodic drought stress which pre-disposes seedlings to Bipolaris infection.",
                     "action_type": "water_management"
                 }
+            ],
+            "disease:sheath_blight": [
+                {
+                    "action_id": "action:avoid_excess_nitrogen",
+                    "priority": 1,
+                    "action": "Avoid excessive nitrogen fertilizer and dense canopy overcrowding to limit sheath blight spread.",
+                    "action_type": "cultural"
+                },
+                {
+                    "action_id": "action:drain_standing_water",
+                    "priority": 2,
+                    "action": "Temporarily drain standing water and remove floating sclerotia/debris along bunds where feasible.",
+                    "action_type": "cultural"
+                }
+            ],
+            "pest:stem_borer": [
+                {
+                    "action_id": "action:remove_affected_stems",
+                    "priority": 1,
+                    "action": "Rogue and destroy deadhearts or stubble harboring larvae and avoid excessive nitrogen top-dressing.",
+                    "action_type": "cultural"
+                },
+                {
+                    "action_id": "action:conserve_natural_enemies",
+                    "priority": 2,
+                    "action": "Conserve natural predators and monitor egg masses before consulting extension officers on targeted control.",
+                    "action_type": "ipm"
+                }
             ]
         }
         return action_map.get(top_candidate_id, [
@@ -562,7 +634,11 @@ class DiagnosticEngine:
             obs_state_map.get("symptom:spindle_shaped_lesion") in ["TRUE", "FALSE"] or
             obs_state_map.get("symptom:oval_brown_spots") in ["TRUE", "FALSE"] or
             obs_state_map.get("symptom:neck_rot_blackened_node") in ["TRUE", "FALSE"] or
-            obs_state_map.get("sign:gray_spore_felt") in ["TRUE", "FALSE"]
+            obs_state_map.get("sign:gray_spore_felt") in ["TRUE", "FALSE"] or
+            obs_state_map.get("symptom:sheath_lesions") in ["TRUE", "FALSE"] or
+            obs_state_map.get("sign:sclerotia") in ["TRUE", "FALSE"] or
+            obs_state_map.get("symptom:deadheart") in ["TRUE", "FALSE"] or
+            obs_state_map.get("sign:stem_borer_damage") in ["TRUE", "FALSE"]
         )
 
         top_score = candidates[0]["score"] if candidates else 0

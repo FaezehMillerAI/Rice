@@ -9,6 +9,7 @@ to Srikanth's Schema v0.2.0 JSONL format for training and evaluation.
 import os
 import sys
 import json
+import glob
 import zipfile
 import re
 import xml.etree.ElementTree as ET
@@ -17,13 +18,45 @@ from typing import Dict, List, Any, Tuple, Optional
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 WORKSPACE_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
 
-WORKBOOK_CANDIDATES = [
-    os.path.join(SCRIPT_DIR, "rice_slm_diagnostic_scenarios_completed.xlsx"),
-    os.path.join(SCRIPT_DIR, "rice_slm_diagnostic_scenarios.xlsx"),
-    os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios_completed.xlsx"),
-    os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios.xlsx")
-]
-WORKBOOK_PATH = next((p for p in WORKBOOK_CANDIDATES if os.path.exists(p)), WORKBOOK_CANDIDATES[0])
+def resolve_workbook_path(explicit_path: Optional[str] = None) -> str:
+    if explicit_path and os.path.exists(explicit_path):
+        return explicit_path
+
+    env_path = os.environ.get("RICE_WORKBOOK_PATH", "").strip()
+    if env_path and os.path.exists(env_path):
+        return env_path
+
+    for cfg_base in [WORKSPACE_ROOT, SCRIPT_DIR]:
+        cfg_file = os.path.join(cfg_base, "sync_config.json")
+        if os.path.exists(cfg_file):
+            try:
+                with open(cfg_file, "r", encoding="utf-8") as cf:
+                    cfg_path = json.load(cf).get("workbook_path", "").strip()
+                if cfg_path and os.path.exists(cfg_path):
+                    return cfg_path
+            except Exception:
+                pass
+
+    candidates = [
+        os.path.join(WORKSPACE_ROOT, "rice_slm_diagnostic_scenarios_completed.xlsx"),
+    ]
+    # Live OneDrive folders on macOS / Windows
+    for pattern in [
+        os.path.expanduser("~/Library/CloudStorage/OneDrive*/Rice SLM/rice_slm_diagnostic_scenarios_completed.xlsx"),
+        os.path.expanduser("~/OneDrive*/Rice SLM/rice_slm_diagnostic_scenarios_completed.xlsx"),
+        os.path.expanduser("~/Library/CloudStorage/OneDrive*/*/Rice SLM/rice_slm_diagnostic_scenarios_completed.xlsx"),
+    ]:
+        candidates.extend(sorted(glob.glob(pattern)))
+
+    candidates.extend([
+        os.path.join(SCRIPT_DIR, "rice_slm_diagnostic_scenarios_completed.xlsx"),
+        os.path.join(SCRIPT_DIR, "rice_slm_diagnostic_scenarios.xlsx"),
+        os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios_completed.xlsx"),
+        os.path.join(WORKSPACE_ROOT, "Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios.xlsx"),
+    ])
+    return next((p for p in candidates if os.path.exists(p)), candidates[-2])
+
+WORKBOOK_PATH = resolve_workbook_path()
 
 # Determine output directory
 if os.path.exists(os.path.join(WORKSPACE_ROOT, "data/scenarios")):
@@ -31,8 +64,16 @@ if os.path.exists(os.path.join(WORKSPACE_ROOT, "data/scenarios")):
 else:
     DEFAULT_OUT_DIR = SCRIPT_DIR
 
+def _col_ref_to_index(cell_ref: str) -> int:
+    """Converts Excel cell ref like 'AB103' to 0-based column index."""
+    col_letters = "".join(ch for ch in cell_ref if ch.isalpha()).upper()
+    idx = 0
+    for ch in col_letters:
+        idx = idx * 26 + (ord(ch) - ord('A') + 1)
+    return max(0, idx - 1)
+
 def load_workbook_sheets(xlsx_path: str) -> Dict[str, List[List[str]]]:
-    """Extracts all sheets from an XLSX file without requiring openpyxl."""
+    """Extracts all sheets from an XLSX file without requiring openpyxl, preserving sparse columns."""
     sheets_data = {}
     with zipfile.ZipFile(xlsx_path) as z:
         # 1. Parse shared strings
@@ -61,6 +102,8 @@ def load_workbook_sheets(xlsx_path: str) -> Dict[str, List[List[str]]]:
 
         for s in wb_tree.iterfind('.//main:sheet', ns):
             s_name = s.attrib['name']
+            if s_name.startswith('_Sync'):
+                continue
             r_id = s.attrib.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
             raw_target = rid_to_target[r_id].lstrip('/')
             target_file = 'xl/' + raw_target if not raw_target.startswith('xl/') else raw_target
@@ -69,24 +112,32 @@ def load_workbook_sheets(xlsx_path: str) -> Dict[str, List[List[str]]]:
             s_tree = ET.fromstring(z.read(target_file))
             rows = []
             for row in s_tree.iterfind('.//main:row', ns):
-                cells = []
+                cells_dict = {}
+                max_col = -1
+                seq_col = 0
                 for c in row.iterfind('.//main:c', ns):
+                    ref = c.attrib.get('r', '')
+                    col_idx = _col_ref_to_index(ref) if ref else seq_col
+                    seq_col = col_idx + 1
+                    max_col = max(max_col, col_idx)
+
                     val = c.find('main:v', ns)
                     is_node = c.find('main:is', ns)
                     t = c.attrib.get('t')
+                    cell_text = ''
                     if is_node is not None:
-                        t_node = is_node.find('main:t', ns)
-                        cells.append(t_node.text if (t_node is not None and t_node.text) else "")
+                        cell_text = ''.join(tn.text for tn in is_node.iterfind('.//main:t', ns) if tn.text)
                     elif val is not None and val.text:
                         if t == 's':
                             idx = int(val.text)
-                            cells.append(shared_strings[idx] if idx < len(shared_strings) else "")
+                            cell_text = shared_strings[idx] if idx < len(shared_strings) else ""
                         else:
-                            cells.append(val.text)
-                    else:
-                        cells.append('')
-                if any(cells):
-                    rows.append(cells)
+                            cell_text = val.text
+                    cells_dict[col_idx] = cell_text
+                if max_col >= 0:
+                    cells = [cells_dict.get(i, '') for i in range(max_col + 1)]
+                    if any(cells):
+                        rows.append(cells)
             sheets_data[s_name] = rows
 
     return sheets_data
@@ -133,13 +184,14 @@ def parse_observations(cell_text: str) -> List[Dict[str, str]]:
             obs.append({"concept_id": line, "state": "PRESENT"})
     return obs
 
-def process_and_export():
+def process_and_export(workbook_path: Optional[str] = None, out_dir: Optional[str] = None):
+    target_wb = resolve_workbook_path(workbook_path)
     print("=" * 80)
     print(" RICE SALM — DIAGNOSTIC SCENARIOS WORKBOOK VALIDATOR & EXPORTER")
-    print(f" Reading: {WORKBOOK_PATH}")
+    print(f" Reading: {target_wb}")
     print("=" * 80)
 
-    sheets = load_workbook_sheets(WORKBOOK_PATH)
+    sheets = load_workbook_sheets(target_wb)
     print(f"Loaded {len(sheets)} sheets: {list(sheets.keys())}")
 
     # 1. Load Reference Sets (Concepts, Facts, Sources)
@@ -159,10 +211,17 @@ def process_and_export():
             alt_id = fid.replace("_", "-")
             valid_facts.add(alt_id)
             fact_details[fid] = {
-                "source_id": row[1].strip() if len(row) > 1 else "",
-                "disease": row[2].strip() if len(row) > 2 else "",
-                "category": row[3].strip() if len(row) > 3 else "",
-                "statement": row[4].strip() if len(row) > 4 else ""
+                "source_id": row[1].strip() if len(row) > 1 and row[1] else "",
+                "disease": row[2].strip() if len(row) > 2 and row[2] else "",
+                "category": row[3].strip() if len(row) > 3 and row[3] else "",
+                "statement": row[4].strip() if len(row) > 4 and row[4] else "",
+                "region": row[6].strip() if len(row) > 6 and row[6] else "",
+                "growth_stage": row[7].strip() if len(row) > 7 and row[7] else "",
+                "plant_part": row[8].strip() if len(row) > 8 and row[8] else "",
+                "evidence_strength": row[10].strip() if len(row) > 10 and row[10] else "",
+                "sme_review_status": row[11].strip() if len(row) > 11 and row[11] else "",
+                "reviewer": row[12].strip() if len(row) > 12 and row[12] else "",
+                "notes": row[13].strip() if len(row) > 13 and row[13] else ""
             }
     print(f"Loaded {len(fact_details)} valid atomic facts.")
 
@@ -170,15 +229,24 @@ def process_and_export():
     scenario_rows = sheets.get("Scenarios", [])
     if len(scenario_rows) < 2:
         print("Error: Scenarios sheet empty or missing headers.")
-        return
+        return [], []
 
     headers = scenario_rows[1]
     col_map = {h.strip(): idx for idx, h in enumerate(headers) if h.strip()}
     
-    # Helper getters
+    # Helper getters (prefer exact first-line header match over substring)
     def get_val(r: List[str], header_key: str) -> str:
+        hk = header_key.lower()
         for k, idx in col_map.items():
-            if header_key.lower() in k.lower():
+            head_base = k.split("\n")[0].strip().lower()
+            if head_base == hk:
+                return r[idx].strip() if idx < len(r) else ""
+        for k, idx in col_map.items():
+            head_base = k.split("\n")[0].strip().lower()
+            if head_base.startswith(hk):
+                return r[idx].strip() if idx < len(r) else ""
+        for k, idx in col_map.items():
+            if hk in k.lower():
                 return r[idx].strip() if idx < len(r) else ""
         return ""
 
@@ -195,8 +263,13 @@ def process_and_export():
             continue
         
         sid = get_val(r, "scenario_id")
+        if not sid:
+            continue
         track = get_val(r, "track")
-        status = get_val(r, "status")
+        owner = get_val(r, "owner")
+        focus_disease = get_val(r, "focus_disease")
+        seed_idea = get_val(r, "seed_idea")
+        status = (get_val(r, "status") or get_val(r, "planned_status")).upper()
         user_input = get_val(r, "user_input")
         user_response = get_val(r, "user_response")
         obs_text = get_val(r, "observations")
@@ -204,10 +277,14 @@ def process_and_export():
         acc_diff_text = get_val(r, "acceptable_differential")
         conf_text = get_val(r, "required_confounders")
         req_q_text = get_val(r, "required_questions")
+        diff_reasoning = get_val(r, "differential_reasoning")
         actions_text = get_val(r, "actions")
         esc_text = get_val(r, "escalation_required")
+        esc_reason = get_val(r, "escalation_reason")
         facts_text = get_val(r, "evidence_fact_ids")
         review_status = get_val(r, "review_status")
+        peer_checker = get_val(r, "peer_checker")
+        peer_notes = get_val(r, "peer_notes")
         growth_stage_id = get_val(r, "growth_stage_id") or None
         prod_system_id = get_val(r, "production_system_id") or None
 
@@ -262,7 +339,7 @@ def process_and_export():
 
         # Determine origin
         origin = "sme_authored" if "Human" in track else "llm_drafted"
-        if review_status.lower() in ["approved", "sme_approved"]:
+        if review_status.lower() in ["approved", "sme_approved", "done"]:
             origin = "sme_authored" if "Human" in track else "llm_drafted_sme_approved"
 
         # Lookup source IDs for facts
@@ -274,7 +351,7 @@ def process_and_export():
                 if sid_src and sid_src not in src_ids:
                     src_ids.append(sid_src)
 
-        # Assemble Schema v0.2.0 Object
+        # Assemble Schema v0.2.0 Object (+ workbook review metadata)
         scenario_obj = {
             "schema_version": "0.2.0",
             "scenario_id": normalize_scenario_id(sid),
@@ -283,6 +360,14 @@ def process_and_export():
             "language": "en",
             "region_id": "region:global",
             "track": track,
+            "owner": owner,
+            "focus_disease": focus_disease,
+            "seed_idea": seed_idea,
+            "review_status": review_status,
+            "peer_checker": peer_checker,
+            "peer_notes": peer_notes,
+            "differential_reasoning": diff_reasoning,
+            "escalation_reason": esc_reason,
             "input": {
                 "user_text": user_input,
                 "growth_stage_id": growth_stage_id,
@@ -319,9 +404,9 @@ def process_and_export():
     print(f"Scenarios with minor concept/fact warnings: {len(validation_issues)}")
 
     # 3. Export to JSONL
-    out_dir = DEFAULT_OUT_DIR
-    os.makedirs(out_dir, exist_ok=True)
-    out_jsonl = os.path.join(out_dir, "workbook_scenarios_v0.2.jsonl")
+    target_out_dir = out_dir or DEFAULT_OUT_DIR
+    os.makedirs(target_out_dir, exist_ok=True)
+    out_jsonl = os.path.join(target_out_dir, "workbook_scenarios_v0.2.jsonl")
     
     with open(out_jsonl, "w", encoding="utf-8") as f:
         for s in exported_samples:
@@ -329,18 +414,18 @@ def process_and_export():
     print(f"\nExported {len(exported_samples)} scenarios to: {out_jsonl}")
 
     # 4. Export Facts to JSON
-    facts_out = os.path.join(out_dir, "richard_facts_839.json")
+    facts_out = os.path.join(target_out_dir, "richard_facts_839.json")
     with open(facts_out, "w", encoding="utf-8") as f:
         json.dump(fact_details, f, indent=2, ensure_ascii=False)
     print(f"Exported {len(fact_details)} atomic facts to: {facts_out}")
 
     # 5. Generate Markdown Validation Report for Ginny & Aseel
-    report_out = os.path.join(out_dir, "validation_report.md")
+    report_out = os.path.join(target_out_dir, "validation_report.md")
     with open(report_out, "w", encoding="utf-8") as f:
         f.write("# Rice Pathogen SALM — Scenarios Workbook Validation Report\n\n")
-        f.write(f"**Source File:** `Scenarios/OneDrive_1_23-10-2026/rice_slm_diagnostic_scenarios.xlsx`  \n")
+        f.write(f"**Source File:** `{target_wb}`  \n")
         f.write(f"**Target Schema:** Dr. Srikanth Schema v0.2.0 (`sample_v0.2.json`)  \n")
-        f.write(f"**Validation Status:** **PASSED (0 Errors)**  \n\n")
+        f.write(f"**Validation Status:** **{'PASSED (0 Errors)' if not validation_issues else f'PASSED WITH {len(validation_issues)} WARNINGS'}**  \n\n")
         
         f.write("## 1. Executive Summary\n\n")
         f.write(f"| Metric | Count | Status |\n")
@@ -350,7 +435,7 @@ def process_and_export():
         f.write(f"| AI-Drafted Scenarios (Train/Val Pool) | {ai_draft_count} | Ready for Review |\n")
         f.write(f"| Standardized Concept IDs Checked | {len(valid_concepts)} | 100% Valid |\n")
         f.write(f"| Atomic Pathology Facts Checked | {len(fact_details)} | 100% Valid |\n")
-        f.write(f"| Validation Warnings / Broken IDs | {len(validation_issues)} | 0 Errors |\n\n")
+        f.write(f"| Validation Warnings / Broken IDs | {len(validation_issues)} | {'0 Errors' if not validation_issues else 'Review Warnings'} |\n\n")
 
         f.write("## 2. Disease & Ownership Breakdown\n\n")
         f.write("| Disease / Target | Range | Total | Owner | Tracks Covered |\n")

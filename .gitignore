@@ -1,3 +1,9 @@
 .DS_Store
 *.png
 *.pdf
+__pycache__/
+*.pyc
+*.bak
+Rice_SLM_Shared_Package.zip
+Scenarios - Updated.zip
+Scenarios_Updated_Extracted/

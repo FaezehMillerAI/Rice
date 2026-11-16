@@ -36,15 +36,20 @@ def parse_sheet_rows(z, wb_tree, shared_strings, sheet_name):
     for s in wb_tree.iterfind('.//main:sheet', ns):
         if s.attrib['name'] == sheet_name:
             rid = s.attrib.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')
-            target = 'xl/' + rid_to_target[rid] if not rid_to_target[rid].startswith('xl/') else rid_to_target[rid]
+            target = rid_to_target[rid].lstrip('/')
+            if not target.startswith('xl/'):
+                target = 'xl/' + target
             stree = ET.fromstring(z.read(target))
             rows = []
             for row in stree.iterfind('.//main:row', ns):
                 cells = []
                 for c in row.iterfind('.//main:c', ns):
                     val = c.find('main:v', ns)
+                    is_t = c.find('main:is/main:t', ns)
                     t = c.attrib.get('t')
-                    if val is not None and val.text:
+                    if is_t is not None and is_t.text:
+                        cells.append(is_t.text)
+                    elif val is not None and val.text:
                         idx = int(val.text) if t == 's' else None
                         cells.append(shared_strings[idx] if idx is not None and idx < len(shared_strings) else val.text)
                     else:
