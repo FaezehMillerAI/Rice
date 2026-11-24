@@ -1,9 +1,32 @@
+# OS & editor artifacts
 .DS_Store
-*.png
-*.pdf
+*.swp
+*.bak
+*~
+
+# Python virtual environment & cache
+.venv/
 __pycache__/
 *.pyc
-*.bak
+
+# Heavy video & media recordings
+*.mp4
+*.mov
+*.avi
+Untitled-*.png
+
+# Large personal/draft PDFs on desktop
+AIIM-D-26-00451_R3.pdf
+PhD_Monthly_Progress_Report_October_2026.md.pdf
+RICE_SALM_Planning_Ex.pdf
+
+# Redundant zip archives and extraction folders
 Rice_SLM_Shared_Package.zip
 Scenarios - Updated.zip
 Scenarios_Updated_Extracted/
+Rice_SLM_Scenarios_Package/
+Rice_SLM_Scenarios_Package*/
+*.zip.part
+
+# Local runtime sync journal
+.rice_sync/

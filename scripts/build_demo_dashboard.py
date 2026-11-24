@@ -1246,6 +1246,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       if (tabId === 'kg') {
         setTimeout(initKgNetwork, 80);
       }
+      if (tabId === 'kg') {
+        setTimeout(initKgNetwork, 80);
+      }
     }
 
     function selectShowcase(sid, cardEl) {

@@ -188,6 +188,8 @@ class RiceSLMDemo:
         print("  3. Track 3: High-Risk / Emergency Escalation (Panicle loss -> extension alert)\n")
 
         showcases = [
+            ("FEATURED CASE: DR. SRIKANTH'S WHITEBOARD CASE (MULTI-TURN)", "SRIKANTH_BOARD_CASE",
+             "Farmer describes yellowing leaves & standing water. The SLM and KG identify overlap (BLB vs Water Stress), ask distinguishing checks in Turn 1, and confirm BLB in Turn 2."),
             ("CASE 1: TRACK 1 — UNAMBIGUOUS RICE BLAST", "SCN-000001",
              "Farmer provides classic diamond-shaped leaf lesion with grey centre. The SLM confirms blast and provides cultural IPM."),
             ("CASE 2: TRACK 2 — AMBIGUOUS LOOK-ALIKE (ASK-FIRST)", "SCN-000009",
@@ -198,15 +200,81 @@ class RiceSLMDemo:
 
         for idx, (title, sid, explanation) in enumerate(showcases, 1):
             print(f"{BOLD}{MAGENTA}=============================================================================={RESET}")
-            print(f"{BOLD}{MAGENTA} [{idx}/3] {title}{RESET}")
+            print(f"{BOLD}{MAGENTA} [{idx}/{len(showcases)}] {title}{RESET}")
             print(f"{BOLD}Objective:{RESET} {explanation}")
             print(f"{BOLD}{MAGENTA}=============================================================================={RESET}\n")
 
-            scn = next((s for s in self.scenarios if s["scenario_id"] == sid), None)
-            if scn:
-                self.print_scenario_card(scn)
+            if sid == "SRIKANTH_BOARD_CASE":
+                srikanth_case_turn1 = {
+                    "scenario_id": "SCN-SRIKANTH-TURN-1",
+                    "track": "Interactive Multi-Turn Demonstration",
+                    "annotations": {
+                        "correct_first_behavior": "ASK",
+                        "acceptable_differential": ["disease:bacterial_leaf_blight", "disorder:water_stress", "disorder:nitrogen_deficiency"],
+                        "observations": [
+                            {"concept_id": "symptom:leaf_yellowing", "state": "PRESENT"},
+                            {"concept_id": "condition:standing_water", "state": "PRESENT"},
+                            {"concept_id": "symptom:water_soaked_wavy_lesion", "state": "UNKNOWN"},
+                            {"concept_id": "sign:bacterial_ooze_beads", "state": "UNKNOWN"}
+                        ]
+                    },
+                    "input": {
+                        "user_text": "The leaves are yellowing and there is standing water in the paddy. What should I do?",
+                        "growth_stage_id": "growth_stage:tillering"
+                    },
+                    "target_response": {
+                        "status": "needs_more_information",
+                        "observations_needed": [
+                            "question:lesion_margin_wavy (Check BLB: wavy leaf margins with morning bacterial ooze droplets?)",
+                            "question:water_drainage_response (Check Water Stress: when water drains, do roots look black/foul?)",
+                            "question:nitrogen_lower_leaves (Check Nitrogen: are only lowest older leaves yellow?)"
+                        ],
+                        "grounding": ["FACT_001", "FACT_002", "FACT_008", "FACT_728"],
+                        "actions": ["action:drain_excess_standing_water", "action:avoid_excess_nitrogen", "action:avoid_unverified_chemicals"],
+                        "user_response": "Yellowing leaves with standing water can be caused by either Bacterial Leaf Blight or Water-related abiotic stress (root suffocation), with Nitrogen deficiency as an additional confounder. Because treatments differ, we need 3 quick field checks: (1) Do leaf edges have wavy margins with sticky amber droplets in the morning? (2) If water drains, do roots smell foul or recover green color? (3) Are yellow leaves only at the bottom? What you can do now: Ensure proper drainage and avoid applying chemical sprays or excess nitrogen until confirmed.",
+                        "escalation_required": False
+                    }
+                }
+                self.print_scenario_card(srikanth_case_turn1)
+
+                print(f"\n{BOLD}{CYAN}>>> Simulating Multi-Turn Follow-Up (Turn 2)...{RESET}")
+                print(f"{YELLOW}Farmer replies:{RESET} \"Yes! I checked early this morning: the leaf edges have wavy margins and tiny amber droplets of sticky ooze!\"")
+                print(f"{GREEN}✓ Knowledge Graph ingests new evidence: sign:bacterial_ooze_beads = PRESENT{RESET}")
+                print(f"{GREEN}✓ Triage status transitions: ASK ➔ ANSWER (Provisional Assessment: 100% BLB){RESET}\n")
+
+                srikanth_case_turn2 = {
+                    "scenario_id": "SCN-SRIKANTH-TURN-2 (RESOLVED)",
+                    "track": "Interactive Multi-Turn Demonstration",
+                    "annotations": {
+                        "correct_first_behavior": "ANSWER",
+                        "acceptable_differential": ["disease:bacterial_leaf_blight"],
+                        "observations": [
+                            {"concept_id": "symptom:leaf_yellowing", "state": "PRESENT"},
+                            {"concept_id": "condition:standing_water", "state": "PRESENT"},
+                            {"concept_id": "symptom:water_soaked_wavy_lesion", "state": "PRESENT"},
+                            {"concept_id": "sign:bacterial_ooze_beads", "state": "PRESENT"}
+                        ]
+                    },
+                    "input": {
+                        "user_text": "Farmer Turn 2: 'The leaf edges have wavy margins and tiny amber droplets of sticky ooze!'",
+                        "growth_stage_id": "growth_stage:tillering"
+                    },
+                    "target_response": {
+                        "status": "provisional_assessment",
+                        "observations_needed": [],
+                        "grounding": ["FACT_001", "FACT_002", "FACT_008", "FACT_728", "FACT_729"],
+                        "actions": ["action:drain_excess_standing_water", "action:avoid_excess_nitrogen", "action:disinfect_tools_between_fields"],
+                        "user_response": "The presence of wavy margins and amber bacterial ooze droplets confirms Bacterial Leaf Blight (Xanthomonas oryzae pv. oryzae). Standing water acts as the primary transmission vector. Recommended Cultural Actions: (1) Drain standing water immediately to stop bacterial swimming and spread. (2) Do not apply additional nitrogen, as it accelerates blight. (3) Disinfect field tools before moving to healthy plots.",
+                        "escalation_required": False
+                    }
+                }
+                self.print_scenario_card(srikanth_case_turn2)
             else:
-                print(f"{RED}Scenario {sid} not found.{RESET}")
+                scn = next((s for s in self.scenarios if s["scenario_id"] == sid), None)
+                if scn:
+                    self.print_scenario_card(scn)
+                else:
+                    print(f"{RED}Scenario {sid} not found.{RESET}")
 
             if idx < len(showcases):
                 safe_input(f"{BOLD}{YELLOW}Press [Enter] to proceed to Case {idx+1}...{RESET}")
@@ -294,6 +362,7 @@ class RiceSLMDemo:
             return
 
         presets = [
+            ("The leaves are yellowing and there is standing water in the paddy (Dr. Srikanth's Whiteboard Case)", "tillering"),
             ("Wavy leaf margins turning greyish-white with morning bacterial ooze", "tillering"),
             ("Diamond-shaped spindle lesions with grey centre and brown margins after cool dewy nights", "tillering"),
             ("Leaves have small vague brown spots, but no halo and no spindle shape", "tillering"),

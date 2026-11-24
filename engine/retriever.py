@@ -451,3 +451,64 @@ def to_compact_target_response(response: Dict[str, Any]) -> Dict[str, Any]:
         "safety_flags": safety_flags,
         "user_response": user_response,
     }
+
+
+def format_slm_prompt_context(context: RetrievedContext) -> str:
+    """
+    Formats the 9-field KG RetrievedContext into an optimized, structured
+    text block ready to be inserted directly into the SLM prompt for grounded inference.
+    """
+    lines = ["=== GROUNDED RICE KNOWLEDGE GRAPH CONTEXT ==="]
+
+    # 1. Extracted Observations (3VL States)
+    obs = context.get("normalized_observations", [])
+    if obs:
+        lines.append("1. OBSERVED CLINICAL SYMPTOMS & CONDITIONS (3VL States):")
+        for o in obs:
+            concept = o.get("concept_id") or o.get("term_id", "")
+            state = o.get("state", "UNKNOWN")
+            lines.append(f"   • {concept} = {state}")
+
+    # 2. Plausible Candidate Causes
+    candidates = context.get("candidate_causes", [])
+    if candidates:
+        lines.append(f"\n2. PLAUSIBLE DIAGNOSTIC CANDIDATES: {', '.join(candidates)}")
+
+    # 3. Evidence Matrix (Supporting & Contradicting)
+    support = context.get("supporting_evidence", [])
+    if support:
+        lines.append("\n3. SUPPORTING PATHOLOGY EVIDENCE:")
+        for r in support[:4]:
+            lines.append(f"   • [{r.get('cause_id')}] Supported by {r.get('observation_id')}: {r.get('explanation', '')}")
+
+    contra = context.get("contradicting_evidence", [])
+    if contra:
+        lines.append("\n4. CONTRADICTING / EXCLUSION EVIDENCE:")
+        for r in contra[:3]:
+            lines.append(f"   • [{r.get('cause_id')}] Contradicted by {r.get('observation_id')}: {r.get('explanation', '')}")
+
+    # 4. Missing Distinguishing Observations & Questions
+    questions = context.get("suggested_questions", [])
+    if questions:
+        lines.append("\n5. HIGH-UTILITY DISTINGUISHING QUESTIONS (Ask-First Discipline):")
+        for q in questions[:3]:
+            qid = q.get("question_id", "")
+            qtext = q.get("farmer_friendly_phrasing") or q.get("canonical_text", "")
+            lines.append(f"   ? [{qid}] {qtext}")
+
+    # 5. Retrieved Richard's Facts
+    facts = context.get("retrieved_facts", [])
+    if facts:
+        lines.append("\n6. GROUNDED PATHOLOGY FACTS (Richard's 842 Vetted Facts):")
+        for f in facts[:4]:
+            fid = f.get("fact_id") or f.get("claim_id", "")
+            stmt = f.get("statement") or f.get("claim_text", "")
+            lines.append(f"   [{fid}] {stmt}")
+
+    # 6. Evidence Sources
+    sources = context.get("evidence_source_ids", [])
+    if sources:
+        lines.append(f"\n7. RELEVANT SOURCES: {', '.join(sources[:4])}")
+
+    lines.append("===============================================")
+    return "\n".join(lines)

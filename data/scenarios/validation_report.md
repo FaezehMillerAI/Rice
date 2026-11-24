@@ -11,7 +11,7 @@
 | Total Scenarios Processed | 100 | Complete |
 | Human-Authored Slots (Gold Test Set) | 50 | Locked Benchmark |
 | AI-Drafted Scenarios (Train/Val Pool) | 50 | Ready for Review |
-| Standardized Concept IDs Checked | 132 | 100% Valid |
+| Standardized Concept IDs Checked | 135 | 100% Valid |
 | Atomic Pathology Facts Checked | 842 | 100% Valid |
 | Validation Warnings / Broken IDs | 0 | 0 Errors |
 

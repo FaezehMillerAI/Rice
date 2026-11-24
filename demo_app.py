@@ -84,6 +84,9 @@ class RiceDemoHandler(SimpleHTTPRequestHandler):
         if parsed.path in ["", "/", "/index.html"]:
             self.path = "/demo_dashboard.html"
             return super().do_GET()
+        elif parsed.path in ["/kg", "/kg/", "/explorer", "/studio"]:
+            self.path = "/kg_explorer.html"
+            return super().do_GET()
         elif parsed.path == "/api/scenarios":
             try:
                 data = list_scenarios_live()
