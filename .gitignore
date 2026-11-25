@@ -8,6 +8,17 @@
 .venv/
 __pycache__/
 *.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Generated training, evaluation, and deployment artifacts
+outputs/
+models/
+runtime/
+*.log
 
 # Heavy video & media recordings
 *.mp4

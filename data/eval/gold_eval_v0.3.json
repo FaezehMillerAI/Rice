@@ -1,0 +1,4319 @@
+[
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-001",
+    "family_id": "case-amb-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves are turning pale yellow in my paddy during tillering.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:leaf_age_progression",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:bacterial_ooze_test",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-002",
+    "family_id": "case-amb-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "I noticed yellow patches appearing across the field this morning.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:patchy_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:leaf_age_progression",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-003",
+    "family_id": "case-amb-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Some plants look stunted and leaves are losing their dark green color.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:leaf_age_progression",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-004",
+    "family_id": "case-amb-004",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Water stayed in the field for 4 days and now leaves look sickly yellow.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:standing_water",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:bacterial_ooze_test",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-005",
+    "family_id": "case-amb-005",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "My crop has pale lower foliage and growth seems slow.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:leaf_age_progression",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-006",
+    "family_id": "case-amb-006",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The field has yellowish discolored leaves after heavy storm and wind.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:heavy_rainfall",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:bacterial_ooze_test",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-007",
+    "family_id": "case-amb-007",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Upper leaves show some drying but lower leaves look okay.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_tip_margin_necrosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:bacterial_ooze_test",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-008",
+    "family_id": "case-amb-008",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Yellowish color spreading between rows during active tillering.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:field_spatial_pattern",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-009",
+    "family_id": "case-amb-009",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves are turning yellow from the edges inward.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:bacterial_ooze_test",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-010",
+    "family_id": "case-amb-010",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Plants look dry and pale even though soil is damp.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:leaf_rolling_folding",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-011",
+    "family_id": "case-amb-011",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Tips of leaves are starting to turn yellowish-orange.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:leaf_age_progression",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-012",
+    "family_id": "case-amb-012",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "There is discoloration on leaf blades in several areas of the field.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:patchy_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:bacterial_ooze_test",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-013",
+    "family_id": "case-amb-013",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "My tillers are weak and foliage is pale green to yellow.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:leaf_age_progression",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-014",
+    "family_id": "case-amb-014",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves are not vigorous and showing yellow streaks or spots.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:bacterial_ooze_test",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-015",
+    "family_id": "case-amb-015",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Several clumps of rice have yellow leaves near the water inlet.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:patchy_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:standing_water",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_margin_shape",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:bacterial_ooze_test",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_water_test"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Are the bottom leaves yellowing first while top leaves are still green? If you cut a yellow leaf section and put it in a glass of clear water, does a milky white thread stream out? Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-blb-001",
+    "family_id": "case-diff-blb-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves have water-soaked stripes along the edges with wavy borders and milky beads in high humidity.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:bacterial_ooze_beads",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:use_resistant_varieties",
+        "action:avoid_excess_nitrogen"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Use resistant varieties. Avoid excess nitrogen."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-blb-002",
+    "family_id": "case-diff-blb-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "We did the cut-leaf water test and cloudy milky fluid streamed out into the glass.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:use_resistant_varieties",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Bacterial leaf blight, Nitrogen deficiency, Water-related stress. Suggested actions: Use resistant varieties. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-blb-003",
+    "family_id": "case-diff-blb-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Yellow-orange lesions with wavy borders spreading rapidly after typhoon storm.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:heavy_rainfall",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:high_humidity",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Avoid excess nitrogen. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-blb-004",
+    "family_id": "case-diff-blb-004",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Lesions started at the leaf tips and margins with undulating wavy margins; upper leaves affected.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:leaf_tip_margin_necrosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Use resistant varieties."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-blb-005",
+    "family_id": "case-diff-blb-005",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Bacterial ooze droplets visible on wavy leaf lesions early in the morning.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:bacterial_ooze_beads",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:high_humidity",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:use_resistant_varieties",
+        "action:avoid_excess_nitrogen"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Use resistant varieties. Avoid excess nitrogen."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-ndef-001",
+    "family_id": "case-diff-ndef-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The lowest and oldest leaves are turning pale yellow in a uniform pattern across the entire field; no lesions anywhere.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-ndef-002",
+    "family_id": "case-diff-ndef-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Bottom leaves yellow first, plants are erect and stunted with few tillers across the whole field.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-ndef-003",
+    "family_id": "case-diff-ndef-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Uniform yellowing starting from bottom foliage upwards, leaf blades remain flat without wavy edges.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight, Water-related stress. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-ndef-004",
+    "family_id": "case-diff-ndef-004",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Older leaves yellowed evenly across all plots; cut leaf in water remained completely clear.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-ndef-005",
+    "family_id": "case-diff-ndef-005",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Pale lower leaves and reduced tillering in sandy soil zone; no bacterial ooze.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-wstr-001",
+    "family_id": "case-diff-wstr-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaf blades are rolling inward tightly like tubes during midday heat; leaves unroll when watered.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:recovers_upon_rewatering",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying",
+        "action:ensure_field_drainage"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying. Ensure field drainage."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-wstr-002",
+    "family_id": "case-diff-wstr-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Inward leaf curling and tip drying in elevated sandy ridges with low irrigation.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:leaf_tip_margin_necrosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-wstr-003",
+    "family_id": "case-diff-wstr-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves curled like needles during dry spell; recovered fully 24 hours after canal water arrived.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:recovers_upon_rewatering",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-wstr-004",
+    "family_id": "case-diff-wstr-004",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Needle-like rolled leaves on high bunds; no wavy lesions or bacterial stream in test.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-wstr-005",
+    "family_id": "case-diff-wstr-005",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Temporary leaf rolling during afternoon heat stress with quick overnight recovery.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:recovers_upon_rewatering",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-001",
+    "family_id": "case-neg-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Yellow leaves observed, but user confirms no wavy lesions (obs:water_soaked_wavy_lesion = FALSE) and oldest leaves yellow first.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-002",
+    "family_id": "case-neg-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Paddy has yellowing, but cut-leaf streaming test was negative (clear water); lower leaves pale.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-003",
+    "family_id": "case-neg-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves yellowing from tip, but no bacterial ooze present and older leaves are not affected; leaves roll inward in heat.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-004",
+    "family_id": "case-neg-004",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Yellowing in flooded field, but no lesions and leaves recover after drainage and aeration.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "env:standing_water",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-005",
+    "family_id": "case-neg-005",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Stunted pale plants, but no leaf rolling or drought; uniform across field.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-006",
+    "family_id": "case-neg-006",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Upper leaves show yellowing, but farmer confirmed lowest leaves are healthy green (uniform_older_leaf_chlorosis = FALSE); wavy lesion border visible.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-007",
+    "family_id": "case-neg-007",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Drying leaf tips, but cut leaf test is negative (clear water) and symptoms reverse with irrigation.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_tip_margin_necrosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:recovers_upon_rewatering",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-008",
+    "family_id": "case-neg-008",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Yellowish foliage, but uniform across entire field with zero patchy spots and zero bacterial ooze.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:bacterial_ooze_beads",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-009",
+    "family_id": "case-neg-009",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves rolling inward, but no wavy margins or water-soaked lesions.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "ABSENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-010",
+    "family_id": "case-neg-010",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaf margins necrotic, but cut leaf streaming test is clear and bottom leaves are green.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_tip_margin_necrosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "ABSENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_002",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-esc-001",
+    "family_id": "case-esc-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The whole crop is collapsing with rapid uncontained wilt spreading across entire 5 hectares within 48 hours.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [
+        "trigger:rapid_uncontrolled_spread"
+      ],
+      "user_response": "This case requires assessment by a plant pathologist. The provisional differential includes Bacterial leaf blight. Suggested actions: Refer the case to a plant pathologist."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-esc-002",
+    "family_id": "case-esc-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Panicles are rotting with severe black grain discoloration and complete head blight across all fields.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_tip_margin_necrosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [
+        "trigger:panicle_infection"
+      ],
+      "user_response": "This case requires assessment by a plant pathologist. The provisional differential includes Bacterial leaf blight. Suggested actions: Refer the case to a plant pathologist."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-esc-003",
+    "family_id": "case-esc-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Sudden catastrophic seedling death and complete kresek wilt destroying nursery beds.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [
+        "trigger:rapid_uncontrolled_spread",
+        "trigger:seedling_mortality"
+      ],
+      "user_response": "This case requires assessment by a plant pathologist. The provisional differential includes Bacterial leaf blight. Suggested actions: Refer the case to a plant pathologist."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-esc-004",
+    "family_id": "case-esc-004",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Extensive rotting spreading to stem and panicle base with unknown foul odor.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [
+        "trigger:panicle_infection"
+      ],
+      "user_response": "This case requires assessment by a plant pathologist. The provisional differential includes Bacterial leaf blight. Suggested actions: Refer the case to a plant pathologist."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-esc-005",
+    "family_id": "case-esc-005",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Uncontrollable leaf death spreading to neighboring village farms after cyclone storm.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:heavy_rainfall",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [
+        "trigger:rapid_uncontrolled_spread"
+      ],
+      "user_response": "This case requires assessment by a plant pathologist. The provisional differential includes Bacterial leaf blight. Suggested actions: Refer the case to a plant pathologist."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-multi-001",
+    "family_id": "case-multi-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Turn 1: 'Yellow leaves in field' -> Asked lesion margin check -> Turn 2: 'Yes, yellow stripes with wavy edges on leaf margins.'",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-multi-002",
+    "family_id": "case-multi-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Turn 1: 'Yellow leaves in field' -> Asked leaf age check -> Turn 2: 'Yes, strictly the lowest, oldest leaves are pale yellow and dying.'",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-multi-003",
+    "family_id": "case-multi-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Turn 1: 'Leaves rolling and tips dry' -> Asked rewatering recovery -> Turn 2: 'After running irrigation water yesterday, leaves unrolled and recovered.'",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:recovers_upon_rewatering",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Water-related stress, Bacterial leaf blight. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-multi-004",
+    "family_id": "case-multi-004",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Turn 1: 'Yellow patches after storm' -> Asked water test -> Turn 2: 'Cut leaf in water produced cloudy white ooze stream.'",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Bacterial leaf blight, Nitrogen deficiency. Suggested actions: Use alternate wetting and drying."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-multi-005",
+    "family_id": "case-multi-005",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Turn 1: 'Stunted pale plants' -> Asked lesion check -> Turn 2: 'No lesions at all, leaf blades are smooth and clean, bottom leaves pale.'",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Nitrogen deficiency, Bacterial leaf blight. Suggested actions: Use balanced, split fertilizer applications."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-blast-001",
+    "family_id": "case-diff-blast-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Elliptical diamond spindle-shaped lesions with gray centers and brown margins on upper leaves during cool misty nights.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:cool_night_temperatures",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blast_003"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blast_003"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Rice blast, Brown spot. Suggested actions: Use blast-resistant varieties. Avoid excess nitrogen."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-blast-002",
+    "family_id": "case-diff-blast-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Grey spore felt visible on spindle lesions in morning dew after heavy nitrogen top-dressing.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "sign:gray_spore_felt",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:prolonged_dew_periods",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blast_003"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blast_003"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Rice blast, Brown spot. Suggested actions: Use blast-resistant varieties. Avoid excess nitrogen."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-blast-003",
+    "family_id": "case-diff-blast-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Rotting and purplish-brown lesions at leaf collar joint where blade joins the sheath in focal patches.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:collar_rot",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:focal_hotspots",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Rice blast, Brown spot. Suggested actions: Use blast-resistant varieties."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-bspot-001",
+    "family_id": "case-diff-bspot-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Small circular to oval dark brown spots resembling sesame seeds with yellow halos scattered uniformly in nutrient-poor sandy soil.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo_around_brown_spot",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:nutrient_depleted_poor_soil",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_bspot_002"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:brown_spot",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:improve_soil_fertility",
+        "action:certified_clean_treated_seed"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_bspot_002"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Brown spot, Rice blast, Nitrogen deficiency. Suggested actions: Improve soil fertility. Use clean, certified, treated seed."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-bspot-002",
+    "family_id": "case-diff-bspot-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Numerous small oval brown specks with light halos across all tillers in unfertilized plot.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:improve_soil_fertility"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Brown spot, Nitrogen deficiency. Suggested actions: Improve soil fertility."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-diff-bspot-003",
+    "family_id": "case-diff-bspot-003",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Uniform sesame-seed shaped brown spots with yellow margins on seedlings grown from uncertified farm-saved seed.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo_around_brown_spot",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disease:rice_blast"
+      ],
+      "required_confounders": [
+        "disease:rice_blast"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:brown_spot",
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:certified_clean_treated_seed",
+        "action:improve_soil_fertility"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Brown spot, Rice blast. Suggested actions: Use clean, certified, treated seed. Improve soil fertility."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-contrast-blast-bspot-001",
+    "family_id": "case-contrast-blast-bspot-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves have spots; inspected closely and they are diamond/spindle shaped with grey centers, not round sesame spots.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "ABSENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Rice blast, Brown spot. Suggested actions: Use blast-resistant varieties."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-contrast-blast-bspot-002",
+    "family_id": "case-contrast-blast-bspot-002",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Dark brown spots on leaves; they are small oval dots with bright yellow rings, definitely not spindle shaped with gray center.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "ABSENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disease:rice_blast"
+      ],
+      "required_confounders": [
+        "disease:rice_blast"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:brown_spot",
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:improve_soil_fertility"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Brown spot, Rice blast. Suggested actions: Improve soil fertility."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-contrast-blb-blast-001",
+    "family_id": "case-contrast-blb-blast-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Lesions on leaf blades, but cut-leaf streaming test in water is completely clear and lesions are discrete spindle spots rather than continuous wavy tip stripes.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "ABSENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Rice blast, Bacterial leaf blight. Suggested actions: Use blast-resistant varieties."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-contrast-bspot-ndef-001",
+    "family_id": "case-contrast-bspot-ndef-001",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Yellowing foliage in poor soil, but there are distinct oval brown spots with halos scattered across the leaves, not just clean yellowing.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:nutrient_depleted_poor_soil",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:improve_soil_fertility"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Brown spot, Nitrogen deficiency. Suggested actions: Improve soil fertility."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-esc-006",
+    "family_id": "case-esc-006",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Panicle necks are rotting black at the node, breaking off with completely empty whiteheads across the field.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:neck_rot_blackened_node",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blast_002"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blast_002"
+      ],
+      "safety_flags": [
+        "trigger:panicle_infection"
+      ],
+      "user_response": "This case requires assessment by a plant pathologist. The provisional differential includes Rice blast. Suggested actions: Refer the case to a plant pathologist."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-amb-016",
+    "family_id": "case-amb-016",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Brownish discolored spots appearing on rice leaves after cool dewy nights.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:cool_night_temperatures",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "obs:lesion_shape_center_color",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "obs:spot_size_uniformity",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_blast_spindle_lesion",
+        "q:q_brown_spot_shape",
+        "q:q_lesion_margin"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_blast_spindle_lesion",
+        "q:q_brown_spot_shape",
+        "q:q_lesion_margin"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "More information is needed before making an assessment. Possible causes include Rice blast, Brown spot, Bacterial leaf blight. Do the spots look like diamonds or eyes, wider in the middle with a gray or white center and red-brown edge? Are the spots small, round or oval like brown sesame seeds with a yellow ring around them? Do you see wavy yellow or brown stripes along the edges or tips of the leaves? Suggested actions: Avoid excess nitrogen."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-multi-006",
+    "family_id": "case-multi-006",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Turn 1: Spots appearing on leaf blades -> Asked lesion shape -> Turn 2: Yes, diamond shaped spindle lesions with ash grey center and reddish brown border.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Rice blast, Brown spot. Suggested actions: Use blast-resistant varieties. Avoid excess nitrogen."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-multi-007",
+    "family_id": "case-multi-007",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Turn 1: Leaves have small dots -> Asked spot shape -> Turn 2: Yes, circular to oval dark brown spots resembling sesame seeds with yellowish halo.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo_around_brown_spot",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disease:rice_blast"
+      ],
+      "required_confounders": [
+        "disease:rice_blast"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:brown_spot",
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:improve_soil_fertility",
+        "action:certified_clean_treated_seed"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Brown spot, Rice blast. Suggested actions: Improve soil fertility. Use clean, certified, treated seed."
+    }
+  },
+  {
+    "schema_version": "0.3.0",
+    "scenario_id": "case-neg-011",
+    "family_id": "case-neg-011",
+    "origin": "sme_authored",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaf spots observed, but user confirms no diamond spindle shapes (spindle_shaped_lesion = FALSE); spots are circular sesame dots with halos.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disease:rice_blast"
+      ],
+      "required_confounders": [
+        "disease:rice_blast"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [],
+      "differential": [
+        "disease:brown_spot",
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:improve_soil_fertility"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The provisional differential includes Brown spot, Rice blast. Suggested actions: Improve soil fertility."
+    }
+  }
+]

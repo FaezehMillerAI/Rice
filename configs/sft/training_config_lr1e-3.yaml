@@ -1,0 +1,68 @@
+# SFT learning-rate sweep variant: 1e-3.
+model: qwen2.5-1.5b
+
+models:
+  qwen2.5-1.5b:
+    id: Qwen/Qwen2.5-1.5B-Instruct
+    target_modules: [q_proj, v_proj]
+  qwen3-4b:
+    id: Qwen/Qwen3-4B-Instruct-2507
+    target_modules: [q_proj, v_proj]
+  phi4-mini:
+    id: microsoft/Phi-4-mini-instruct
+    target_modules: [qkv_proj]
+  smollm3-3b:
+    id: HuggingFaceTB/SmolLM3-3B
+    target_modules: [q_proj, v_proj]
+    chat_template_kwargs:
+      enable_thinking: false
+  qwen3.5-4b:
+    id: Qwen/Qwen3.5-4B
+    target_modules: [q_proj, v_proj, in_proj_qkv]
+    chat_template_kwargs:
+      enable_thinking: false
+  llama3.2-3b:
+    id: meta-llama/Llama-3.2-3B-Instruct
+    target_modules: [q_proj, v_proj]
+
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  bias: none
+
+training:
+  num_train_epochs: 3
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 8
+  learning_rate: 1.0e-3
+  lr_scheduler_type: cosine
+  warmup_steps: 0.05
+  weight_decay: 0.01
+  max_grad_norm: 1.0
+  max_seq_length: 3072
+  seed: 42
+
+logging:
+  logging_steps: 5
+  eval_steps: 10
+  save_steps: 10
+  save_total_limit: 2
+
+dataset:
+  train_data_path: data/sft/train_dummy_v0.3.json
+  val_data_path: data/sft/validation_dummy_v0.3.json
+
+output:
+  root_dir: outputs/sft
+  experiment_name: '{model}_ep{num_train_epochs}_lr{learning_rate}_seed{seed}'
+  sample_preview_filename: sample_preview.json
+  run_config_filename: run_config.json
+  log_filename: train.log
+  pid_filename: train.pid

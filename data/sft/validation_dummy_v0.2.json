@@ -1,0 +1,4144 @@
+[
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01197",
+    "family_id": "sft-esc-1197",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Catastrophic sudden wilting and total death of all seedlings within 24 hours across entire nursery.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_tip_margin_necrosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [
+        "trigger:seedling_mortality"
+      ],
+      "user_response": "The reported symptoms require urgent assessment by a plant pathologist or agricultural extension officer.\nRecommended next steps:\n1. Isolate affected section and immediately submit leaf tissue sample to district plant clinic or agricultural extension authority."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00677",
+    "family_id": "sft-wst-0677",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves are curled inward lengthwise and drooping due to lack of irrigation water.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:elevation_dependent_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:recovers_upon_rewatering",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying",
+        "action:bund_maintenance"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Water stress is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Implement intermittent irrigation / Alternate Wetting and Drying (AWD) to restore plant root turgidity.\n2. Repair and heighten field bunds to prevent peripheral runoff and retain rainwater."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01374",
+    "family_id": "sft-mul-1374",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Rice leaf blades are rolling and tips look dry in the upland area.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying",
+        "action:bund_maintenance"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Water stress is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Implement intermittent irrigation / Alternate Wetting and Drying (AWD) to restore plant root turgidity.\n2. Repair and heighten field bunds to prevent peripheral runoff and retain rainwater."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00044",
+    "family_id": "sft-amb-0044",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves are turning yellow-brown during early vegetative stage.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "hybrid_rice"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "stage:heading",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Water stress, Rice blast, Brown spot, Nitrogen deficiency. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00693",
+    "family_id": "sft-wst-0693",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Plants are wilting with rolled up leaves, but they recover after evening watering.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:elevation_dependent_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying",
+        "action:bund_maintenance"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Water stress is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Implement intermittent irrigation / Alternate Wetting and Drying (AWD) to restore plant root turgidity.\n2. Repair and heighten field bunds to prevent peripheral runoff and retain rainwater."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00508",
+    "family_id": "sft-nde-0508",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves at the bottom of the rice plants are turning yellow and drying from the tip down evenly.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:older_leaves",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split",
+        "action:organic_matter_incorporation"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Nitrogen deficiency, Brown spot, Water stress, Rice blast, Bacterial leaf blight. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?\n3. Are there diamond- or spindle-shaped lesions with gray or whitish centers and reddish-brown borders?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00248",
+    "family_id": "sft-blb-0248",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Water soaked stripes on leaf edges during tillering stage following a severe storm.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "local_inbred"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Bacterial leaf blight is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Avoid excessive nitrogen top-dressing; split fertilizer applications into balanced doses.\n2. Drain standing water from paddy and allow soil surface to dry slightly to suppress bacterial propagation.\n3. Select certified resistant rice cultivars (e.g., carrying Xa4, xa5, or Xa21 genes) for upcoming planting cycle."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01060",
+    "family_id": "sft-bsp-1060",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Small round brown spots scattered uniformly across leaves in our unfertilized sandy field.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo_around_brown_spot",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:nutrient_depleted_poor_soil",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:brown_spot",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:improve_soil_fertility",
+        "action:certified_clean_treated_seed",
+        "action:regular_irrigation_avoid_water_stress"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Brown spot is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced macro- and micro-nutrients, particularly potassium and silicon, to address nutrient-depleted or toxic soils.\n2. Use clean, certified seeds and perform hot-water seed treatment (52-54°C for 15 mins) before nursery sowing.\n3. Ensure continuous, moderate irrigation; prevent periodic drought stress which pre-disposes seedlings to Bipolaris infection."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00898",
+    "family_id": "sft-bsp-0898",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves are covered with small oval brown spots with distinct yellowish rings around each speck.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo_around_brown_spot",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:nutrient_depleted_poor_soil",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:brown_spot",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:improve_soil_fertility",
+        "action:certified_clean_treated_seed",
+        "action:regular_irrigation_avoid_water_stress"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Brown spot is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced macro- and micro-nutrients, particularly potassium and silicon, to address nutrient-depleted or toxic soils.\n2. Use clean, certified seeds and perform hot-water seed treatment (52-54°C for 15 mins) before nursery sowing.\n3. Ensure continuous, moderate irrigation; prevent periodic drought stress which pre-disposes seedlings to Bipolaris infection."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01286",
+    "family_id": "sft-mul-1286",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The rice leaves in my paddy are turning yellow in patches after rain.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Rice blast, Nitrogen deficiency, Water stress, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00639",
+    "family_id": "sft-wst-0639",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Inward longitudinal leaf curling across dry sandy sections of the paddy.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:elevation_dependent_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying",
+        "action:bund_maintenance"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Water stress is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Implement intermittent irrigation / Alternate Wetting and Drying (AWD) to restore plant root turgidity.\n2. Repair and heighten field bunds to prevent peripheral runoff and retain rainwater."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01126",
+    "family_id": "sft-neg-1126",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves are yellow across the whole field, but there are definitely no wavy lesions or water-soaked stripes.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion",
+        "q:q_brown_spot_shape"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion",
+        "q:q_brown_spot_shape"
+      ],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split",
+        "action:organic_matter_incorporation"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Nitrogen deficiency is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced split nitrogen fertilizer (e.g., urea) in accordance with localized leaf color chart (LCC) guidance.\n2. Incorporate decomposed organic manure or crop residues during land preparation to enhance soil cation exchange."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00040",
+    "family_id": "sft-amb-0040",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Foliage is losing green color and turning pale yellow.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "hybrid_rice"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "stage:flowering",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water stress, Rice blast, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01227",
+    "family_id": "sft-esc-1227",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Panicles completely blackened and rotting with rapid district-wide collapse of the crop.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:neck_rot_blackened_node",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [
+        "trigger:panicle_infection"
+      ],
+      "user_response": "The reported symptoms require urgent assessment by a plant pathologist or agricultural extension officer.\nRecommended next steps:\n1. Isolate affected section and immediately submit leaf tissue sample to district plant clinic or agricultural extension authority."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00007",
+    "family_id": "sft-amb-0007",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The rice crop is showing yellowing in some areas.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "hybrid_rice"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water stress, Rice blast, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00891",
+    "family_id": "sft-bsp-0891",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Brown specks resembling sesame seeds on leaf blades without any water-soaked wavy borders.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo_around_brown_spot",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:improve_soil_fertility",
+        "action:certified_clean_treated_seed",
+        "action:regular_irrigation_avoid_water_stress"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Brown spot is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced macro- and micro-nutrients, particularly potassium and silicon, to address nutrient-depleted or toxic soils.\n2. Use clean, certified seeds and perform hot-water seed treatment (52-54°C for 15 mins) before nursery sowing.\n3. Ensure continuous, moderate irrigation; prevent periodic drought stress which pre-disposes seedlings to Bipolaris infection."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01367",
+    "family_id": "sft-mul-1367",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The rice leaves in my paddy are turning yellow in patches after rain.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Rice blast, Water stress, Brown spot, Nitrogen deficiency. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01100",
+    "family_id": "sft-neg-1100",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaf lesions are diamond spindle shaped with gray center, not small oval sesame spots.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Rice blast is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Select certified blast-resistant cultivars (e.g., harboring Pi-ta, Pi-b, or Pi-z resistance genes) for upcoming planting seasons.\n2. Avoid excessive nitrogen top-dressing; apply split doses with balanced potassium to reduce plant tissue susceptibility.\n3. Maintain adequate floodwater depth; avoid letting fields dry out completely during vegetative growth as water stress exacerbates blast susceptibility."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01221",
+    "family_id": "sft-esc-1221",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Catastrophic sudden wilting and total death of all seedlings within 24 hours across entire nursery.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_tip_margin_necrosis",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:escalate_to_pathologist"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [
+        "trigger:seedling_mortality"
+      ],
+      "user_response": "The reported symptoms require urgent assessment by a plant pathologist or agricultural extension officer.\nRecommended next steps:\n1. Isolate affected section and immediately submit leaf tissue sample to district plant clinic or agricultural extension authority."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00225",
+    "family_id": "sft-blb-0225",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Rice leaf blades show yellowish lesions along the edges that turn brown and necrotic.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Bacterial leaf blight is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Avoid excessive nitrogen top-dressing; split fertilizer applications into balanced doses.\n2. Drain standing water from paddy and allow soil surface to dry slightly to suppress bacterial propagation.\n3. Select certified resistant rice cultivars (e.g., carrying Xa4, xa5, or Xa21 genes) for upcoming planting cycle."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00097",
+    "family_id": "sft-amb-0097",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Foliage is losing green color and turning pale yellow.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "stage:ripening",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water stress, Rice blast, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00284",
+    "family_id": "sft-blb-0284",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Yellowing with distinctive wavy edges spreading from leaf tips across several vegetative tillers.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:heavy_rainfall",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:patchy_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Bacterial leaf blight is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Avoid excessive nitrogen top-dressing; split fertilizer applications into balanced doses.\n2. Drain standing water from paddy and allow soil surface to dry slightly to suppress bacterial propagation.\n3. Select certified resistant rice cultivars (e.g., carrying Xa4, xa5, or Xa21 genes) for upcoming planting cycle."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01394",
+    "family_id": "sft-mul-1394",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "There are brown spots appearing on the leaves during foggy morning weather.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Rice blast, Bacterial leaf blight, Water stress, Brown spot, Nitrogen deficiency. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00543",
+    "family_id": "sft-wst-0543",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Plants are wilting with rolled up leaves, but they recover after evening watering.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:elevation_dependent_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying",
+        "action:bund_maintenance"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Water stress is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Implement intermittent irrigation / Alternate Wetting and Drying (AWD) to restore plant root turgidity.\n2. Repair and heighten field bunds to prevent peripheral runoff and retain rainwater."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00293",
+    "family_id": "sft-blb-0293",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Water soaked stripes on leaf edges during tillering stage following a severe storm.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Bacterial leaf blight is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Avoid excessive nitrogen top-dressing; split fertilizer applications into balanced doses.\n2. Drain standing water from paddy and allow soil surface to dry slightly to suppress bacterial propagation.\n3. Select certified resistant rice cultivars (e.g., carrying Xa4, xa5, or Xa21 genes) for upcoming planting cycle."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00335",
+    "family_id": "sft-blb-0335",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaf margins are turning yellow-orange and drying up with irregular wavy boundaries.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Bacterial leaf blight is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Avoid excessive nitrogen top-dressing; split fertilizer applications into balanced doses.\n2. Drain standing water from paddy and allow soil surface to dry slightly to suppress bacterial propagation.\n3. Select certified resistant rice cultivars (e.g., carrying Xa4, xa5, or Xa21 genes) for upcoming planting cycle."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00147",
+    "family_id": "sft-amb-0147",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves are turning yellow-brown during early vegetative stage.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "stage:heading",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_wstress_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Water stress, Rice blast, Brown spot, Nitrogen deficiency. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01302",
+    "family_id": "sft-mul-1302",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "There are brown spots appearing on the leaves during foggy morning weather.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": "local_inbred"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Rice blast, Bacterial leaf blight, Nitrogen deficiency, Water stress, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00929",
+    "family_id": "sft-bsp-0929",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Dark brown oval lesions with bright yellow halos across entire field plots lacking potassium.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo_around_brown_spot",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:nutrient_depleted_poor_soil",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:improve_soil_fertility",
+        "action:certified_clean_treated_seed",
+        "action:regular_irrigation_avoid_water_stress"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Brown spot is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced macro- and micro-nutrients, particularly potassium and silicon, to address nutrient-depleted or toxic soils.\n2. Use clean, certified seeds and perform hot-water seed treatment (52-54°C for 15 mins) before nursery sowing.\n3. Ensure continuous, moderate irrigation; prevent periodic drought stress which pre-disposes seedlings to Bipolaris infection."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01383",
+    "family_id": "sft-mul-1383",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The rice leaves in my paddy are turning yellow in patches after rain.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Rice blast, Water stress, Brown spot, Nitrogen deficiency. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00164",
+    "family_id": "sft-amb-0164",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "I noticed discoloration on the leaf blades.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water stress, Rice blast, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00467",
+    "family_id": "sft-nde-0467",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The lower bottom leaves are uniformly yellowing, but upper leaves remain pale green.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "hybrid_rice"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:older_leaves",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split",
+        "action:organic_matter_incorporation"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Nitrogen deficiency is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced split nitrogen fertilizer (e.g., urea) in accordance with localized leaf color chart (LCC) guidance.\n2. Incorporate decomposed organic manure or crop residues during land preparation to enhance soil cation exchange."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00741",
+    "family_id": "sft-bla-0741",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Grey spore felt visible on the underside of spindle lesions during early morning dewy hours.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "hybrid_rice"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:gray_spore_felt",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:collar_rot",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Rice blast is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Select certified blast-resistant cultivars (e.g., harboring Pi-ta, Pi-b, or Pi-z resistance genes) for upcoming planting seasons.\n2. Avoid excessive nitrogen top-dressing; apply split doses with balanced potassium to reduce plant tissue susceptibility.\n3. Maintain adequate floodwater depth; avoid letting fields dry out completely during vegetative growth as water stress exacerbates blast susceptibility."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01288",
+    "family_id": "sft-mul-1288",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The rice leaves in my paddy are turning yellow in patches after rain.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Rice blast, Nitrogen deficiency, Water stress, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01131",
+    "family_id": "sft-neg-1131",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Spots on leaf blades, but they are circular sesame dots with halos and definitely not diamond or spindle shaped.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:improve_soil_fertility",
+        "action:certified_clean_treated_seed",
+        "action:regular_irrigation_avoid_water_stress"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Brown spot is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced macro- and micro-nutrients, particularly potassium and silicon, to address nutrient-depleted or toxic soils.\n2. Use clean, certified seeds and perform hot-water seed treatment (52-54°C for 15 mins) before nursery sowing.\n3. Ensure continuous, moderate irrigation; prevent periodic drought stress which pre-disposes seedlings to Bipolaris infection."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00776",
+    "family_id": "sft-bla-0776",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Grey spore felt visible on the underside of spindle lesions during early morning dewy hours.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:cool_night_temperatures",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:prolonged_dew_periods",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:gray_spore_felt",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:collar_rot",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Rice blast is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Select certified blast-resistant cultivars (e.g., harboring Pi-ta, Pi-b, or Pi-z resistance genes) for upcoming planting seasons.\n2. Avoid excessive nitrogen top-dressing; apply split doses with balanced potassium to reduce plant tissue susceptibility.\n3. Maintain adequate floodwater depth; avoid letting fields dry out completely during vegetative growth as water stress exacerbates blast susceptibility."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00089",
+    "family_id": "sft-amb-0089",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "I see yellow patches in my paddy field.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "ir64"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Rice blast, Nitrogen deficiency, Water stress, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00736",
+    "family_id": "sft-bla-0736",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaves show classic spindle-shaped blast spots with grey centers after prolonged dew periods.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "hybrid_rice"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:gray_spore_felt",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Rice blast is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Select certified blast-resistant cultivars (e.g., harboring Pi-ta, Pi-b, or Pi-z resistance genes) for upcoming planting seasons.\n2. Avoid excessive nitrogen top-dressing; apply split doses with balanced potassium to reduce plant tissue susceptibility.\n3. Maintain adequate floodwater depth; avoid letting fields dry out completely during vegetative growth as water stress exacerbates blast susceptibility."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00779",
+    "family_id": "sft-bla-0779",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The leaves have diamond spindle-shaped lesions with grey or whitish centers and reddish-brown margins.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Rice blast is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Select certified blast-resistant cultivars (e.g., harboring Pi-ta, Pi-b, or Pi-z resistance genes) for upcoming planting seasons.\n2. Avoid excessive nitrogen top-dressing; apply split doses with balanced potassium to reduce plant tissue susceptibility.\n3. Maintain adequate floodwater depth; avoid letting fields dry out completely during vegetative growth as water stress exacerbates blast susceptibility."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01393",
+    "family_id": "sft-mul-1393",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "There are brown spots appearing on the leaves during foggy morning weather.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "swarna"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Rice blast, Bacterial leaf blight, Nitrogen deficiency, Water stress, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00441",
+    "family_id": "sft-nde-0441",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "The entire field looks pale yellow, starting from the oldest bottom leaves with stunted tillering.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:older_leaves",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split",
+        "action:organic_matter_incorporation"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Nitrogen deficiency is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced split nitrogen fertilizer (e.g., urea) in accordance with localized leaf color chart (LCC) guidance.\n2. Incorporate decomposed organic manure or crop residues during land preparation to enhance soil cation exchange."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00570",
+    "family_id": "sft-wst-0570",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Rice leaves are rolling inward like tubes and wilting in the high elevated corners of the field.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:elevation_dependent_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying",
+        "action:bund_maintenance"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Water stress is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Implement intermittent irrigation / Alternate Wetting and Drying (AWD) to restore plant root turgidity.\n2. Repair and heighten field bunds to prevent peripheral runoff and retain rainwater."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00920",
+    "family_id": "sft-bsp-0920",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Oval brown spots with prominent yellow halos on seedlings grown from farm-saved seed.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:oval_brown_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo_around_brown_spot",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:brown_spot",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:brown_spot",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disease:bacterial_leaf_blight",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:improve_soil_fertility",
+        "action:certified_clean_treated_seed",
+        "action:regular_irrigation_avoid_water_stress"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_bspot_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Brown spot is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced macro- and micro-nutrients, particularly potassium and silicon, to address nutrient-depleted or toxic soils.\n2. Use clean, certified seeds and perform hot-water seed treatment (52-54°C for 15 mins) before nursery sowing.\n3. Ensure continuous, moderate irrigation; prevent periodic drought stress which pre-disposes seedlings to Bipolaris infection."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00860",
+    "family_id": "sft-bla-0860",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "There is purplish brown rot at the leaf collar junction where blade meets sheath in several patches.",
+      "growth_stage_id": "growth_stage:heading",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:spindle_shaped_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:gray_spore_felt",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency"
+      ],
+      "actions": [
+        "action:use_blast_resistant_varieties",
+        "action:avoid_excess_nitrogen",
+        "action:maintain_proper_water_depth"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blast_001",
+        "claim:claim_blb_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Rice blast is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Select certified blast-resistant cultivars (e.g., harboring Pi-ta, Pi-b, or Pi-z resistance genes) for upcoming planting seasons.\n2. Avoid excessive nitrogen top-dressing; apply split doses with balanced potassium to reduce plant tissue susceptibility.\n3. Maintain adequate floodwater depth; avoid letting fields dry out completely during vegetative growth as water stress exacerbates blast susceptibility."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00408",
+    "family_id": "sft-nde-0408",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Bottom leaves turning yellow evenly across the whole plot; no spots or wavy lesions seen.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:older_leaves",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion",
+        "q:q_brown_spot_shape"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion",
+        "q:q_brown_spot_shape"
+      ],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split",
+        "action:organic_matter_incorporation"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Nitrogen deficiency is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced split nitrogen fertilizer (e.g., urea) in accordance with localized leaf color chart (LCC) guidance.\n2. Incorporate decomposed organic manure or crop residues during land preparation to enhance soil cation exchange."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-01150",
+    "family_id": "sft-neg-1150",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Leaf tips are turning brown and drying, but when I did the cut leaf water test, the water remained completely clear with no cloudy streaming.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:water_test_cloudy_streaming",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:leaf_rolling_folding",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:water_stress",
+        "disorder:nitrogen_deficiency",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:alternate_wetting_drying",
+        "action:bund_maintenance"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_wstress_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Water stress is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Implement intermittent irrigation / Alternate Wetting and Drying (AWD) to restore plant root turgidity.\n2. Repair and heighten field bunds to prevent peripheral runoff and retain rainwater."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00055",
+    "family_id": "sft-amb-0055",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Some plants in my field have yellowish leaves during tillering.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "unknown"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "stage:ripening",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_ndef_001"
+      ],
+      "safety_flags": [],
+      "user_response": "The cause is uncertain. Possible causes include Bacterial leaf blight, Nitrogen deficiency, Water stress, Rice blast, Brown spot. More field observations are needed before making an assessment.\nPlease check:\n1. Are there visible yellow or brown lesions starting at the leaf tip or margins, and do they have wavy edges?\n2. Are the lowest (older) leaves turning yellow first in a uniform pattern while upper leaves stay green?\n3. Are the leaf blades rolling or curling inward longitudinally into tube-like shapes?"
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00477",
+    "family_id": "sft-nde-0477",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Old leaves yellowing uniformly across all rows during early tillering, plants look stunted.",
+      "growth_stage_id": "growth_stage:ripening",
+      "production_system_id": null,
+      "cultivar_id": "local_inbred"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:older_leaves",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_lesion_margin",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_lesion_margin",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disorder:water_stress",
+        "disease:rice_blast",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split",
+        "action:organic_matter_incorporation"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Nitrogen deficiency is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced split nitrogen fertilizer (e.g., urea) in accordance with localized leaf color chart (LCC) guidance.\n2. Incorporate decomposed organic manure or crop residues during land preparation to enhance soil cation exchange."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00502",
+    "family_id": "sft-nde-0502",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Bottom leaves turning yellow evenly across the whole plot; no spots or wavy lesions seen.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": "local_inbred"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:uniform_older_leaf_chlorosis",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:older_leaves",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:uniform_fieldwide_distribution",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:stunted_growth",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "required_confounders": [
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion",
+        "q:q_brown_spot_shape"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion",
+        "q:q_brown_spot_shape"
+      ],
+      "differential": [
+        "disorder:nitrogen_deficiency",
+        "disease:brown_spot",
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:water_stress"
+      ],
+      "actions": [
+        "action:balanced_fertilizer_split",
+        "action:organic_matter_incorporation"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_ndef_001",
+        "claim:claim_bspot_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Nitrogen deficiency is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Apply balanced split nitrogen fertilizer (e.g., urea) in accordance with localized leaf color chart (LCC) guidance.\n2. Incorporate decomposed organic manure or crop residues during land preparation to enhance soil cation exchange."
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "sft-traj-00229",
+    "family_id": "sft-blb-0229",
+    "origin": "trajectory_generated",
+    "language": "en",
+    "region_id": "priority-region-1",
+    "input": {
+      "user_text": "Tips of rice leaves are drying up with wavy, water-soaked borders.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": "bpt5204"
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_yellowing",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_wavy_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "part:leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "env:heavy_rainfall",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field:patchy_distribution",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "supporting_source_ids": [
+        "source:irri_rice_doctor_2024"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "observations_needed": [
+        "q:q_older_vs_younger",
+        "q:q_leaf_rolling",
+        "q:q_blast_spindle_lesion"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disorder:nitrogen_deficiency",
+        "disorder:water_stress",
+        "disease:brown_spot"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:ensure_field_drainage",
+        "action:use_resistant_varieties"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "claim:claim_blb_001",
+        "claim:claim_blast_001"
+      ],
+      "safety_flags": [],
+      "user_response": "Based on the available observations, Bacterial leaf blight is a possible cause. This is a provisional assessment.\nRecommended next steps:\n1. Avoid excessive nitrogen top-dressing; split fertilizer applications into balanced doses.\n2. Drain standing water from paddy and allow soil surface to dry slightly to suppress bacterial propagation.\n3. Select certified resistant rice cultivars (e.g., carrying Xa4, xa5, or Xa21 genes) for upcoming planting cycle."
+    }
+  }
+]

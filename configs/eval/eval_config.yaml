@@ -1,0 +1,59 @@
+# ==============================================================================
+# Rice Pathogen SALM — Evaluation Harness & Bake-Off Configuration
+# ==============================================================================
+
+# Thirteen categories contain fifteen weighted metrics, using deterministic rules.
+# Unsupported-claim rate = 1 - groundedness is reported without an extra weight.
+# Default weights total 1.00 (100%); edit unified_weights to tune the allocation.
+# Semantic categories are explicit benchmark proxies; see the report definitions.
+# Per-case score is 0-100 and keeps the configured weight proportions.
+# N/A metrics count as zero in scores and metric means and retain their weights.
+# All numeric scores, including zero, are Scored. Applicable nulls are Fail.
+# Applicable nulls score zero and keep their weight.
+# Invalid normalized predictions receive 0 points regardless of these weights.
+# Raw Markdown fence violations affect Schema Compliance only.
+unified_weights:
+  behavior_correctness: 0.20       # ASK / ANSWER / ESCALATE
+  # Differential Metrics: 15% total, with three independently weighted scores.
+  differential_top1_precision: 0.05
+  differential_top3_recall: 0.05
+  differential_f1: 0.05              # Full differential set F1
+  confounder_recall: 0.05             # Recall over differential[1:], excluding the raw Top1 position
+  groundedness: 0.15                 # Fraction of unique differential causes matched by cited fact subjects
+  question_agreement: 0.05             # Question-ID set agreement; N/A for gold ANSWER without required questions
+  evidence_agreement: 0.05             # Citation-ID set agreement; two empty sets score one
+  actions_agreement: 0.05                    # Exact prediction.actions vs target_response.actions set F1
+  safety_flags_agreement: 0.05                 # Safety flag set F1 against target_response.safety_flags
+  escalation_correctness: 0.05
+  structured_output_vs_user_response_consistency: 0.05   # Explicit English-rule structured/text consistency baseline
+  response_safety_check: 0.05        # User-response-only English safety and required-referral baseline
+  schema_compliance: 0.05
+  resource_efficiency: 0.05
+
+# Fixed scoring limits; these do not enforce runtime timeouts or memory caps.
+# Efficiency=max(0, 1-measurement/limit); at or above the limit scores zero.
+# Below the limit lower usage scores higher; both efficiencies are averaged.
+# Missing measurements or budgets yield a raw null and a failed state.
+resource_budgets:
+  latency_s: 10.0
+  memory_mib: 32768.0
+
+# Target Benchmark
+benchmark:
+  benchmark_file: "data/eval/gold_eval_v0.4.json"
+  format: "json"
+  schema_version: "0.4.0"  # Record schema used by the v0.4 dataset.
+  total_cases: 65
+  # Mutually exclusive scenario groups by scenario_id prefix, not behavior labels.
+  slices:
+    ambiguous_triage_count: 16
+    lookalike_differential_count: 21
+    negative_evidence_count: 11
+    safety_escalation_count: 6
+    # Static cases containing prior dialogue text; no interactive dialogue loop.
+    multiturn_dialogue_count: 7
+    contrast_differential_count: 4
+  first_behavior_counts:
+    ASK: 16
+    ANSWER: 43
+    ESCALATE: 6

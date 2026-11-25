@@ -4,6 +4,9 @@ import os
 import json
 from typing import Dict, List, Any, Optional, Tuple
 
+from contracts.retrieval import ExplicitObservation, ensure_explicit_observations
+
+
 class DiagnosticEngine:
     """Deterministic Diagnostic & Triage Reasoning Engine (Baseline 0)"""
 
@@ -51,6 +54,11 @@ class DiagnosticEngine:
                         "type": row["type"],
                         "category": row["category"],
                         "skos_pref_label": row["skos_pref_label"],
+                        "skos_alt_labels": [
+                            value.strip()
+                            for value in row.get("skos_alt_labels", "").split("|")
+                            if value.strip()
+                        ],
                         "pathogen_agent": row.get("pathogen_agent", ""),
                     }
 
@@ -89,12 +97,15 @@ class DiagnosticEngine:
                 for row in reader:
                     self.claims[row["claim_id"]] = row
 
-    def normalize_observations(self, user_text: str, explicit_obs: Optional[List[Dict[str, str]]] = None) -> Dict[str, str]:
+    def normalize_observations(
+        self,
+        user_text: str,
+        explicit_obs: Optional[List[ExplicitObservation]] = None,
+    ) -> Dict[str, str]:
         obs_state_map = {}
 
-        if explicit_obs:
-            for item in explicit_obs:
-                obs_state_map[item["term_id"]] = item["state"]
+        for item in ensure_explicit_observations(explicit_obs):
+            obs_state_map[item["term_id"]] = item["state"]
 
         text_lower = user_text.lower()
 
@@ -608,7 +619,12 @@ class DiagnosticEngine:
             }
         ])
 
-    def diagnose(self, user_text: str, context: Optional[Dict[str, Any]] = None, explicit_obs: Optional[List[Dict[str, str]]] = None) -> Dict[str, Any]:
+    def diagnose(
+        self,
+        user_text: str,
+        context: Optional[Dict[str, Any]] = None,
+        explicit_obs: Optional[List[ExplicitObservation]] = None,
+    ) -> Dict[str, Any]:
         if context is None:
             context = {"growth_stage": "tillering", "region": "priority-region-1", "water_condition": None, "weather": None}
 
@@ -710,6 +726,10 @@ class DiagnosticEngine:
 
         return response
 
-def diagnose(user_text: str, context: Optional[Dict[str, Any]] = None, explicit_obs: Optional[List[Dict[str, str]]] = None) -> Dict[str, Any]:
+def diagnose(
+    user_text: str,
+    context: Optional[Dict[str, Any]] = None,
+    explicit_obs: Optional[List[ExplicitObservation]] = None,
+) -> Dict[str, Any]:
     engine = DiagnosticEngine()
     return engine.diagnose(user_text, context, explicit_obs)

@@ -4,11 +4,10 @@ Rice Pathogen SALM — Knowledge Graph Context Retriever (retrieve_kg)
 Provides canonical retrieval from the Rice Knowledge Graph for SFT and evaluation inference.
 """
 
-from copy import deepcopy
 import json
 import os
 import sys
-from typing import Dict, List, Any, Optional, Union, TypedDict
+from typing import Dict, List, Any, Optional, Union
 
 # Ensure workspace root is in sys.path
 WORKSPACE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -16,70 +15,60 @@ if WORKSPACE_ROOT not in sys.path:
     sys.path.insert(0, WORKSPACE_ROOT)
 
 from engine.diagnostic_engine import DiagnosticEngine
+from contracts.retrieval import (
+    EvidenceRecord,
+    PublicCase,
+    PublicInput,
+    RETRIEVAL_CONTRACT_VERSION,
+    RetrievedFact,
+    RetrievedContext,
+    SuggestedQuestion,
+    empty_retrieved_context,
+    ensure_explicit_observations,
+    make_retrieved_context,
+)
+from contracts.response import ModelResponse, make_model_response
 
 
-class PublicInput(TypedDict):
-    user_text: str | None
-    growth_stage_id: str | None
-    production_system_id: str | None
-    cultivar_id: str | None
-
-
-class PublicCase(TypedDict):
-    """Inference-available case fields; annotations and targets are excluded."""
-
-    input: PublicInput
-    language: str | None
-    region_id: str | None
-
-
-class RetrievedContext(TypedDict):
-    """Shared KG-to-SLM context for SFT and evaluation inference."""
-
-    normalized_observations: list[Any]
-    candidate_causes: list[Any]
-    supporting_evidence: list[Any]
-    contradicting_evidence: list[Any]
-    missing_observations: list[Any]
-    suggested_questions: list[Any]
-    retrieved_facts: list[Any]
-    evidence_fact_ids: list[str]
-    evidence_source_ids: list[str]
-
-
-def empty_retrieved_context() -> RetrievedContext:
-    """Build independent empty lists in the shared context schema."""
+def _project_question(row: Dict[str, Any]) -> SuggestedQuestion:
     return {
-        "normalized_observations": [], "candidate_causes": [],
-        "supporting_evidence": [], "contradicting_evidence": [],
-        "missing_observations": [], "suggested_questions": [],
-        "retrieved_facts": [], "evidence_fact_ids": [], "evidence_source_ids": [],
+        "question_id": str(row.get("question_id", "")),
+        "target_observation_id": str(row.get("target_observation_id", "")),
+        "canonical_text": str(row.get("canonical_text", "")),
+        "farmer_friendly_phrasing": str(
+            row.get("farmer_friendly_phrasing", "")
+        ),
+        "rationale": str(row.get("rationale", "")),
     }
 
 
-_QUESTION_CONTEXT_KEYS = (
-    "question_id",
-    "target_observation_id",
-    "canonical_text",
-    "farmer_friendly_phrasing",
-    "rationale",
-)
+def _project_evidence(row: Dict[str, Any]) -> EvidenceRecord:
+    return {
+        "cause_id": str(row.get("cause_id", "")),
+        "observation_id": str(row.get("observation_id", "")),
+        "evidence_type": str(row.get("evidence_type", "")),
+        "condition_truth_state": str(row.get("condition_truth_state", "")),
+        "explanation": str(row.get("explanation", "")),
+    }
 
-_FACT_KEYS = (
-    "claim_id",
-    "subject_uri",
-    "predicate_uri",
-    "object_uri",
-    "source_id",
-    "source_section",
-    "source_text_span",
-)
+
+def _project_fact(row: Dict[str, Any]) -> RetrievedFact:
+    return {
+        "claim_id": str(row.get("claim_id", "")),
+        "subject_uri": str(row.get("subject_uri", "")),
+        "predicate_uri": str(row.get("predicate_uri", "")),
+        "object_uri": str(row.get("object_uri", "")),
+        "source_id": str(row.get("source_id", "")),
+        "source_section": str(row.get("source_section", "")),
+        "source_text_span": str(row.get("source_text_span", "")),
+    }
 
 
 class KGRetriever:
     """Retrieves subgraph context, candidate differential rankings, and evidence receipts."""
 
     version = "v0.2"
+    contract_version = RETRIEVAL_CONTRACT_VERSION
 
     def __init__(self, workspace_root: str = WORKSPACE_ROOT):
         self.workspace_root = workspace_root
@@ -99,6 +88,16 @@ class KGRetriever:
                     break
                 except Exception:
                     self.richard_facts = {}
+
+    def catalog_snapshot(self):
+        """Expose stable, copied KG metadata without leaking engine registries."""
+        from engine.catalog import build_kg_catalog_snapshot
+
+        return build_kg_catalog_snapshot(
+            self.engine,
+            self.richard_facts,
+            retrieval_version=self.version,
+        )
 
     def extract_case_fields(self, case_info: Union[Dict[str, Any], str]) -> Dict[str, Any]:
         """Extracts normalized user_text and growth_stage from various input formats."""
@@ -139,7 +138,9 @@ class KGRetriever:
             growth_stage = ctx.get("growth_stage", growth_stage) or growth_stage
 
         if "explicit_observations" in case_info:
-            explicit_obs = case_info["explicit_observations"]
+            explicit_obs = ensure_explicit_observations(
+                case_info["explicit_observations"]
+            )
 
         return {
             "user_text": user_text,
@@ -152,7 +153,7 @@ class KGRetriever:
         candidate_ids: List[str],
         obs_state_map: Dict[str, str],
         max_facts: int = 5,
-    ) -> tuple[List[Dict[str, str]], List[str], List[str]]:
+    ) -> tuple[List[RetrievedFact], List[str], List[str]]:
         """Select concise, candidate-ranked provenance facts across claims and Richard's vetted facts."""
         active_obs = {k for k, v in obs_state_map.items() if v == "TRUE"}
         candidate_rank = {cid: idx for idx, cid in enumerate(candidate_ids)}
@@ -162,7 +163,7 @@ class KGRetriever:
             if not obs.startswith("stage:")
         ]
 
-        pool: List[tuple[tuple, str, Dict[str, str]]] = []
+        pool: List[tuple[tuple, str, RetrievedFact]] = []
 
         # 1. Candidates from provenance-claims-registry.csv (source_priority=0)
         for claim_id, row in self.engine.claims.items():
@@ -176,7 +177,7 @@ class KGRetriever:
                 obs_hit = 1
             else:
                 continue
-            fact_entry = {key: str(row.get(key, "")) for key in _FACT_KEYS}
+            fact_entry = _project_fact(row)
             pool.append(((c_rank, -obs_hit, 0, claim_id), claim_id, fact_entry))
 
         # 2. Candidates from Richard's 842 vetted facts (source_priority=1)
@@ -207,7 +208,7 @@ class KGRetriever:
                 cat = str(fval.get("category", "")).strip()
                 pred_slug = "".join(ch if ch.isalnum() else "_" for ch in cat.lower()).strip("_") or "hasFact"
                 src = str(fval.get("source_id", "")).strip() or "source:irri_rice_doctor_2024"
-                fact_entry = {
+                fact_entry: RetrievedFact = {
                     "claim_id": fid,
                     "subject_uri": matched_cid,
                     "predicate_uri": f"rice:{pred_slug}",
@@ -220,7 +221,7 @@ class KGRetriever:
 
         pool.sort(key=lambda item: item[0])
 
-        facts: List[Dict[str, str]] = []
+        facts: List[RetrievedFact] = []
         evidence_fact_ids: List[str] = []
         evidence_source_ids: List[str] = []
         seen_fact_ids = set()
@@ -285,35 +286,38 @@ class KGRetriever:
             states.setdefault(f"stage:{growth_stage}", "TRUE")
         state_names = {"TRUE": "PRESENT", "FALSE": "ABSENT", "UNKNOWN": "UNKNOWN"}
 
-        questions = [
-            {key: deepcopy(self.engine.questions[q].get(key, "")) for key in _QUESTION_CONTEXT_KEYS}
+        questions: List[SuggestedQuestion] = [
+            _project_question(self.engine.questions[q])
             for q in question_ids
             if q in self.engine.questions
         ]
 
-        support, contradict = [], []
+        support: List[EvidenceRecord] = []
+        contradict: List[EvidenceRecord] = []
         for rule in self.engine.evidence_rules:
             expected = rule.get("condition_truth_state", "").removeprefix("state:")
             if rule["cause_id"] in candidate_ids and states.get(rule["observation_id"]) == expected:
                 if rule.get("evidence_type", "").lower() == "supporting":
-                    support.append(deepcopy(rule))
+                    support.append(_project_evidence(rule))
                 elif rule.get("evidence_type", "").lower() == "contradicting":
-                    contradict.append(deepcopy(rule))
+                    contradict.append(_project_evidence(rule))
 
-        return {
-            "normalized_observations": [
+        return make_retrieved_context(
+            normalized_observations=[
                 {"concept_id": key, "state": state_names.get(state, state)}
                 for key, state in states.items()
             ],
-            "candidate_causes": candidate_ids,
-            "supporting_evidence": support,
-            "contradicting_evidence": contradict,
-            "missing_observations": list(dict.fromkeys(q["target_observation_id"] for q in questions)),
-            "suggested_questions": questions,
-            "retrieved_facts": facts,
-            "evidence_fact_ids": evidence_fact_ids,
-            "evidence_source_ids": evidence_source_ids,
-        }
+            candidate_causes=candidate_ids,
+            supporting_evidence=support,
+            contradicting_evidence=contradict,
+            missing_observations=list(
+                dict.fromkeys(q["target_observation_id"] for q in questions)
+            ),
+            suggested_questions=questions,
+            retrieved_facts=facts,
+            evidence_fact_ids=evidence_fact_ids,
+            evidence_source_ids=evidence_source_ids,
+        )
 
 
 # Global singleton helper
@@ -344,7 +348,7 @@ def retrieve_kg(
     )
 
 
-def to_compact_target_response(response: Dict[str, Any]) -> Dict[str, Any]:
+def to_compact_target_response(response: Dict[str, Any]) -> ModelResponse:
     """
     Converts a verbose DiagnosticEngine response into the compact diagnostic response schema:
     {
@@ -441,16 +445,16 @@ def to_compact_target_response(response: Dict[str, Any]) -> Dict[str, Any]:
             f"Recommended next step: {act_text} Avoid commercial chemical sprays without extension confirmation."
         )
 
-    return {
-        "status": compact_status,
-        "observations_needed": observations_needed,
-        "differential": differential,
-        "actions": actions,
-        "escalation_required": escalation_required,
-        "grounding": grounding,
-        "safety_flags": safety_flags,
-        "user_response": user_response,
-    }
+    return make_model_response(
+        status=compact_status,
+        observations_needed=observations_needed,
+        differential=differential,
+        actions=actions,
+        escalation_required=escalation_required,
+        grounding=grounding,
+        safety_flags=safety_flags,
+        user_response=user_response,
+    )
 
 
 def format_slm_prompt_context(context: RetrievedContext) -> str:

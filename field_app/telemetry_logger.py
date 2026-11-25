@@ -8,6 +8,8 @@ import hashlib
 import hmac
 import json
 import os
+from pathlib import Path
+import secrets
 import sqlite3
 import time
 import uuid
@@ -17,13 +19,39 @@ WORKSPACE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 TELEMETRY_DIR = os.path.join(WORKSPACE_ROOT, "telemetry")
 DB_PATH = os.path.join(TELEMETRY_DIR, "field_pilot.db")
 JSONL_PATH = os.path.join(TELEMETRY_DIR, "field_pilot_logs.jsonl")
-HMAC_SECRET = b"salm-rural-field-pilot-secret-2026"
+HMAC_KEY_PATH = os.path.join(WORKSPACE_ROOT, "runtime", "field_telemetry_hmac.key")
+
+
+def _load_hmac_secret() -> bytes:
+    configured = os.environ.get("RICE_TELEMETRY_HMAC_KEY")
+    if configured:
+        return configured.encode("utf-8")
+    path = Path(HMAC_KEY_PATH)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        return path.read_bytes()
+    except FileNotFoundError:
+        secret = secrets.token_bytes(32)
+        try:
+            with path.open("xb") as handle:
+                handle.write(secret)
+            path.chmod(0o600)
+            return secret
+        except FileExistsError:
+            return path.read_bytes()
 
 class FieldPilotTelemetryLogger:
-    def __init__(self, db_path: str = DB_PATH, jsonl_path: str = JSONL_PATH):
+    def __init__(
+        self,
+        db_path: str = DB_PATH,
+        jsonl_path: str = JSONL_PATH,
+        hmac_secret: bytes | None = None,
+    ):
         self.db_path = db_path
         self.jsonl_path = jsonl_path
-        os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
+        self.hmac_secret = hmac_secret or _load_hmac_secret()
+        os.makedirs(os.path.dirname(os.path.abspath(self.db_path)), exist_ok=True)
+        os.makedirs(os.path.dirname(os.path.abspath(self.jsonl_path)), exist_ok=True)
         self._init_db()
 
     def _init_db(self):
@@ -53,7 +81,7 @@ class FieldPilotTelemetryLogger:
         conn.close()
 
     def _generate_hmac(self, data_str: str) -> str:
-        return hmac.new(HMAC_SECRET, data_str.encode("utf-8"), hashlib.sha256).hexdigest()
+        return hmac.new(self.hmac_secret, data_str.encode("utf-8"), hashlib.sha256).hexdigest()
 
     def log_session(
         self,
@@ -70,7 +98,12 @@ class FieldPilotTelemetryLogger:
         payload = diagnostic_result["diagnostic_payload"]
         
         diff = payload.get("differential", [])
-        top1_cause = diff[0]["cause_id"] if diff and isinstance(diff[0], dict) else None
+        top1_cause = None
+        if diff:
+            if isinstance(diff[0], str):
+                top1_cause = diff[0]
+            elif isinstance(diff[0], dict):
+                top1_cause = diff[0].get("cause_id")
         status = payload.get("status", "unknown")
 
         record = {
