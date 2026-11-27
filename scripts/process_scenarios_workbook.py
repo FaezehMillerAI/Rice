@@ -413,6 +413,10 @@ def process_and_export(workbook_path: Optional[str] = None, out_dir: Optional[st
             f.write(json.dumps(s, ensure_ascii=False) + "\n")
     print(f"\nExported {len(exported_samples)} scenarios to: {out_jsonl}")
 
+    # 3b. Export JSON array splits for SFT (train/val) and Eval (gold test)
+    if os.path.abspath(target_out_dir) == os.path.abspath(DEFAULT_OUT_DIR):
+        export_sft_eval_json_splits(exported_samples, WORKSPACE_ROOT)
+
     # 4. Export Facts to JSON
     facts_out = os.path.join(target_out_dir, "richard_facts_839.json")
     with open(facts_out, "w", encoding="utf-8") as f:
@@ -460,6 +464,80 @@ def process_and_export(workbook_path: Optional[str] = None, out_dir: Optional[st
     print(f"Generated Validation Report: {report_out}")
 
     return exported_samples, validation_issues
+
+def export_sft_eval_json_splits(exported_samples: List[Dict[str, Any]], workspace_root: str) -> None:
+    """Export Schema v0.2.0 JSON array splits under data/sft/ and data/eval/ without family leakage."""
+    ai_samples = [s for s in exported_samples if "human" not in (s.get("track") or "").lower()]
+    gold_samples = [s for s in exported_samples if "human" in (s.get("track") or "").lower()]
+
+    # Group AI scenarios by family_id so multi-turn continuations never cross train/val.
+    families: Dict[str, List[Dict[str, Any]]] = {}
+    for s in ai_samples:
+        fid = s.get("family_id") or s["scenario_id"]
+        families.setdefault(fid, []).append(s)
+
+    target_val = max(1, round(0.2 * len(ai_samples))) if ai_samples else 0
+    # Stratify validation selection across (focus_disease, behavior) so train and val cover ASK/ANSWER/ESCALATE.
+    val_fids = set()
+    val_count = 0
+    multi_fids = [fid for fid, items in families.items() if len(items) > 1]
+    if multi_fids and val_count + len(families[multi_fids[0]]) <= target_val:
+        val_fids.add(multi_fids[0])
+        val_count += len(families[multi_fids[0]])
+
+    by_behavior_disease: Dict[Tuple[str, str], List[str]] = {}
+    for fid, items in families.items():
+        if fid in val_fids:
+            continue
+        beh = items[0]["annotations"].get("correct_first_behavior") or "ANSWER"
+        dis = items[0].get("focus_disease") or "Other"
+        by_behavior_disease.setdefault((beh, dis), []).append(fid)
+
+    # Proportionally sample validation targets per behavior: ~1 ESCALATE, ~4 ASK, ~5 ANSWER
+    beh_quotas = {"ESCALATE": 1, "ASK": 4, "ANSWER": 5}
+    beh_counts = {
+        beh: sum(len(families[f]) for f in val_fids if families[f][0]["annotations"].get("correct_first_behavior") == beh)
+        for beh in beh_quotas
+    }
+    disease_order = sorted({items[0].get("focus_disease") or "Other" for items in families.values()})
+    for beh in ("ESCALATE", "ASK", "ANSWER"):
+        for dis in disease_order:
+            if val_count >= target_val or beh_counts[beh] >= beh_quotas[beh]:
+                break
+            for fid in by_behavior_disease.get((beh, dis), []):
+                if fid in val_fids or val_count + len(families[fid]) > target_val:
+                    continue
+                val_fids.add(fid)
+                val_count += len(families[fid])
+                beh_counts[beh] += len(families[fid])
+                break
+
+    for fid, items in families.items():
+        if val_count >= target_val:
+            break
+        if fid not in val_fids and val_count + len(items) <= target_val:
+            val_fids.add(fid)
+            val_count += len(items)
+
+    train_samples = [s for s in ai_samples if (s.get("family_id") or s["scenario_id"]) not in val_fids]
+    val_samples = [s for s in ai_samples if (s.get("family_id") or s["scenario_id"]) in val_fids]
+
+    sft_dir = os.path.join(workspace_root, "data", "sft")
+    eval_dir = os.path.join(workspace_root, "data", "eval")
+    os.makedirs(sft_dir, exist_ok=True)
+    os.makedirs(eval_dir, exist_ok=True)
+
+    outputs = [
+        (os.path.join(sft_dir, "scenarios_ai_train_val.json"), ai_samples),
+        (os.path.join(sft_dir, "scenarios_train.json"), train_samples),
+        (os.path.join(sft_dir, "scenarios_val.json"), val_samples),
+        (os.path.join(eval_dir, "scenarios_gold_test.json"), gold_samples),
+    ]
+    for path, items in outputs:
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(items, f, indent=2, ensure_ascii=False)
+        print(f"Exported {len(items)} scenarios (JSON array) to: {path}")
+
 
 if __name__ == "__main__":
     process_and_export()

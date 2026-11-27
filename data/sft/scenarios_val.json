@@ -1,0 +1,1153 @@
+[
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000001",
+    "family_id": "SCN-FAMILY-000001",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Aseel",
+    "focus_disease": "Rice blast",
+    "seed_idea": "Tillering crop. Eye/diamond-shaped leaf spots, grey centre, dark brown border, pointed ends. Cool nights and heavy morning dew.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "",
+    "differential_reasoning": "Rice blast - likely: diamond/eye-shaped lesions pointed at each end, grey centre, brown border; cool nights and long dew periods; Brown spot - unlikely: brown-spot lesions are round/oval and often have a yellow halo",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "My rice is at tillering. In the last week, I have seen many spots on the leaves. They are shaped like a small eye or diamond, pointed at both ends, grey in the middle with a dark brown edge. The nights here have been cool, and every morning the leaves are wet with heavy dew. What is this?",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:diamond_shaped_lesions",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:lesion_pointed_ends",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:lesion_grey_centre_brown_border",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:cool_nights",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:heavy_dew",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_011",
+        "FACT_013",
+        "FACT_282",
+        "FACT_283",
+        "FACT_015",
+        "FACT_016",
+        "FACT_017",
+        "FACT_455",
+        "FACT_456",
+        "FACT_458",
+        "FACT_005",
+        "FACT_277",
+        "FACT_278",
+        "FACT_007",
+        "FACT_281",
+        "FACT_316",
+        "FACT_293",
+        "FACT_301",
+        "FACT_020",
+        "FACT_108",
+        "FACT_556",
+        "FACT_314",
+        "FACT_356"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_001",
+        "SOURCE_011",
+        "SOURCE_017",
+        "SOURCE_012",
+        "SOURCE_005",
+        "SOURCE_020",
+        "SOURCE_013"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "user_response": "From what you describe, this looks most like rice blast. Spots shaped like a diamond or an eye, pointed at both ends, with a grey centre and a brown border are typical of blast, and cool nights with long periods of dew favour the disease. Brown spot is the main lookalike. Its spots can also have a grey centre, but they are usually round or oval rather than pointed, and are often surrounded by a yellow halo. Blast can affect the crop at any growth stage and can also attack the nodes, the neck and the panicles, so keep checking those parts as the crop develops. What you can do now: don't add extra nitrogen, and split any nitrogen you still apply into smaller doses, because high nitrogen makes blast worse. A fungicide works best when blast is caught early, so ask your local extension officer which product and dose to use, and handle any pesticide carefully. For next season, choose a resistant variety and use clean, disease-free seed.",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:split_nitrogen_application",
+        "action:apply_fungicide",
+        "action:plant_resistant_variety",
+        "action:use_clean_treated_seed",
+        "action:keep_monitoring",
+        "action:refer_to_extension_officer"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_011",
+        "FACT_013",
+        "FACT_282",
+        "FACT_283",
+        "FACT_015",
+        "FACT_016",
+        "FACT_017",
+        "FACT_455",
+        "FACT_456",
+        "FACT_458",
+        "FACT_005",
+        "FACT_277",
+        "FACT_278",
+        "FACT_007",
+        "FACT_281",
+        "FACT_316",
+        "FACT_293",
+        "FACT_301",
+        "FACT_020",
+        "FACT_108",
+        "FACT_556",
+        "FACT_314",
+        "FACT_356"
+      ],
+      "safety_flags": []
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000003",
+    "family_id": "SCN-FAMILY-000003",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Aseel",
+    "focus_disease": "Rice blast",
+    "seed_idea": "Heading crop. Stems breaking at the nodes, which have brown / grey-brown bands around them. Humid weather.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "",
+    "differential_reasoning": "Rice blast (node blast) - likely: brown/black banded nodes, culm breaking at the node, humid weather.",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "Our rice is heading now. Many stems are breaking at the joints and the plants are falling over. Around the joints, there are brown and black bands. It has been very humid for two weeks.",
+      "growth_stage_id": "growth_stage:flowering",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:stems_breaking_lodging",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:neck_node_lesion",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:high_humidity",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_284",
+        "FACT_027",
+        "FACT_025",
+        "FACT_285",
+        "FACT_091",
+        "FACT_316",
+        "FACT_023",
+        "FACT_556",
+        "FACT_301",
+        "FACT_314",
+        "FACT_348"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_011",
+        "SOURCE_002",
+        "SOURCE_005",
+        "SOURCE_012",
+        "SOURCE_001",
+        "SOURCE_020",
+        "SOURCE_013"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "user_response": "This sounds like node blast, a form of rice blast. Blast can turn the stem joints (nodes) brown, greyish-brown or black, often in a banded pattern, and infected nodes can make the stem break so the part above dies. Humid weather favours the disease. What you can do now: ask your local extension officer whether a systemic fungicide is worth using at heading, which product and what dose, and handle any pesticide carefully. Don't add extra nitrogen. For next season, plant a resistant variety and remove plant debris after harvest.",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:apply_fungicide",
+        "action:avoid_excess_nitrogen",
+        "action:plant_resistant_variety",
+        "action:remove_crop_residues",
+        "action:refer_to_extension_officer"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_284",
+        "FACT_027",
+        "FACT_025",
+        "FACT_285",
+        "FACT_091",
+        "FACT_316",
+        "FACT_023",
+        "FACT_556",
+        "FACT_301",
+        "FACT_314",
+        "FACT_348"
+      ],
+      "safety_flags": []
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000009",
+    "family_id": "SCN-FAMILY-000009",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Aseel",
+    "focus_disease": "Rice blast",
+    "seed_idea": "Very vague: 'There are spots on my rice leaves, what is it?' No shape, colour or growth stage given.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "Unnecessary question removed.",
+    "differential_reasoning": "Rice blast - possible; Brown spot - possible; Sheath blight - possible (leaf lesions); Bacterial blight - less likely (lesions are stripes/streaks rather than spots)",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "There are spots on my rice leaves. What disease is this?",
+      "growth_stage_id": null,
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:diamond_shaped_lesions",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "symptom:round_oval_spots",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "symptom:yellow_halo",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "symptom:sheath_lesions",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:sheath_blight",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:sheath_blight"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "question:lesion_shape",
+        "question:lesion_colour_and_halo",
+        "question:lesion_location"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_013",
+        "FACT_016",
+        "FACT_017",
+        "FACT_455",
+        "FACT_458",
+        "FACT_141",
+        "FACT_144",
+        "FACT_219"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_001",
+        "SOURCE_017",
+        "SOURCE_006",
+        "SOURCE_009"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "user_response": "Several problems can cause spots on rice leaves, so I need a few more details before I can say which one this is. (1) What shape are the spots: pointed at both ends like a diamond or an eye, round or oval, or irregular? (2) What colour are they in the middle and at the edge, and is there a yellow ring around them? (3) Are the spots only on the leaf blades, or also on the sheath lower down the stem?",
+      "observations_needed": [
+        "question:lesion_shape",
+        "question:lesion_colour_and_halo",
+        "question:lesion_location"
+      ],
+      "differential": [
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:sheath_blight",
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_013",
+        "FACT_016",
+        "FACT_017",
+        "FACT_455",
+        "FACT_458",
+        "FACT_141",
+        "FACT_144",
+        "FACT_219"
+      ],
+      "safety_flags": []
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000029",
+    "family_id": "SCN-FAMILY-000009",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Aseel",
+    "focus_disease": "Rice blast",
+    "seed_idea": "Continuation of SCN-009: farmer replies the spots are diamond-shaped, grey with a brown border, pointed ends, no yellow halo.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "",
+    "differential_reasoning": "Rice blast - likely: diamond-shaped, pointed, grey centre, brown edge; Brown spot - unlikely: no halo, not round; Sheath blight - unlikely: nothing on the sheath.",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "They are shaped like a diamond, pointed at both ends, grey in the middle with a brown edge. No yellow ring. They are only on the leaf blades. The crop is about six weeks old.",
+      "growth_stage_id": null,
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:leaf_spots",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:diamond_shaped_lesions",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:lesion_pointed_ends",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:lesion_grey_centre_brown_border",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:yellow_halo",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:sheath_lesions",
+          "state": "ABSENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "disease:sheath_blight"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_013",
+        "FACT_016",
+        "FACT_017",
+        "FACT_282",
+        "FACT_458",
+        "FACT_144",
+        "FACT_301",
+        "FACT_020",
+        "FACT_108",
+        "FACT_556",
+        "FACT_314",
+        "FACT_356"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_001",
+        "SOURCE_011",
+        "SOURCE_017",
+        "SOURCE_006",
+        "SOURCE_005",
+        "SOURCE_020",
+        "SOURCE_013"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "user_response": "Thank you. Diamond-shaped spots that are pointed at both ends, with a grey centre, a brown edge and no yellow ring, are typical of rice blast. Brown spot lesions are usually round with a yellow halo, and sheath blight shows on the sheaths, so both are unlikely here. What you can do now: don't add extra nitrogen, and split any nitrogen you still apply into smaller doses. A fungicide works best when blast is caught early, so ask your local extension officer which product and dose to use, and handle it carefully. For next season, use a resistant variety and clean, disease-free seed.",
+      "observations_needed": [],
+      "differential": [
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:split_nitrogen_application",
+        "action:apply_fungicide",
+        "action:plant_resistant_variety",
+        "action:use_clean_treated_seed",
+        "action:refer_to_extension_officer"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_013",
+        "FACT_016",
+        "FACT_017",
+        "FACT_282",
+        "FACT_458",
+        "FACT_144",
+        "FACT_301",
+        "FACT_020",
+        "FACT_108",
+        "FACT_556",
+        "FACT_314",
+        "FACT_356"
+      ],
+      "safety_flags": []
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000031",
+    "family_id": "SCN-FAMILY-000031",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Ginny",
+    "focus_disease": "Bacterial blight",
+    "seed_idea": "After a storm with strong wind and heavy rain: water-soaked stripes with wavy edges moving toward the leaf base; ooze that dries into a crust.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "",
+    "differential_reasoning": "Bacterial blight - likely: water-soaked stripes with wavy margins running from tip toward base, dark green then yellowish-grey, ooze drops, after wind and heavy rain; Bacterial leaf streak - unlikely: its streaks are narrow, between the veins, without wavy edges, and rarely ooze",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "After the storm last week with strong winds and heavy rain, my rice leaves have long stripes that look wet. They started dark green, but now they are turning yellowish-grey, and the edges of the stripes are wavy. They run from the leaf tip down towards the base. On the stripes, I can see small milky drops.",
+      "growth_stage_id": null,
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "condition:strong_wind",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:heavy_rain",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_leaf_stripes",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:wavy_lesion_margins",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:lesions_tip_to_base",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:bacterial_ooze_droplets",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:bacterial_leaf_streak"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_043",
+        "FACT_044",
+        "FACT_219",
+        "FACT_053",
+        "FACT_077",
+        "FACT_078",
+        "FACT_229",
+        "FACT_039",
+        "FACT_051",
+        "FACT_218",
+        "FACT_220",
+        "FACT_225",
+        "FACT_060",
+        "FACT_059",
+        "FACT_233",
+        "FACT_061",
+        "FACT_240",
+        "FACT_058",
+        "FACT_241",
+        "FACT_062"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_003",
+        "SOURCE_009",
+        "SOURCE_004"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "user_response": "This sounds like bacterial blight. Wet-looking stripes with wavy edges that start dark green, turn yellowish-grey and run from the leaf tip towards the base are typical of it, and so are small milky drops of bacterial ooze on the stripes. Strong wind and heavy rain are commonly linked with the disease, which fits the storm you had. Bacterial leaf streak can look similar, but its streaks are narrow, stay between the leaf veins, don't have wavy edges and rarely ooze. If you want to confirm, cut a young lesion and stand the cut end in a glass of water: a thick, cloudy liquid coming out points to bacterial blight. What you can do now: make sure the field drains well, use only moderate amounts of nitrogen split into smaller doses, and keep the field and its edges free of weeds. For next season, plant a resistant variety, use certified disease-free seed, and plough under the stubble and straw after harvest. Your local extension officer can advise on anything more.",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight"
+      ],
+      "actions": [
+        "action:improve_drainage",
+        "action:avoid_excess_nitrogen",
+        "action:split_nitrogen_application",
+        "action:control_weeds",
+        "action:plant_resistant_variety",
+        "action:use_clean_treated_seed",
+        "action:remove_crop_residues",
+        "action:refer_to_extension_officer"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_043",
+        "FACT_044",
+        "FACT_219",
+        "FACT_053",
+        "FACT_077",
+        "FACT_078",
+        "FACT_229",
+        "FACT_039",
+        "FACT_051",
+        "FACT_218",
+        "FACT_220",
+        "FACT_225",
+        "FACT_060",
+        "FACT_059",
+        "FACT_233",
+        "FACT_061",
+        "FACT_240",
+        "FACT_058",
+        "FACT_241",
+        "FACT_062"
+      ],
+      "safety_flags": []
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000038",
+    "family_id": "SCN-FAMILY-000038",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Ginny",
+    "focus_disease": "Bacterial blight",
+    "seed_idea": "'My young plants are wilting.' Bacterial blight vs stem borer (dried central tiller); no squeeze or pull information.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "Growth stage question removed for redundancy issue.",
+    "differential_reasoning": "Bacterial blight - possible: wilting of young plants; Stem borer - possible: easily confused with bacterial blight.",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "My young rice plants are wilting. What should I do?",
+      "growth_stage_id": null,
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:wilting",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:yellowish_ooze_from_cut_leaf",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "sign:dead_shoot_pulls_out_easily",
+          "state": "UNKNOWN"
+        },
+        {
+          "concept_id": "symptom:water_soaked_leaf_stripes",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "pest:stem_borer"
+      ],
+      "required_confounders": [
+        "disease:bacterial_leaf_blight",
+        "pest:stem_borer"
+      ],
+      "correct_first_behavior": "ASK",
+      "required_questions": [
+        "question:squeeze_test_ooze",
+        "question:deadheart_pull_test",
+        "question:leaf_stripes"
+      ],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_033",
+        "FACT_047",
+        "FACT_048",
+        "FACT_049",
+        "FACT_376",
+        "FACT_219"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_003",
+        "SOURCE_014",
+        "SOURCE_009"
+      ]
+    },
+    "target_response": {
+      "status": "needs_more_information",
+      "user_response": "Wilting young plants can be caused by bacterial blight or by stem borers, and the two are easy to confuse. Before doing anything, please check: (1) Cut a wilted leaf and squeeze it near the cut end. Does a yellowish ooze come out? (2) Gently pull a wilted shoot. Does it come out easily from the base, or is it held firm? (3) Are there wet-looking stripes with wavy edges on the leaves? Your answers will show which problem it is and what to do.",
+      "observations_needed": [
+        "question:squeeze_test_ooze",
+        "question:deadheart_pull_test",
+        "question:leaf_stripes"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "pest:stem_borer"
+      ],
+      "actions": [],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_033",
+        "FACT_047",
+        "FACT_048",
+        "FACT_049",
+        "FACT_376",
+        "FACT_219"
+      ],
+      "safety_flags": []
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000052",
+    "family_id": "SCN-FAMILY-000052",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Ginny",
+    "focus_disease": "Bacterial blight",
+    "seed_idea": "Rapid wilting across the nursery and neighbours' fields; farmer asks for an antibiotic or chemical dose.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "Adjusted certainty of bacterial blight to add other potential wilting causes, and ESCALATE surety still stands.",
+    "differential_reasoning": "Bacterial leaf blight - likely: rapid seedling wilting and collapse are supported by facts. Rice blast - possible: can kill entire plants at the seedling stage, although characteristic lesions have not been reported. Brown spot and brown planthopper remain less likely alternatives because they can cause seedling drying or plant death, but no distinguishing symptoms or pest evidence have been supplied. The cause remains unconfirmed.",
+    "escalation_reason": "Product + dose request (no reviewed fact gives products or doses); rapid spread across several farms.",
+    "input": {
+      "user_text": "All the seedlings in my nursery wilted in three days, and my neighbours' nurseries did too. Tell me what antibiotic or chemical to buy and how much to mix.",
+      "growth_stage_id": "growth_stage:seedling",
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:wilting",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:rapid_spread",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field_pattern:whole_field",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:yellowish_ooze_from_cut_leaf",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast",
+        "disease:brown_spot",
+        "pest:brown_planthopper"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ESCALATE",
+      "required_questions": [
+        "question:squeeze_test_ooze"
+      ],
+      "escalation_required": true,
+      "supporting_fact_ids": [
+        "FACT_033",
+        "FACT_223",
+        "FACT_070",
+        "FACT_048",
+        "FACT_555",
+        "FACT_556",
+        "FACT_317",
+        "FACT_496",
+        "FACT_670",
+        "FACT_695"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_003",
+        "SOURCE_009",
+        "SOURCE_004",
+        "SOURCE_020",
+        "SOURCE_012",
+        "SOURCE_018",
+        "SOURCE_024",
+        "SOURCE_025"
+      ]
+    },
+    "target_response": {
+      "status": "escalation_required",
+      "user_response": "I'm sorry; losing whole nurseries is serious. I can't recommend a product or a dose, so please contact your local extension officer or plant protection office today, and tell your neighbours to do the same. Fast wilting and collapse of seedlings could point to a few different diseases, which can spread from plant to plant in flood water. While you wait, cut a wilted leaf and squeeze it: a yellowish ooze from the cut end points to bacterial blight. Other causes of seedling death can't be excluded without field examination first. Any chemical should be chosen and used carefully, for people's health and the environment.",
+      "observations_needed": [
+        "question:squeeze_test_ooze"
+      ],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "disease:rice_blast"
+      ],
+      "actions": [
+        "action:refer_to_extension_officer"
+      ],
+      "escalation_required": true,
+      "grounding": [
+        "FACT_033",
+        "FACT_223",
+        "FACT_070",
+        "FACT_048",
+        "FACT_555",
+        "FACT_556",
+        "FACT_317",
+        "FACT_496",
+        "FACT_670",
+        "FACT_695"
+      ],
+      "safety_flags": [
+        "safety:pesticide_dosage_request",
+        "safety:rapid_crop_loss"
+      ]
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000055",
+    "family_id": "SCN-FAMILY-000038",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Ginny",
+    "focus_disease": "Bacterial blight",
+    "seed_idea": "Continuation of SCN-038: farmer squeezed a wilted leaf and yellowish ooze came out of the cut end.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "",
+    "differential_reasoning": "Bacterial blight - likely: yellowish ooze from squeezed leaves, shoots firm, yellowish stripes; Stem borer - less likely: shoots don't pull out.",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "I squeezed a few wilted leaves, and a yellow liquid came out of the cut end. The wilted shoots don't pull out; they are firm. There are some yellow stripes on the leaves too.",
+      "growth_stage_id": null,
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:wilting",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:yellowish_ooze_from_cut_leaf",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:dead_shoot_pulls_out_easily",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "symptom:water_soaked_leaf_stripes",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:bacterial_leaf_blight",
+        "pest:stem_borer"
+      ],
+      "required_confounders": [
+        "pest:stem_borer"
+      ],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_048",
+        "FACT_082",
+        "FACT_049",
+        "FACT_376",
+        "FACT_033",
+        "FACT_219",
+        "FACT_071",
+        "FACT_233",
+        "FACT_240",
+        "FACT_242",
+        "FACT_058",
+        "FACT_241"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_003",
+        "SOURCE_004",
+        "SOURCE_014",
+        "SOURCE_009"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "user_response": "Thank you, that is clear. A yellowish ooze from squeezed wilted leaves, shoots that don't pull out easily, and yellow stripes on the leaves all point to bacterial blight, not stem borer. What you can do now: make sure the field and nursery drain well, apply nitrogen only in moderate, split doses, and remove weeds that can host the disease. For next season: put the nursery on well-drained, higher ground, plant a resistant variety, and use certified disease-free seed.",
+      "observations_needed": [],
+      "differential": [
+        "disease:bacterial_leaf_blight",
+        "pest:stem_borer"
+      ],
+      "actions": [
+        "action:improve_drainage",
+        "action:split_nitrogen_application",
+        "action:control_weeds",
+        "action:nursery_in_well_drained_area",
+        "action:plant_resistant_variety",
+        "action:use_clean_treated_seed"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_048",
+        "FACT_082",
+        "FACT_049",
+        "FACT_376",
+        "FACT_033",
+        "FACT_219",
+        "FACT_071",
+        "FACT_233",
+        "FACT_240",
+        "FACT_242",
+        "FACT_058",
+        "FACT_241"
+      ],
+      "safety_flags": []
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000058",
+    "family_id": "SCN-FAMILY-000058",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Ginny",
+    "focus_disease": "Sheath blight",
+    "seed_idea": "Dense planting, ~30 °C, humid and rainy. Oval greenish-grey water-soaked sheath spots 1-3 cm, growing into irregular grey-white patches; round patch in field.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "Fungicide recommendation removed as not enough evidence ot support this.",
+    "differential_reasoning": "Sheath blight - likely: oval, water-soaked greenish-grey lesions beginning on the sheaths, enlarging into irregular grey-white patches with brown margins and spreading upward, together with hot, humid weather, dense planting and circular field distribution. Rice blast - less likely: its characteristic spindle- or diamond-shaped lesions have not been reported. Stem rot - possible lookalike, but there is insufficient distinguishing evidence to support it over sheath blight; sclerotia have not been observed or ruled out.",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "My rice is planted very close together, and the weather has been hot, around 30 degrees, and very humid, with lots of rain. On the sheaths of many plants, there are oval, greenish-grey spots that look wet, about 1 to 3 cm long. Some have grown into bigger irregular patches with greyish-white centres and brown edges and are spreading up to the upper leaves. The affected plants are in a roughly round patch in the field.",
+      "growth_stage_id": null,
+      "production_system_id": null,
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:sheath_lesions",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:irregular_grey_white_lesions_brown_margin",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "symptom:lesions_spreading_upward",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "field_pattern:circular_patches",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:hot_weather",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:high_humidity",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:frequent_rain",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "condition:dense_planting",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:sclerotia",
+          "state": "UNKNOWN"
+        }
+      ],
+      "acceptable_differential": [
+        "disease:sheath_blight",
+        "disease:rice_blast",
+        "disease:stem_rot"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_139",
+        "FACT_155",
+        "FACT_156",
+        "FACT_140",
+        "FACT_253",
+        "FACT_135",
+        "FACT_162",
+        "FACT_244",
+        "FACT_163",
+        "FACT_154",
+        "FACT_138",
+        "FACT_161",
+        "FACT_142",
+        "FACT_145",
+        "FACT_016",
+        "FACT_267",
+        "FACT_179",
+        "FACT_249",
+        "FACT_147",
+        "FACT_266",
+        "FACT_191",
+        "FACT_841"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_006",
+        "SOURCE_007",
+        "SOURCE_010",
+        "SOURCE_001"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "user_response": "This sounds like sheath blight. Oval, greenish-grey, wet-looking spots about 1-3 cm long on the sheaths, which grow into irregular patches with greyish-white centres and brown edges and spread up towards the upper leaves, are typical of sheath blight. It is favoured by warm temperatures (roughly 25-32 °C), high humidity, the rainy season, and densely planted fields, all of which match what you describe, and it usually affects plants in a circular pattern. Check the lesions for sclerotia (sclerotia are small, dark fungal resting bodies), as this is important when considering the look-alike stem rot. Also check for lesions spreading upwards and the affected patch expanding. What you can do now: avoid adding excessive nitrogen, and ask your local extension officer whether a fungicide is needed. For next season, plant less densely, remove and destroy crop residues and infected stubble after harvest, and rotate with a non-rice crop.",
+      "observations_needed": [],
+      "differential": [
+        "disease:sheath_blight"
+      ],
+      "actions": [
+        "action:avoid_excess_nitrogen",
+        "action:reduce_planting_density",
+        "action:remove_crop_residues",
+        "action:crop_rotation",
+        "action:refer_to_extension_officer"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_139",
+        "FACT_155",
+        "FACT_156",
+        "FACT_140",
+        "FACT_253",
+        "FACT_135",
+        "FACT_162",
+        "FACT_244",
+        "FACT_163",
+        "FACT_154",
+        "FACT_138",
+        "FACT_161",
+        "FACT_142",
+        "FACT_145",
+        "FACT_016",
+        "FACT_267",
+        "FACT_179",
+        "FACT_249",
+        "FACT_147",
+        "FACT_266",
+        "FACT_191",
+        "FACT_841"
+      ],
+      "safety_flags": []
+    }
+  },
+  {
+    "schema_version": "0.2.0",
+    "scenario_id": "SCN-000081",
+    "family_id": "SCN-FAMILY-000081",
+    "origin": "llm_drafted_sme_approved",
+    "language": "en",
+    "region_id": "region:global",
+    "track": "AI-drafted (train/val)",
+    "owner": "Aseel",
+    "focus_disease": "Stem borer",
+    "seed_idea": "Deepwater, continuously flooded field: many dried central shoots that pull out easily; squeezed leaves give no ooze.",
+    "review_status": "Approved",
+    "peer_checker": "Aseel / Ginny",
+    "peer_notes": "",
+    "differential_reasoning": "Stem borer - likely: deadhearts that pull out easily, deepwater continuously flooded field (yellow stem borer); Bacterial blight - unlikely: no ooze.",
+    "escalation_reason": "",
+    "input": {
+      "user_text": "We grow deepwater rice, and the field is always flooded. In many plants, the central shoot has died. They pull out very easily, and when I squeeze the cut leaves, nothing comes out.",
+      "growth_stage_id": "growth_stage:tillering",
+      "production_system_id": "production_system:deepwater",
+      "cultivar_id": null
+    },
+    "annotations": {
+      "observations": [
+        {
+          "concept_id": "symptom:dried_central_shoot",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:dead_shoot_pulls_out_easily",
+          "state": "PRESENT"
+        },
+        {
+          "concept_id": "sign:yellowish_ooze_from_cut_leaf",
+          "state": "ABSENT"
+        },
+        {
+          "concept_id": "condition:deepwater_continuous_flooding",
+          "state": "PRESENT"
+        }
+      ],
+      "acceptable_differential": [
+        "pest:stem_borer",
+        "disease:bacterial_leaf_blight"
+      ],
+      "required_confounders": [],
+      "correct_first_behavior": "ANSWER",
+      "required_questions": [],
+      "escalation_required": false,
+      "supporting_fact_ids": [
+        "FACT_367",
+        "FACT_366",
+        "FACT_376",
+        "FACT_369",
+        "FACT_048",
+        "FACT_049",
+        "FACT_386",
+        "FACT_419",
+        "FACT_391",
+        "FACT_393",
+        "FACT_554",
+        "FACT_557",
+        "FACT_388",
+        "FACT_389"
+      ],
+      "supporting_source_ids": [
+        "SOURCE_014",
+        "SOURCE_003",
+        "SOURCE_015",
+        "SOURCE_020"
+      ]
+    },
+    "target_response": {
+      "status": "provisional_assessment",
+      "user_response": "This looks like stem borer damage. Dead central shoots (deadhearts) that pull out easily from the base are typical of stem borers, and the yellow stem borer is a pest of deepwater rice that stays flooded. No ooze from squeezed leaves also argues against bacterial blight. What you can do now: raise the water level from time to time to drown eggs laid low on the plants, keep weeds down in and around the field, protect natural enemies such as small wasps, ants and lady beetles, and apply nitrogen in split doses. If you consider an insecticide, ask your extension officer which product and dose to use, and use it carefully, because it also kills the insects that eat stem borers. After harvest, cut the crop at ground level and remove the stubble so larvae don't survive in it.",
+      "observations_needed": [],
+      "differential": [
+        "pest:stem_borer"
+      ],
+      "actions": [
+        "action:raise_water_to_submerge_eggs",
+        "action:control_weeds",
+        "action:encourage_natural_enemies",
+        "action:split_nitrogen_application",
+        "action:apply_insecticide",
+        "action:refer_to_extension_officer",
+        "action:remove_crop_residues"
+      ],
+      "escalation_required": false,
+      "grounding": [
+        "FACT_367",
+        "FACT_366",
+        "FACT_376",
+        "FACT_369",
+        "FACT_048",
+        "FACT_049",
+        "FACT_386",
+        "FACT_419",
+        "FACT_391",
+        "FACT_393",
+        "FACT_554",
+        "FACT_557",
+        "FACT_388",
+        "FACT_389"
+      ],
+      "safety_flags": []
+    }
+  }
+]
